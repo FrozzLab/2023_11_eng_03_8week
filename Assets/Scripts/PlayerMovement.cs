@@ -2,11 +2,11 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    CharacterController2D controller2D;
-    public float speed = 1f;
-    float horizontalInput = 0f;
-    bool jumping = false;
-    bool startedJump = false;
+    private float horizontalInput = 0f;
+    private bool jumping = false;
+    private bool jumped = false;
+
+    private CharacterController2D controller2D;
 
     private void Awake()
     {
@@ -14,18 +14,17 @@ public class PlayerMovement : MonoBehaviour
     }
     private void Update()
     {
-        horizontalInput = Input.GetAxisRaw("Horizontal") * speed;
+        horizontalInput = Input.GetAxisRaw("Horizontal");
         if (Input.GetButtonDown("Jump"))
-            startedJump = true;
+            jumped = true;
         
         if (Input.GetButton("Jump"))
             jumping = true;
     }
     private void FixedUpdate()
     {
-        //move our player
-        controller2D.Move(horizontalInput * Time.fixedDeltaTime, jumping, startedJump);
+        controller2D.Move(horizontalInput, jumping, jumped);
         jumping = false;
-        startedJump = false;
+        jumped = false;
     }
 }

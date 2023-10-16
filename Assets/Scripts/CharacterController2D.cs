@@ -1,55 +1,49 @@
 using UnityEngine;
-using UnityEngine.Events;
 
 public class CharacterController2D : MonoBehaviour
 {
-    [SerializeField] float jumpForse = 400f;
-    [SerializeField] float jumpingForse = 10f;
-    [SerializeField] int jumpBoostMax = 10;
-    int jumpBoost;
-    [Range(0f, .3f)][SerializeField] float movementSmoothing = 1f;
-    [SerializeField] bool hasControl = true;
-    [SerializeField] LayerMask whatIsGround;
-    [SerializeField] Transform groundCheck;
+    public float speed = 400f;
+    public float jumpForse = 300f;
+    public float jumpingForse = 20f;
+    public float jumpingAirTime = 10;
+    [Range(0f, .3f)] public float movementSmoothing = 0.05f;
+    public bool hasControl = true;
 
-    bool grounded;
-    Rigidbody2D rigidbody2;
-    Vector3 velocity = Vector3.zero;
+    private float jumpingAirTimeLeft;
+    private bool grounded;
+    private Vector2 velocity = Vector2.zero;
+    
+    private Rigidbody2D rigidbody2d;
 
     private void Awake()
     {
-        rigidbody2 = GetComponent<Rigidbody2D>();
+        rigidbody2d = GetComponent<Rigidbody2D>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Wall")
-        {
-            grounded = true;
-            jumpBoost = jumpBoostMax;
-        }
+        grounded = true;
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.tag == "Wall")
-            grounded = false;
-        
+        grounded = false;
+        jumpingAirTimeLeft = jumpingAirTime;
     }
-    public void Move(float move, bool jumping, bool startJump)
+    public void Move(float move, bool jumping, bool jumped)
     {
         if (hasControl)
         {
-            // Move the character by finding the target velocity
-            Vector3 targetVelocity = new Vector2(move * 10f, rigidbody2.velocity.y);
-            // And then smoothing it out and applying it to the character
-            rigidbody2.velocity = Vector3.SmoothDamp(rigidbody2.velocity, targetVelocity, ref velocity, movementSmoothing);
+            var targetVelocity = new Vector2(move * speed * Time.fixedDeltaTime, 0f);
+            Vector2.SmoothDamp(rigidbody2d.velocity, targetVelocity, ref velocity, movementSmoothing);
+            rigidbody2d.velocity = new Vector2(velocity.x, rigidbody2d.velocity.y);
 
-            if (grounded && startJump)
-                rigidbody2.AddForce(new Vector2(0f, jumpForse));
-            if (jumping && jumpBoost > 0)
+            if (grounded && jumped)
+                rigidbody2d.AddForce(new Vector2(0f, jumpForse));
+            
+            if (jumping && jumpingAirTimeLeft > 0 && rigidbody2d.velocity.y > .1f)
             {
-                rigidbody2.AddForce(new Vector2(0f, jumpingForse));
-                jumpBoost--;
+                rigidbody2d.AddForce(new Vector2(0f, jumpingForse));
+                jumpingAirTimeLeft -= Time.fixedDeltaTime;
             }
         }
     }
