@@ -8,7 +8,7 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private Image loadImage;
     [SerializeField] private float maxDelayIn, maxDelayOut;
 
-    private bool isFadingIn, isFaded, isFadingOut;
+    private bool isFadingIn, isFadingOut, isExitingGame;
     private float currentDelay;
     private Color currentLoadImageColor;
     private string targetSceneName;
@@ -36,8 +36,15 @@ public class LevelManager : MonoBehaviour
             {
                 currentLoadImageColor.a = 1;
                 loadImage.color = currentLoadImageColor;
-                
-                SceneManager.LoadSceneAsync(targetSceneName);
+
+                if (isExitingGame)
+                {
+                    Application.Quit();
+                }
+                else
+                {
+                    SceneManager.LoadSceneAsync(targetSceneName);
+                }
                 
                 currentDelay = 0;
                 
@@ -80,6 +87,21 @@ public class LevelManager : MonoBehaviour
             loadImage.color = currentLoadImageColor;
 
             isFadingIn = true;
+        }
+    }
+
+    public void ExitGame()
+    {
+        if (!isFadingIn && !isFadingOut)
+        {
+            currentDelay = 0;
+            
+            currentLoadImageColor = loadImage.color;
+            currentLoadImageColor.a = 0;
+            loadImage.color = currentLoadImageColor;
+
+            isFadingIn = true;
+            isExitingGame = true;
         }
     }
 }
