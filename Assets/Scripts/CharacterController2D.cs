@@ -33,8 +33,7 @@ public class CharacterController2D : MonoBehaviour
     {
         if (hasControl)
         {
-            var targetVelocity = new Vector2(move * speed * Time.fixedDeltaTime, 0f);
-            Vector2.SmoothDamp(rigidbody2d.velocity, targetVelocity, ref velocity, movementSmoothing);
+            var velocity = new Vector2(move * speed * Time.fixedDeltaTime, 0f);
             rigidbody2d.velocity = new Vector2(velocity.x, rigidbody2d.velocity.y);
 
             if (grounded && jumped)
