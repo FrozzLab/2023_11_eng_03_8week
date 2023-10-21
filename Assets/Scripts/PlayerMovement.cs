@@ -22,7 +22,7 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetButtonDown("Jump"))
         {
             jumped = true;
-            AudioManager.Play(SoundName.PlayerJump);
+            //AudioManager.Play(SoundName.PlayerJump);
         }
         
         if (Input.GetButton("Jump")){

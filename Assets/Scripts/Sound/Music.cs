@@ -2,10 +2,8 @@ using System;
 using UnityEngine;
 
 [Serializable]
-public class Music : SoundBase
+public class Music : SoundBase<MusicName>
 {
-    public MusicName name;
-
     public override void Init(GameObject gameObject)
     {
         base.Init(gameObject);

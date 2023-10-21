@@ -10,8 +10,8 @@ public class AudioManager : MonoBehaviour
     public Music[] musics;
     public static AudioManager instance;
 
-    private readonly Dictionary<SoundName, Sound> _soundsMap;
-    private readonly Dictionary<MusicName, Music> _musicMap;
+    private readonly Dictionary<SoundName, Sound> _soundsMap = new();
+    private readonly Dictionary<MusicName, Music> _musicMap = new();
 
     private void Awake()
     {

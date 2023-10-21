@@ -93,6 +93,8 @@ public class LevelManager : MonoBehaviour
 
             isFadingIn = true;
         }
+
+        AudioManager.StopAll();
     }
 
     public void ExitGame()
