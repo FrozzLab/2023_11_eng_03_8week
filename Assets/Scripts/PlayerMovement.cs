@@ -20,7 +20,10 @@ public class PlayerMovement : MonoBehaviour
         animator.SetFloat("speed", Mathf.Abs(horizontalInput));
         
         if (Input.GetButtonDown("Jump"))
+        {
             jumped = true;
+            AudioManager.Play(SoundName.PlayerJump);
+        }
         
         if (Input.GetButton("Jump")){
             jumping = true;
