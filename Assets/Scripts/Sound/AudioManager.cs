@@ -89,9 +89,3 @@ public class AudioManager : MonoBehaviour
         }
     }
 }
-
-public class SoundException : Exception
-{
-    public SoundException(string msg) : base(msg)
-    { }
-}
