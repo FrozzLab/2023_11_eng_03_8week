@@ -25,7 +25,12 @@ public class LevelManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    
+
+    private void Start()
+    {
+        AudioManager.Play(MusicName.MainMenuTheme);
+    }
+
     private void Update()
     {
         if (isFadingIn)
@@ -88,6 +93,8 @@ public class LevelManager : MonoBehaviour
 
             isFadingIn = true;
         }
+
+        AudioManager.StopAll();
     }
 
     public void ExitGame()
