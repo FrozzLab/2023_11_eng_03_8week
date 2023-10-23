@@ -12,19 +12,19 @@ public class PlayerMovement : MonoBehaviour
     private void Awake()
     {
         controller2D = GetComponent<CharacterController2D>();
-        //animator = GetComponent<Animator>();
+        animator = GetComponent<Animator>();
     }
     private void Update()
     {
         horizontalInput = Input.GetAxisRaw("Horizontal");
-        //animator.SetFloat("speed", Mathf.Abs(horizontalInput));
+        animator.SetFloat("speed", Mathf.Abs(horizontalInput));
         
         if (Input.GetButtonDown("Jump"))
             jumped = true;
         
         if (Input.GetButton("Jump")){
             jumping = true;
-            // animator.SetBool("jumping", jumping);
+            animator.SetBool("jumping", jumping);
         }
     }
     private void FixedUpdate()
