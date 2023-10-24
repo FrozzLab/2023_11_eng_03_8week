@@ -1,13 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
 public class PlayerMelee : MonoBehaviour
 {
     [SerializeField] int dmg = 1;
-    [SerializeField] int range = 1;
-    [SerializeField] float cooldown = 3f;
+    [SerializeField] float range = .8f;
+    [SerializeField] float cooldown = 1.5f;
     float _cooldown = 0f;
     bool _hasWeapon = true;
     [SerializeField] private LayerMask enemyLayer;
