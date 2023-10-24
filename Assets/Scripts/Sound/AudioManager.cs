@@ -1,7 +1,6 @@
 using UnityEngine;
 using System.Linq;
 using System.Collections.Generic;
-using UnityEngine.SceneManagement;
 
 public class AudioManager : MonoBehaviour
 {
@@ -105,6 +104,22 @@ public class AudioManager : MonoBehaviour
                 StopAll();
                 Play(MusicName.Level3Theme);
                 break;
+        }
+    }
+
+    public void ChangeVolumeOfMusicOnInstance(float newVolume)
+    {
+        foreach (var music in instance.musics)
+        {
+            music.ChangeVolume(newVolume);
+        }
+    }
+    
+    public void ChangeVolumeOfSoundsOnInstance(float newVolume)
+    {
+        foreach (var sound in instance.sounds)
+        {
+            sound.ChangeVolume(newVolume);
         }
     }
     
