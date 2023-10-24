@@ -2,15 +2,14 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    [SerializeField]
-    private int max = 3;
-    private int _current;
-    
-    private void Awake()
+    [SerializeField] int max = 3;
+    int _current;
+
+    void Awake()
     {
         _current = max;
     }
-    
+
     public int Max
     {
         get => max;
@@ -20,7 +19,7 @@ public class Health : MonoBehaviour
             max = value;
         }
     }
-    
+
     public int Current
     {
         get => _current;
@@ -28,7 +27,6 @@ public class Health : MonoBehaviour
         {
             if (value < 0 || value > max) return;
             _current = value;
-            // Do we update the HUD here or does the HUD listen to values?
         }
     }
 
@@ -58,18 +56,14 @@ public class Health : MonoBehaviour
         Max -= amount;
     }
 
-    private void Die()
+    void Die()
     {
-        // Play death animation and wait for it to be over
-        
-        if (gameObject.tag == "Player")
+        // Death animation
+        if (CompareTag("Player"))
         {
-            // Death screen? Respawn at checkpoint? Just reset stats and location? Destroy and recreate?
         }
         else
         {
-            // Fire some event to notify other elements that an enemy died?
-            // Or just increase some sort of counter manually from here?
             Destroy(gameObject);
         }
     }
