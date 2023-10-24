@@ -1,24 +1,30 @@
 using UnityEngine;
-using System;
-using UnityEngine.Audio;
 using System.Linq;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 public class AudioManager : MonoBehaviour
 {
+    public static AudioManager instance;
     public Sound[] sounds;
     public Music[] musics;
-    public static AudioManager instance;
 
     private readonly Dictionary<SoundName, Sound> _soundsMap = new();
     private readonly Dictionary<MusicName, Music> _musicMap = new();
 
+    private MusicName _currentMusic;
+    
     private void Awake()
     {
-        DontDestroyOnLoad(gameObject);
         if (instance == null)
+        {
             instance = this;
-        else throw new SoundException($"there can be only one {nameof(AudioManager)}. Delete duplicates!!");
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void Start()
@@ -58,6 +64,8 @@ public class AudioManager : MonoBehaviour
         foreach (var music in musics) 
             music.Stop();
 
+        _currentMusic = name;
+        
         _musicMap[name].Play();
     }
 
@@ -67,6 +75,39 @@ public class AudioManager : MonoBehaviour
             music.Stop();
     }
 
+    public void PlayMusicOnGameStart()
+    {
+        Play(MusicName.MainMenuTheme);
+    }
+    
+    public void ChangeMusicOnLevelChange(string sceneName)
+    {
+        switch (sceneName)
+        {
+            case "Credits":
+            case "Settings":
+            case "Main Menu": 
+                if (instance._currentMusic != MusicName.MainMenuTheme)
+                {
+                    StopAll();
+                    Play(MusicName.MainMenuTheme);
+                }
+                break;
+            case "Level 1":
+                StopAll();
+                Play(MusicName.Level1Theme);
+                break;
+            case "Level 2":
+                StopAll();
+                Play(MusicName.Level2Theme);
+                break;
+            case "Level 3":
+                StopAll();
+                Play(MusicName.Level3Theme);
+                break;
+        }
+    }
+    
     private static void Validate(Sound[] sounds)
     {
         var duplicates = sounds.GroupBy(s => s.name).Where(s => s.Count() > 1);

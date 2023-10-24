@@ -1,4 +1,6 @@
+using System;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -13,6 +15,14 @@ public class LevelManager : MonoBehaviour
     private Color currentLoadImageColor;
     private string targetSceneName;
     
+    public UnityEvent<string> levelChange;
+    public UnityEvent gameStart;
+
+    private void Start()
+    {
+        gameStart.Invoke();
+    }
+
     private void Awake()
     {
         if (instance == null)
@@ -24,11 +34,6 @@ public class LevelManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-    }
-
-    private void Start()
-    {
-        AudioManager.Play(MusicName.MainMenuTheme);
     }
 
     private void Update()
@@ -92,9 +97,9 @@ public class LevelManager : MonoBehaviour
             loadImage.color = currentLoadImageColor;
 
             isFadingIn = true;
+            
+            levelChange.Invoke(targetSceneName);
         }
-
-        AudioManager.StopAll();
     }
 
     public void ExitGame()
