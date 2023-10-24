@@ -17,7 +17,9 @@ public abstract class SoundBase<T> where T : Enum
         source.clip = clip;
         source.volume = volume;
     }
-
+    
     public void Play() => source.Play();
     public void Stop() => source.Stop();
+
+    public void ChangeVolume(float newVolume) => source.volume = newVolume;
 }
