@@ -100,7 +100,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3c8ff00254d9664d96ca071e0dd21fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
   leftPatrolTrigger: {fileID: 0}
   rightPatrolTrigger: {fileID: 0}
   leftChaseTrigger: {fileID: 0}
@@ -109,8 +108,8 @@ MonoBehaviour:
   chaseSpeed: 3
   detectRange: 5
   hearRange: 1.5
-  bullet: {fileID: 2970095208166016952, guid: 181e3f89122b3dd4880247eac5ef616d, type: 3}
-  shootDelay: 1
+  projectile: {fileID: 2970095208166016952, guid: 181e3f89122b3dd4880247eac5ef616d, type: 3}
+  attackDelay: 1
   type: 1
 --- !u!61 &4535188088481381009
 BoxCollider2D:
