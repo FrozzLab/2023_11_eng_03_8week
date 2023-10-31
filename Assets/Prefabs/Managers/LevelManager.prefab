@@ -123,6 +123,36 @@ MonoBehaviour:
   loadImage: {fileID: 1792871598366607946}
   maxDelayIn: 0.5
   maxDelayOut: 0.5
+  levelChange:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: -4490934623925820354, guid: 6f99c8e0d1d8f8a40b6da3fa2e81875e, type: 3}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: ChangeMusicOnLevelChange
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  gameStart:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: -4490934623925820354, guid: 6f99c8e0d1d8f8a40b6da3fa2e81875e, type: 3}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: PlayMusicOnGameStart
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &8915063096993590938
 GameObject:
   m_ObjectHideFlags: 0
