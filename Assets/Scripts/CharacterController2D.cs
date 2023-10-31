@@ -1,49 +1,83 @@
+using System;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class CharacterController2D : MonoBehaviour
 {
-    public float speed = 400f;
-    public float jumpForse = 300f;
-    public float jumpingForse = 20f;
-    public float jumpingAirTime = 10;
-    [Range(0f, .3f)] public float movementSmoothing = 0.05f;
-    public bool hasControl = true;
+    [SerializeField] float speed = 400f;
+    [SerializeField] float jumpForse = 300f;
+    [SerializeField] float jumpingForse = 20f;
+    [SerializeField] float airTime = 10;
+    float airTimeLeft;
 
-    private float jumpingAirTimeLeft;
-    private bool grounded;
-    private Vector2 velocity = Vector2.zero;
+    //[SerializeField] [Range(0f, .3f)] float movementSmoothing = 0.05f;
     
-    private Rigidbody2D rigidbody2d;
+    bool grounded;
+    bool isFalling;
+
+    [SerializeField] UnityEvent jumpedEvent;
+    [SerializeField] UnityEvent landedEvent;
+    [SerializeField] UnityEvent startedFallingEvent;
+
+    Rigidbody2D rigidbody2d;
+
+    public Vector2 debugVelocity;
 
     private void Awake()
     {
         rigidbody2d = GetComponent<Rigidbody2D>();
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void FixedUpdate()
+    {
+        if (!isFalling && rigidbody2d.velocity.y < 0) Fall();
+        debugVelocity = rigidbody2d.velocity;
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (!other.CompareTag("Wall")) return;
+        Land();
+    }
+
+    public void Move(float move)
+    {
+        var velocity = move * speed * Time.fixedDeltaTime;
+        rigidbody2d.velocity = new Vector2(velocity, rigidbody2d.velocity.y);
+        Console.WriteLine("move: " + move);
+    }
+
+    public void Jump()
+    {
+        if (!grounded) return;
+
+        grounded = false;
+        rigidbody2d.AddForce(new Vector2(0f, jumpForse));
+        jumpedEvent.Invoke();
+    }
+
+    public void Flight()
+    {
+        if (grounded) return;
+
+        if (airTimeLeft > 0)
+        {
+            rigidbody2d.AddForce(new Vector2(0f, jumpingForse));
+            airTimeLeft -= Time.fixedDeltaTime;
+        }
+    }
+
+    private void Land()
     {
         grounded = true;
+        isFalling = false;
+        airTimeLeft = airTime;
+        landedEvent.Invoke();
     }
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        grounded = false;
-        jumpingAirTimeLeft = jumpingAirTime;
-    }
-    public void Move(float move, bool jumping, bool jumped)
-    {
-        if (hasControl)
-        {
-            var velocity = new Vector2(move * speed * Time.fixedDeltaTime, 0f);
-            rigidbody2d.velocity = new Vector2(velocity.x, rigidbody2d.velocity.y);
 
-            if (grounded && jumped)
-                rigidbody2d.AddForce(new Vector2(0f, jumpForse));
-            
-            if (jumping && jumpingAirTimeLeft > 0 && rigidbody2d.velocity.y > .1f)
-            {
-                rigidbody2d.AddForce(new Vector2(0f, jumpingForse));
-                jumpingAirTimeLeft -= Time.fixedDeltaTime;
-            }
-        }
+    private void Fall()
+    {
+        isFalling = true;
+        startedFallingEvent.Invoke();
     }
 }

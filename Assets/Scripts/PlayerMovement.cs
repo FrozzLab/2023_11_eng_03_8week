@@ -1,39 +1,56 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PlayerMovement : MonoBehaviour
 {
-    private float horizontalInput = 0f;
-    private bool jumping = false;
-    private bool jumped = false;
+    public bool hasControl = true;
 
-    private CharacterController2D controller2D;
-    private Animator animator;
+    float horizontalInput = 0f;
+    bool jumped = false;
+    bool jumping = false;
+    bool isLookingRight = true;
+
+    CharacterController2D controller2D;
+
+    [SerializeField] UnityEvent<float> speedChangedEvent;
+    [SerializeField] UnityEvent turnedEvent;
 
     private void Awake()
     {
         controller2D = GetComponent<CharacterController2D>();
-        animator = GetComponent<Animator>();
     }
+
     private void Update()
     {
+        if (!hasControl) return;
+
         horizontalInput = Input.GetAxisRaw("Horizontal");
-        //animator.SetFloat("speed", Mathf.Abs(horizontalInput));
-        
+        speedChangedEvent.Invoke(horizontalInput);
+
         if (Input.GetButtonDown("Jump"))
         {
             jumped = true;
-            //AudioManager.Play(SoundName.PlayerJump);
         }
         
-        if (Input.GetButton("Jump")){
+        if (Input.GetButton("Jump"))
+        {
             jumping = true;
-            animator.SetBool("jumping", jumping);
+        }
+
+        if((isLookingRight && horizontalInput < 0f) || (!isLookingRight && horizontalInput > 0f)) 
+        {
+            isLookingRight = !isLookingRight;
+            turnedEvent.Invoke();
         }
     }
+
     private void FixedUpdate()
     {
-        controller2D.Move(horizontalInput, jumping, jumped);
-        jumping = false;
+        controller2D.Move(horizontalInput);
+        if (jumped) controller2D.Jump();
+        if(jumping) controller2D.Flight();
+
         jumped = false;
+        jumping = false;
     }
 }
