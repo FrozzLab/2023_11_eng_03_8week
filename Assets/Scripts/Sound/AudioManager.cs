@@ -1,10 +1,11 @@
 using UnityEngine;
 using System.Linq;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 public class AudioManager : MonoBehaviour
 {
-    public static AudioManager instance;
+    private static AudioManager instance;
     public Sound[] sounds;
     public Music[] musics;
 
@@ -12,24 +13,17 @@ public class AudioManager : MonoBehaviour
     private readonly Dictionary<MusicName, Music> _musicMap = new();
 
     private MusicName _currentMusic;
-    
+
     private void Awake()
     {
-        if (instance == null)
-        {
-            instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
+        if (instance != null)
         {
             Destroy(gameObject);
+            return;
         }
-    }
 
-    private void Start()
-    {
-        Validate(sounds);
-        Validate(musics);
+        instance = this;
+        DontDestroyOnLoad(gameObject);
 
         foreach (var sound in sounds)
         {
@@ -42,87 +36,74 @@ public class AudioManager : MonoBehaviour
             sound.Init(gameObject);
             _musicMap.Add(sound.name, sound);
         }
+
+        Validate(sounds);
+        Validate(musics);
     }
 
-    public static void Play(SoundName name) => instance.PlayOnInstance(name);
-
-    public static void Play(MusicName name) => instance.PlayOnInstance(name);
-
-    public static void StopAll() => instance.StopAllOnInstance();
-
-    private void PlayOnInstance(SoundName name)
+    private void Play(SoundName name)
     {
-        if(!_soundsMap.ContainsKey(name)) throw new SoundException($"Sound {name} not found. Add it to the {nameof(AudioManager)} before using it!!");
+        if (!_soundsMap.ContainsKey(name)) throw new SoundException($"Sound {name} not found. Add it to the {nameof(AudioManager)} before using it!!");
         _soundsMap[name].Play();
     }
 
-    private void PlayOnInstance(MusicName name)
+    private void Play(MusicName name)
     {
-        if (!_musicMap.ContainsKey(name)) throw new SoundException($"Sound {name} not found. Add it to the {nameof(AudioManager)} before using it!!");
+        if (!_musicMap.ContainsKey(name)) throw new SoundException($"Music {name} not found. Add it to the {nameof(AudioManager)} before using it!!");
 
-        foreach (var music in musics) 
+        foreach (var music in musics)
             music.Stop();
 
         _currentMusic = name;
-        
+
         _musicMap[name].Play();
     }
 
-    private void StopAllOnInstance()
+    private void StopAll()
     {
         foreach (var music in musics)
             music.Stop();
+
+        foreach (var sound in sounds)
+            sound.Stop();
     }
 
-    public void PlayMusicOnGameStart()
+    public static void PlayMusicOnGameStart()
     {
-        Play(MusicName.MainMenuTheme);
+        var sceneName = SceneManager.GetActiveScene().name;
+        var name = GetMusicName(sceneName);
+        instance.Play(name);
     }
-    
-    public void ChangeMusicOnLevelChange(string sceneName)
+
+    public static void ChangeMusicOnLevelChange(string sceneName)
     {
-        switch (sceneName)
+        var name = GetMusicName(sceneName);
+
+        if (instance._currentMusic != name)
         {
-            case "Credits":
-            case "Settings":
-            case "Main Menu": 
-                if (instance._currentMusic != MusicName.MainMenuTheme)
-                {
-                    StopAll();
-                    Play(MusicName.MainMenuTheme);
-                }
-                break;
-            case "Level 1":
-                StopAll();
-                Play(MusicName.Level1Theme);
-                break;
-            case "Level 2":
-                StopAll();
-                Play(MusicName.Level2Theme);
-                break;
-            case "Level 3":
-                StopAll();
-                Play(MusicName.Level3Theme);
-                break;
+            instance.StopAll();
+            instance.Play(name);
         }
     }
 
-    public void ChangeVolumeOfMusicOnInstance(float newVolume)
+    public static void ChangeVolumeOfMusic(float volume)
     {
+        if (volume < 0 || volume > 2) throw new SoundException($"music volume has to be between 0 and 2. Provided value: {volume}. You want to go deaf?!");
         foreach (var music in instance.musics)
         {
-            music.ChangeVolume(newVolume);
+            music.ChangeVolume(volume);
         }
     }
-    
-    public void ChangeVolumeOfSoundsOnInstance(float newVolume)
+
+    public static void ChangeVolumeOfSounds(float volume)
     {
+        if (volume < 0 || volume > 2) throw new SoundException($"sound volume has to be between 0 and 2. Provided value: {volume}. You want to go deaf?!");
         foreach (var sound in instance.sounds)
         {
-            sound.ChangeVolume(newVolume);
+            sound.ChangeVolume(volume);
         }
     }
-    
+
     private static void Validate(Sound[] sounds)
     {
         var duplicates = sounds.GroupBy(s => s.name).Where(s => s.Count() > 1);
@@ -143,5 +124,17 @@ public class AudioManager : MonoBehaviour
             var joinedNames = string.Join(", ", names);
             throw new SoundException($"{nameof(AudioManager)} contains duplicated musics: {joinedNames}. Delete the duplicates!!");
         }
+    }
+
+    private static MusicName GetMusicName(string sceneName)
+    {
+        return sceneName switch
+        {
+            "Credits" or "Settings" or "Main Menu" => MusicName.MainMenuTheme,
+            "Level 1" => MusicName.Level1Theme,
+            "Level 2" => MusicName.Level2Theme,
+            "Level 3" => MusicName.Level3Theme,
+            _ => MusicName.MainMenuTheme,
+        };
     }
 }
