@@ -1575,7 +1575,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: -4490934623925820354, guid: 6f99c8e0d1d8f8a40b6da3fa2e81875e, type: 3}
         m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
-        m_MethodName: ChangeVolumeOfSoundsOnInstance
+        m_MethodName: ChangeVolumeOfSounds
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1714,7 +1714,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: -4490934623925820354, guid: 6f99c8e0d1d8f8a40b6da3fa2e81875e, type: 3}
         m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
-        m_MethodName: ChangeVolumeOfMusicOnInstance
+        m_MethodName: ChangeVolumeOfMusic
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
