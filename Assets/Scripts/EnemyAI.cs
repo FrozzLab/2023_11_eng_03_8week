@@ -1,10 +1,9 @@
-using System;
 using System.Collections;
 using UnityEngine;
 
 public class EnemyAI : MonoBehaviour
 {
-    [SerializeField] Transform player;
+    Transform _player;
     [SerializeField] Transform leftPatrolTrigger;
     [SerializeField] Transform rightPatrolTrigger;
     [SerializeField] Transform leftChaseTrigger;
@@ -15,16 +14,19 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] float detectRange = 5;
     [SerializeField] float hearRange = 1.5f;
     float _attackRange;
-    [SerializeField] GameObject bullet;
-    Bullet _bullet;
-    [SerializeField] float shootDelay = 1;
-    bool _canShoot = true;
+    [SerializeField] GameObject projectile;
+    [SerializeField] float attackDelay = 1;
+    bool _canAttack = true;
+    Health _playerHealth;
+    LayerMask _playerLayer;
 
     void Awake()
     {
+        _player = GameObject.FindWithTag("Player").transform;
         _speed = patrolSpeed;
-        _attackRange = type == Type.Melee ? 0.5f : 3.5f;
-        _bullet = bullet.GetComponent<Bullet>();
+        _attackRange = type == Type.Melee ? 1.5f : 3.5f;
+        _playerLayer = LayerMask.GetMask("Player");
+        _playerHealth = _player.GetComponent<Health>();
     }
 
     enum State
@@ -56,7 +58,7 @@ public class EnemyAI : MonoBehaviour
     void Update()
     {
         var position = transform.position;
-        var playerPosition = player.position;
+        var playerPosition = _player.position;
         _distanceToPlayer = Vector3.Distance(position, playerPosition);
         if (playerPosition.x - position.x < 0)
         {
@@ -85,11 +87,11 @@ public class EnemyAI : MonoBehaviour
             Return();
         }
 
-        if (_state is State.Hold or State.Chase && type == Type.Range)
+        if (_state is State.Hold or State.Chase && _distanceToPlayer < _attackRange)
         {
-            if (!_canShoot) return;
-            StartCoroutine(ShootDelay());
-            Shoot();
+            if (!_canAttack) return;
+            StartCoroutine(AttackDelay());
+            Attack();
         }
     }
 
@@ -155,24 +157,27 @@ public class EnemyAI : MonoBehaviour
 
         _speed = chaseSpeed;
     }
-
-    void Shoot()
+    
+    void Attack()
     {
-        var enemy = transform;
-        _bullet.direction = _direction;
-        Instantiate(bullet, enemy.position, enemy.rotation);
+        var position = transform.position;
+        if (type == Type.Melee)
+        {
+            var playerInRange = Physics2D.OverlapCircle(position, _attackRange, _playerLayer);
+            if (playerInRange == null) return;
+            _playerHealth.Damage(1);
+        }
+
+        if (type == Type.Range)
+        {
+            Instantiate(projectile, position, transform.rotation);
+        }
     }
-
-    void Hit()
+    IEnumerator AttackDelay()
     {
-        throw new NotImplementedException();
-    }
-
-    IEnumerator ShootDelay()
-    {
-        _canShoot = false;
-        yield return new WaitForSeconds(shootDelay);
-        _canShoot = true;
+        _canAttack = false;
+        yield return new WaitForSeconds(attackDelay);
+        _canAttack = true;
     }
     
     void ReverseDirection()
