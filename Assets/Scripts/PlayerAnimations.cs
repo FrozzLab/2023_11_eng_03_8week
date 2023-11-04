@@ -11,22 +11,22 @@ public class PlayerAnimations : MonoBehaviour
 
     public void UpdateSpeed(float speed)
     {
-        animator.SetFloat("Speed", Mathf.Abs(speed));
+        animator.SetFloat("speed", Mathf.Abs(speed));
     }
 
     public void Jump()
     {
-        animator.SetBool("Jumping", true);
+        animator.SetBool("jumping", true);
     }
 
     public void Fall()
     {
-        animator.SetBool("Falling", false);
+        animator.SetBool("falling", false);
     }
 
     public void Land()
     {
-        animator.SetBool("Jumping", false);
+        animator.SetBool("jumping", false);
     }
 
     public void Flip()
