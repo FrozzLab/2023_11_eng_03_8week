@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -6,7 +5,7 @@ public class Health : MonoBehaviour
 {
     [SerializeField] int max = 3;
     int _current;
-    [NonSerialized] public bool isDead; 
+    [HideInInspector] public bool isDead; 
     [SerializeField] UnityEvent diedEvent;
 
     void Awake()
