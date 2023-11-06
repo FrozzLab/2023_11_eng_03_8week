@@ -5,8 +5,8 @@ public class Health : MonoBehaviour
 {
     [SerializeField] int max = 3;
     int _current;
-    [HideInInspector] public bool isDead; 
     [SerializeField] UnityEvent diedEvent;
+    public bool IsDead { get; private set; }
 
     void Awake()
     {
@@ -61,7 +61,7 @@ public class Health : MonoBehaviour
 
     void Die()
     {
-        isDead = true;
+        IsDead = true;
         diedEvent.Invoke();
         if (CompareTag("Player"))
         {
