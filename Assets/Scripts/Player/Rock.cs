@@ -18,7 +18,7 @@ public class Rock : MonoBehaviour
         createdEvent.Invoke();
     }
 
-    public void Lunch(Vector2 direction, float force)
+    public void Launch(Vector2 direction, float force)
     {
         rb.velocity = direction * force;
     }

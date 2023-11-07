@@ -2,7 +2,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class PlayerAtackInput : MonoBehaviour
+public class PlayerAttack Input : MonoBehaviour
 {
     public bool hasWeapon = true;
 
@@ -14,7 +14,7 @@ public class PlayerAtackInput : MonoBehaviour
     [SerializeField] float chargeMax = 2f;
     float _charge = 0f;
 
-    PlayerAtack playerAtack;
+    PlayerAttack playerAttack ;
 
     [SerializeField] UnityEvent<float> startedFocusingEvent;
     [SerializeField] UnityEvent stoppedFocusingEvent;
@@ -24,7 +24,7 @@ public class PlayerAtackInput : MonoBehaviour
 
     private void Awake()
     {
-        playerAtack = GetComponent<PlayerAtack>();
+        PlayerAttack = GetComponent<PlayerAttack >();
     }
 
     void Update()
@@ -68,12 +68,12 @@ public class PlayerAtackInput : MonoBehaviour
     {
         if (_isFocused)
         {
-            playerAtack.Throw(_charge / chargeMax);
+            playerAttack .Throw(_charge / chargeMax);
             thrownEvent.Invoke();
         }
         else
         {
-            playerAtack.Attack();
+            playerAttack .Attack();
             attackedEvent.Invoke();
         }
         _focus = 0f;

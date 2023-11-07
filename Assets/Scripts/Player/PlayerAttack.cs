@@ -2,7 +2,7 @@ using System.Linq;
 using UnityEngine;
 using System;
 
-public class PlayerAtack : MonoBehaviour
+public class PlayerAttack : MonoBehaviour
 {
     [SerializeField] int dmg = 1;
     [SerializeField] float force = 2f;
@@ -27,9 +27,9 @@ public class PlayerAtack : MonoBehaviour
         target.z = 0f;
         var direction = target - transform.position;
 
-        var instangce = Instantiate(rock, transform.position, Quaternion.identity);
-        var script = instangce.GetComponent<Rock>();
-        script.Lunch(direction, force * powerPercentage);
+        var instance = Instantiate(rock, transform.position, Quaternion.identity);
+        var script = instance.GetComponent<Rock>();
+        script.Launch(direction, force * powerPercentage);
     }
 
     void OnDrawGizmos() //show attack range
