@@ -402,9 +402,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7947570786056387507}
+  - component: {fileID: 5671270859775158831}
   - component: {fileID: 8720706868597653676}
   m_Layer: 6
-  m_Name: MeleeWeapon
+  m_Name: Weapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -425,6 +426,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 70314853569514188}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5671270859775158831
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9220831082783236439}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb209068c6a06524aabbd7a45bfb8ad0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hasWeapon: 1
+  cooldown: 1.5
+  focusMax: 0.3
+  chargeMax: 2
+  startedFocusingEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  stoppedFocusingEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  focusedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  thrownEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  attackedEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &8720706868597653676
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -438,8 +470,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dmg: 1
+  force: 2
   range: 0.4
-  cooldown: 1.5
   enemyLayer:
     serializedVersion: 2
     m_Bits: 128
+  rock: {fileID: 2303332918732925117, guid: c82842d992e39164a812b4c4907d7661, type: 3}
