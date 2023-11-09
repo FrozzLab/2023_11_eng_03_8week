@@ -5,8 +5,8 @@ using UnityEngine.Events;
 public class CharacterController2D : MonoBehaviour
 {
     [SerializeField] float speed = 400f;
-    [SerializeField] float jumpForse = 300f;
-    [SerializeField] float jumpingForse = 20f;
+    [SerializeField] float jumpForce = 300f;
+    [SerializeField] float jumpingForce = 20f;
     [SerializeField] float airTime = 10;
     float airTimeLeft;
 
@@ -52,7 +52,7 @@ public class CharacterController2D : MonoBehaviour
         if (!grounded) return;
 
         grounded = false;
-        rigidbody2d.AddForce(new Vector2(0f, jumpForse));
+        rigidbody2d.AddForce(new Vector2(0f, jumpForce));
         jumpedEvent.Invoke();
     }
 
@@ -62,7 +62,7 @@ public class CharacterController2D : MonoBehaviour
 
         if (airTimeLeft > 0)
         {
-            rigidbody2d.AddForce(new Vector2(0f, jumpingForse));
+            rigidbody2d.AddForce(new Vector2(0f, jumpingForce));
             airTimeLeft -= Time.fixedDeltaTime;
         }
     }
