@@ -35,4 +35,9 @@ public class PlayerAnimations : MonoBehaviour
         theScale.x *= -1;
         transform.localScale = theScale;
     }
+
+    public void Die()
+    {
+        animator.SetBool("dead", true);
+    }
 }
