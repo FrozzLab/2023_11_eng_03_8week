@@ -30,37 +30,43 @@ public class CharacterController2D : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (!isFalling && rigidbody2d.velocity.y < 0) Fall();
+        if(!isFalling && !grounded && rigidbody2d.velocity.y < 0.1) Fall();
         debugVelocity = rigidbody2d.velocity;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (!other.CompareTag("Wall")) return;
-        Land();
+        if(!other.CompareTag("Wall")) return;
+		if(isFalling)
+        	Land();
     }
+
+	private void OnTriggerExit2D(Collider2D other) 
+	{
+		if (!other.CompareTag("Wall")) return;
+		grounded = false;
+	}
 
     public void Move(float move)
     {
         var velocity = move * speed * Time.fixedDeltaTime;
         rigidbody2d.velocity = new Vector2(velocity, rigidbody2d.velocity.y);
-        Console.WriteLine("move: " + move);
     }
 
     public void Jump()
     {
-        if (!grounded) return;
+        if(!grounded) return;
 
-        grounded = false;
+		rigidbody2d.velocity = new Vector2(rigidbody2d.velocity.x, 0f);
         rigidbody2d.AddForce(new Vector2(0f, jumpForce));
         jumpedEvent.Invoke();
     }
 
     public void Flight()
     {
-        if (grounded) return;
+        if(grounded) return;
 
-        if (airTimeLeft > 0)
+        if(airTimeLeft > 0)
         {
             rigidbody2d.AddForce(new Vector2(0f, jumpingForce));
             airTimeLeft -= Time.fixedDeltaTime;
