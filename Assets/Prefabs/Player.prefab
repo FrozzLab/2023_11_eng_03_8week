@@ -205,9 +205,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 250
-  jumpForce: 300
+  jumpForce: 350
   jumpingForce: 20
-  airTime: 0.2
+  airTime: 0.1
   jumpedEvent:
     m_PersistentCalls:
       m_Calls:

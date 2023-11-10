@@ -9,6 +9,7 @@ public class CharacterController2D : MonoBehaviour
     [SerializeField] float jumpingForce = 20f;
     [SerializeField] float airTime = 10;
     float airTimeLeft;
+    bool doubleJumped = false;
 
     //[SerializeField] [Range(0f, .3f)] float movementSmoothing = 0.05f;
     
@@ -26,6 +27,7 @@ public class CharacterController2D : MonoBehaviour
     private void Awake()
     {
         rigidbody2d = GetComponent<Rigidbody2D>();
+		airTimeLeft = airTime;
     }
 
     private void FixedUpdate()
@@ -55,7 +57,8 @@ public class CharacterController2D : MonoBehaviour
 
     public void Jump()
     {
-        if(!grounded) return;
+        if(!grounded && doubleJumped) return;
+        if(!grounded) doubleJumped = true;
 
 		rigidbody2d.velocity = new Vector2(rigidbody2d.velocity.x, 0f);
         rigidbody2d.AddForce(new Vector2(0f, jumpForce));
@@ -76,6 +79,7 @@ public class CharacterController2D : MonoBehaviour
     private void Land()
     {
         grounded = true;
+		doubleJumped = false;
         isFalling = false;
         airTimeLeft = airTime;
         landedEvent.Invoke();
