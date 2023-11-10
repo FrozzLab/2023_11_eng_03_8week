@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -113,10 +113,10 @@ TextureImporter:
       name: death_0
       rect:
         serializedVersion: 2
-        x: 10
-        y: 131
-        width: 23
-        height: 16
+        x: 0
+        y: 130
+        width: 117
+        height: 26
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -134,10 +134,10 @@ TextureImporter:
       name: death_1
       rect:
         serializedVersion: 2
-        x: 7
-        y: 105
-        width: 27
-        height: 20
+        x: 0
+        y: 104
+        width: 117
+        height: 26
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -155,10 +155,10 @@ TextureImporter:
       name: death_2
       rect:
         serializedVersion: 2
-        x: 6
-        y: 79
-        width: 22
-        height: 17
+        x: 0
+        y: 78
+        width: 117
+        height: 26
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -176,10 +176,10 @@ TextureImporter:
       name: death_3
       rect:
         serializedVersion: 2
-        x: 5
-        y: 53
-        width: 24
-        height: 11
+        x: 0
+        y: 52
+        width: 117
+        height: 26
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -197,10 +197,10 @@ TextureImporter:
       name: death_4
       rect:
         serializedVersion: 2
-        x: 5
-        y: 27
-        width: 24
-        height: 11
+        x: 0
+        y: 26
+        width: 117
+        height: 26
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -218,10 +218,10 @@ TextureImporter:
       name: death_5
       rect:
         serializedVersion: 2
-        x: 5
-        y: 1
-        width: 24
-        height: 11
+        x: 0
+        y: 0
+        width: 117
+        height: 26
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

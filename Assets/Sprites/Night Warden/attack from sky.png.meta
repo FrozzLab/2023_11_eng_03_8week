@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -113,12 +113,12 @@ TextureImporter:
       name: attack from sky_0
       rect:
         serializedVersion: 2
-        x: 52
+        x: 0
         y: 864
-        width: 7
-        height: 98
+        width: 97
+        height: 108
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -134,12 +134,12 @@ TextureImporter:
       name: attack from sky_1
       rect:
         serializedVersion: 2
-        x: 37
+        x: 0
         y: 756
-        width: 41
-        height: 97
+        width: 97
+        height: 108
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -155,12 +155,12 @@ TextureImporter:
       name: attack from sky_2
       rect:
         serializedVersion: 2
-        x: 38
-        y: 646
-        width: 40
-        height: 99
+        x: 0
+        y: 648
+        width: 97
+        height: 108
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -176,12 +176,12 @@ TextureImporter:
       name: attack from sky_7
       rect:
         serializedVersion: 2
-        x: 36
-        y: 538
-        width: 43
-        height: 98
+        x: 0
+        y: 108
+        width: 97
+        height: 108
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -197,12 +197,12 @@ TextureImporter:
       name: attack from sky_3
       rect:
         serializedVersion: 2
-        x: 32
-        y: 428
-        width: 53
-        height: 102
+        x: 0
+        y: 540
+        width: 97
+        height: 108
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -210,6 +210,90 @@ TextureImporter:
       bones: []
       spriteID: 33be253de7c62564cba7f4944ea8f29b
       internalID: 425874426
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: attack from sky_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 432
+        width: 97
+        height: 108
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28b47a92de0a5cb449e5190c669e4387
+      internalID: 1435710342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: attack from sky_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 324
+        width: 97
+        height: 108
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f609ea291ee22245a6f86f2616bda07
+      internalID: 456102301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: attack from sky_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 216
+        width: 97
+        height: 108
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad9fbe5c2349d334883119e66174de67
+      internalID: 2007322790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: attack from sky_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 97
+        height: 108
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b31ec128b0102542abf3919d65dea1d
+      internalID: 188083748
       vertices: []
       indices: 
       edges: []
@@ -227,10 +311,6 @@ TextureImporter:
     nameFileIdTable:
       attack from sky_0: -1282617062
       attack from sky_1: -1406012172
-      attack from sky_10: 1908520806
-      attack from sky_11: 1450133054
-      attack from sky_12: 1303272885
-      attack from sky_13: -333006756
       attack from sky_2: 1054316154
       attack from sky_3: 425874426
       attack from sky_4: 1435710342
@@ -238,7 +318,6 @@ TextureImporter:
       attack from sky_6: 2007322790
       attack from sky_7: 678454378
       attack from sky_8: 188083748
-      attack from sky_9: -299385589
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

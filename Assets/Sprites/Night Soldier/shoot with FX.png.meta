@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -113,12 +113,12 @@ TextureImporter:
       name: shoot with FX_0
       rect:
         serializedVersion: 2
-        x: 15
-        y: 79
-        width: 35
-        height: 22
+        x: 0
+        y: 78
+        width: 117
+        height: 26
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -134,12 +134,12 @@ TextureImporter:
       name: shoot with FX_2
       rect:
         serializedVersion: 2
-        x: 13
-        y: 51
-        width: 36
+        x: 0
+        y: 26
+        width: 117
         height: 26
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -152,43 +152,43 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: shoot with FX_4
+      name: shoot with FX_1
       rect:
         serializedVersion: 2
-        x: 14
-        y: 26
-        width: 36
-        height: 24
+        x: 0
+        y: 52
+        width: 117
+        height: 26
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6f9d1350ca8d4514cbce08b3a384ee33
-      internalID: 365062436
+      spriteID: 974e5855c0075d4459f4771cdc52c781
+      internalID: -2051980580
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: shoot with FX_5
+      name: shoot with FX_3
       rect:
         serializedVersion: 2
-        x: 14
-        y: 2
-        width: 36
-        height: 22
+        x: 0
+        y: 0
+        width: 117
+        height: 26
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cbaed3aa02ec99c408910b0f9c25fb9d
-      internalID: 1776963525
+      spriteID: a5b2770ca30e6604a85d4120d771ac9d
+      internalID: -1255042788
       vertices: []
       indices: 
       edges: []
@@ -208,9 +208,6 @@ TextureImporter:
       shoot with FX_1: -2051980580
       shoot with FX_2: 1295934925
       shoot with FX_3: -1255042788
-      shoot with FX_4: 365062436
-      shoot with FX_5: 1776963525
-      shoot with FX_6: 294618953
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

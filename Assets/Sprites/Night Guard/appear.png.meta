@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -113,12 +113,12 @@ TextureImporter:
       name: appear_0
       rect:
         serializedVersion: 2
-        x: 38
-        y: 424
-        width: 25
-        height: 6
+        x: 0
+        y: 560
+        width: 121
+        height: 70
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -134,12 +134,12 @@ TextureImporter:
       name: appear_1
       rect:
         serializedVersion: 2
-        x: 36
-        y: 354
-        width: 31
-        height: 4
+        x: 0
+        y: 490
+        width: 121
+        height: 70
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -155,12 +155,12 @@ TextureImporter:
       name: appear_2
       rect:
         serializedVersion: 2
-        x: 35
-        y: 284
-        width: 33
-        height: 7
+        x: 0
+        y: 420
+        width: 121
+        height: 70
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -176,12 +176,12 @@ TextureImporter:
       name: appear_3
       rect:
         serializedVersion: 2
-        x: 35
-        y: 214
-        width: 34
-        height: 32
+        x: 0
+        y: 350
+        width: 121
+        height: 70
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -197,12 +197,12 @@ TextureImporter:
       name: appear_6
       rect:
         serializedVersion: 2
-        x: 33
-        y: 144
-        width: 35
-        height: 36
+        x: 0
+        y: 140
+        width: 121
+        height: 70
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -218,12 +218,12 @@ TextureImporter:
       name: appear_8
       rect:
         serializedVersion: 2
-        x: 31
-        y: 74
-        width: 42
-        height: 34
+        x: 0
+        y: 0
+        width: 121
+        height: 70
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -236,22 +236,64 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: appear_11
+      name: appear_4
       rect:
         serializedVersion: 2
-        x: 34
-        y: 4
-        width: 38
-        height: 36
+        x: 0
+        y: 280
+        width: 121
+        height: 70
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fb521e34372c1a944a294e3562177663
-      internalID: -1782157134
+      spriteID: d92d2ab2ead881443a0a6a6f9b543802
+      internalID: 429938772
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: appear_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 210
+        width: 121
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6134ca0610ad32048a2204012d87b0a1
+      internalID: 565072708
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: appear_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 70
+        width: 121
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7fdf6b4c471eba84491b66752a2dd611
+      internalID: -226662565
       vertices: []
       indices: 
       edges: []
@@ -269,9 +311,6 @@ TextureImporter:
     nameFileIdTable:
       appear_0: -1517593758
       appear_1: 426516810
-      appear_10: 774186812
-      appear_11: -1782157134
-      appear_12: -759507850
       appear_2: -33334571
       appear_3: 1449085337
       appear_4: 429938772
@@ -279,7 +318,6 @@ TextureImporter:
       appear_6: -1173592518
       appear_7: -226662565
       appear_8: -1550259803
-      appear_9: -282233899
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

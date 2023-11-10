@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -113,12 +113,12 @@ TextureImporter:
       name: quick spin attack_1
       rect:
         serializedVersion: 2
-        x: 35
-        y: 285
-        width: 78
-        height: 39
+        x: 0
+        y: 210
+        width: 121
+        height: 70
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -135,11 +135,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 218
-        width: 77
-        height: 36
+        y: 70
+        width: 121
+        height: 70
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -152,64 +152,64 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: quick spin attack_7
+      name: quick spin attack_0
       rect:
         serializedVersion: 2
-        x: 1
-        y: 145
-        width: 77
-        height: 34
+        x: 0
+        y: 280
+        width: 121
+        height: 70
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c8f7347e6b067244081ad9a50cbac4f8
-      internalID: -817920646
+      spriteID: 3fc0665727ce8894083ae201ba1723b9
+      internalID: -1820090657
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: quick spin attack_11
+      name: quick spin attack_2
       rect:
         serializedVersion: 2
-        x: 33
-        y: 72
-        width: 39
-        height: 34
+        x: 0
+        y: 140
+        width: 121
+        height: 70
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 96880a932cfddae4a98548ccacad169d
-      internalID: 1721097527
+      spriteID: b4602cb56da3598429d412f5690605a8
+      internalID: 1108657785
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: quick spin attack_14
+      name: quick spin attack_4
       rect:
         serializedVersion: 2
-        x: 36
-        y: 4
-        width: 35
-        height: 34
+        x: 0
+        y: 0
+        width: 121
+        height: 70
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8ca8128a3494c8d4da4fe16a3e385b6c
-      internalID: 1411516345
+      spriteID: 59ccbd6c3a526bb4c9ea7296932ace4e
+      internalID: 347675713
       vertices: []
       indices: 
       edges: []
@@ -227,20 +227,9 @@ TextureImporter:
     nameFileIdTable:
       quick spin attack_0: -1820090657
       quick spin attack_1: 1822349871
-      quick spin attack_10: 597988250
-      quick spin attack_11: 1721097527
-      quick spin attack_12: 1661288109
-      quick spin attack_13: -611411972
-      quick spin attack_14: 1411516345
-      quick spin attack_15: 261187794
       quick spin attack_2: 1108657785
       quick spin attack_3: -449074378
       quick spin attack_4: 347675713
-      quick spin attack_5: 585176445
-      quick spin attack_6: -648302750
-      quick spin attack_7: -817920646
-      quick spin attack_8: -1572803557
-      quick spin attack_9: 1399647588
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -110,34 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: idle_0
-      rect:
-        serializedVersion: 2
-        x: 52
-        y: 756
-        width: 20
-        height: 52
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1134f369eb9094f449bb53d6ebbb27ee
-      internalID: -926973623
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: idle_1
       rect:
         serializedVersion: 2
-        x: 52
+        x: 0
         y: 648
-        width: 20
-        height: 52
+        width: 97
+        height: 108
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -155,10 +134,10 @@ TextureImporter:
       name: idle_2
       rect:
         serializedVersion: 2
-        x: 52
+        x: 0
         y: 540
-        width: 20
-        height: 52
+        width: 97
+        height: 108
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -176,10 +155,10 @@ TextureImporter:
       name: idle_3
       rect:
         serializedVersion: 2
-        x: 52
+        x: 0
         y: 432
-        width: 20
-        height: 52
+        width: 97
+        height: 108
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -197,10 +176,10 @@ TextureImporter:
       name: idle_4
       rect:
         serializedVersion: 2
-        x: 52
+        x: 0
         y: 324
-        width: 20
-        height: 53
+        width: 97
+        height: 108
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -218,10 +197,10 @@ TextureImporter:
       name: idle_5
       rect:
         serializedVersion: 2
-        x: 52
+        x: 0
         y: 216
-        width: 20
-        height: 52
+        width: 97
+        height: 108
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -239,10 +218,10 @@ TextureImporter:
       name: idle_6
       rect:
         serializedVersion: 2
-        x: 52
+        x: 0
         y: 108
-        width: 20
-        height: 52
+        width: 97
+        height: 108
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -252,27 +231,6 @@ TextureImporter:
       bones: []
       spriteID: 440f845e0260b23498406ebcca6be102
       internalID: 1987128389
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: idle_7
-      rect:
-        serializedVersion: 2
-        x: 52
-        y: 0
-        width: 20
-        height: 52
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2fb0e4864f3a19445a28873e56d44c85
-      internalID: -1423537982
       vertices: []
       indices: 
       edges: []

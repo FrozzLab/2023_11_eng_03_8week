@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: NighSoldier_Wake
+  m_Name: NightSoldier_Wake
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -22,13 +22,13 @@ AnimationClip:
     curve:
     - time: 0
       value: {fileID: -1394019507, guid: 52b8992fb1a706e4fbd6f765216aa40b, type: 3}
-    - time: 0.11666667
+    - time: 0.1
       value: {fileID: -360005335, guid: 52b8992fb1a706e4fbd6f765216aa40b, type: 3}
-    - time: 0.26666668
+    - time: 0.2
       value: {fileID: -1890736446, guid: 52b8992fb1a706e4fbd6f765216aa40b, type: 3}
-    - time: 0.41666666
+    - time: 0.3
       value: {fileID: 308622781, guid: 52b8992fb1a706e4fbd6f765216aa40b, type: 3}
-    - time: 0.56666666
+    - time: 0.41666666
       value: {fileID: -346005524, guid: 52b8992fb1a706e4fbd6f765216aa40b, type: 3}
     attribute: m_Sprite
     path: 
@@ -62,7 +62,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.5833333
+    m_StopTime: 0.43333334
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0

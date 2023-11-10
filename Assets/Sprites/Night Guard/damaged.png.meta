@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -113,12 +113,12 @@ TextureImporter:
       name: damaged_1
       rect:
         serializedVersion: 2
-        x: 33
-        y: 72
-        width: 40
-        height: 38
+        x: 0
+        y: 0
+        width: 121
+        height: 70
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -131,22 +131,22 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: damaged_4
+      name: damaged_0
       rect:
         serializedVersion: 2
-        x: 33
-        y: 2
-        width: 40
-        height: 39
+        x: 0
+        y: 70
+        width: 121
+        height: 70
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a1d47d3ee8625ce46974221cc57428d4
-      internalID: 1519426606
+      spriteID: f57c5551a933bdd4f94c6cc37268789b
+      internalID: 1623564652
       vertices: []
       indices: 
       edges: []
@@ -164,10 +164,6 @@ TextureImporter:
     nameFileIdTable:
       damaged_0: 1623564652
       damaged_1: 1876354569
-      damaged_2: 1110860699
-      damaged_3: -1785830491
-      damaged_4: 1519426606
-      damaged_5: -1471331906
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -113,12 +113,12 @@ TextureImporter:
       name: telekenisis attack_1
       rect:
         serializedVersion: 2
-        x: 30
-        y: 1122
-        width: 44
-        height: 41
+        x: 0
+        y: 1050
+        width: 121
+        height: 70
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -134,12 +134,12 @@ TextureImporter:
       name: telekenisis attack_3
       rect:
         serializedVersion: 2
-        x: 36
-        y: 1054
-        width: 34
-        height: 43
+        x: 0
+        y: 910
+        width: 121
+        height: 70
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -155,12 +155,12 @@ TextureImporter:
       name: telekenisis attack_4
       rect:
         serializedVersion: 2
-        x: 38
-        y: 984
-        width: 31
-        height: 52
+        x: 0
+        y: 840
+        width: 121
+        height: 70
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -176,12 +176,12 @@ TextureImporter:
       name: telekenisis attack_5
       rect:
         serializedVersion: 2
-        x: 39
-        y: 914
-        width: 33
-        height: 55
+        x: 0
+        y: 770
+        width: 121
+        height: 70
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -197,12 +197,12 @@ TextureImporter:
       name: telekenisis attack_7
       rect:
         serializedVersion: 2
-        x: 39
-        y: 844
-        width: 37
-        height: 58
+        x: 0
+        y: 630
+        width: 121
+        height: 70
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -218,12 +218,12 @@ TextureImporter:
       name: telekenisis attack_9
       rect:
         serializedVersion: 2
-        x: 39
-        y: 774
-        width: 38
-        height: 57
+        x: 0
+        y: 490
+        width: 121
+        height: 70
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -239,12 +239,12 @@ TextureImporter:
       name: telekenisis attack_10
       rect:
         serializedVersion: 2
-        x: 39
-        y: 704
-        width: 42
-        height: 54
+        x: 0
+        y: 420
+        width: 121
+        height: 70
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -260,12 +260,12 @@ TextureImporter:
       name: telekenisis attack_12
       rect:
         serializedVersion: 2
-        x: 39
-        y: 634
-        width: 52
-        height: 53
+        x: 0
+        y: 280
+        width: 121
+        height: 70
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -281,12 +281,12 @@ TextureImporter:
       name: telekenisis attack_14
       rect:
         serializedVersion: 2
-        x: 39
-        y: 564
-        width: 57
-        height: 48
+        x: 0
+        y: 140
+        width: 121
+        height: 70
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -299,169 +299,169 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: telekenisis attack_17
+      name: telekenisis attack_0
       rect:
         serializedVersion: 2
-        x: 39
-        y: 494
-        width: 64
-        height: 41
+        x: 0
+        y: 1120
+        width: 121
+        height: 70
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c6a13224a41ee5f41b328cf4d64cf36f
-      internalID: -1915135186
+      spriteID: 858ebbdebc716c740852d625772211fe
+      internalID: -502716003
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: telekenisis attack_21
+      name: telekenisis attack_2
       rect:
         serializedVersion: 2
-        x: 39
-        y: 424
-        width: 62
-        height: 39
+        x: 0
+        y: 980
+        width: 121
+        height: 70
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c25effcf5b559bf42bde4bb4fdf7fbdf
-      internalID: 1118189124
+      spriteID: 110b7175c95e7124fad4035e08e20e47
+      internalID: -490907622
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: telekenisis attack_25
+      name: telekenisis attack_6
       rect:
         serializedVersion: 2
-        x: 39
-        y: 354
-        width: 62
-        height: 41
+        x: 0
+        y: 700
+        width: 121
+        height: 70
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6e8df748d26c1c34f8da0421536f287f
-      internalID: 646087357
+      spriteID: 1dab847d1a9f4164cbe836c2fa9674e5
+      internalID: -1314221839
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: telekenisis attack_29
+      name: telekenisis attack_8
       rect:
         serializedVersion: 2
-        x: 39
-        y: 284
-        width: 55
-        height: 37
+        x: 0
+        y: 560
+        width: 121
+        height: 70
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e3f09988f41b1bb448d54d9214c4a688
-      internalID: -722741540
+      spriteID: d21f3abef0c35b24082cada388202dc6
+      internalID: 144848821
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: telekenisis attack_31
+      name: telekenisis attack_11
       rect:
         serializedVersion: 2
-        x: 39
+        x: 0
+        y: 350
+        width: 121
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6106b39c8ffb75e49817e53fd8560799
+      internalID: 1454229894
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: telekenisis attack_13
+      rect:
+        serializedVersion: 2
+        x: 0
         y: 210
-        width: 47
-        height: 38
+        width: 121
+        height: 70
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4c234f9e64fbfc94b9160d32c3b1849d
-      internalID: -766206751
+      spriteID: e9adbd82af53ae348ac317094f8682ea
+      internalID: 1768617858
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: telekenisis attack_32
+      name: telekenisis attack_15
       rect:
         serializedVersion: 2
-        x: 39
-        y: 144
-        width: 47
-        height: 38
+        x: 0
+        y: 70
+        width: 121
+        height: 70
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7bae04c5dbbfd81479e5c8f082063010
-      internalID: -1384950531
+      spriteID: eef890e7e382844419f981ff36fe14d0
+      internalID: 2069235937
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: telekenisis attack_36
+      name: telekenisis attack_16
       rect:
         serializedVersion: 2
-        x: 36
-        y: 74
-        width: 37
-        height: 39
+        x: 0
+        y: 0
+        width: 121
+        height: 70
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5762e987a8978614eb2df01374b6a020
-      internalID: 766288458
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: telekenisis attack_39
-      rect:
-        serializedVersion: 2
-        x: 33
-        y: 3
-        width: 38
-        height: 38
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 728af9546d004514cb39406492818b40
-      internalID: 409561816
+      spriteID: 36745bb32497cdb4ca255b4b69e1a648
+      internalID: -1401188203
       vertices: []
       indices: 
       edges: []
@@ -486,33 +486,9 @@ TextureImporter:
       telekenisis attack_14: -1023165908
       telekenisis attack_15: 2069235937
       telekenisis attack_16: -1401188203
-      telekenisis attack_17: -1915135186
-      telekenisis attack_18: -692488564
-      telekenisis attack_19: 1999028575
       telekenisis attack_2: -490907622
-      telekenisis attack_20: -728138564
-      telekenisis attack_21: 1118189124
-      telekenisis attack_22: 730357578
-      telekenisis attack_23: 929025658
-      telekenisis attack_24: -952289498
-      telekenisis attack_25: 646087357
-      telekenisis attack_26: 1373659593
-      telekenisis attack_27: -1137825020
-      telekenisis attack_28: -1039712693
-      telekenisis attack_29: -722741540
       telekenisis attack_3: -1412608109
-      telekenisis attack_30: -2134235468
-      telekenisis attack_31: -766206751
-      telekenisis attack_32: -1384950531
-      telekenisis attack_33: 1454193080
-      telekenisis attack_34: 200924350
-      telekenisis attack_35: -495808027
-      telekenisis attack_36: 766288458
-      telekenisis attack_37: 643509123
-      telekenisis attack_38: -1085975473
-      telekenisis attack_39: 409561816
       telekenisis attack_4: -390960948
-      telekenisis attack_40: -687001158
       telekenisis attack_5: -1124636511
       telekenisis attack_6: -1314221839
       telekenisis attack_7: 1705192995

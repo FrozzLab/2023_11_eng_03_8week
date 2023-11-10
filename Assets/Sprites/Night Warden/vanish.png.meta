@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -113,12 +113,12 @@ TextureImporter:
       name: vanish_0
       rect:
         serializedVersion: 2
-        x: 44
-        y: 1407
-        width: 32
-        height: 49
+        x: 0
+        y: 1404
+        width: 97
+        height: 108
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -134,12 +134,12 @@ TextureImporter:
       name: vanish_2
       rect:
         serializedVersion: 2
-        x: 27
-        y: 1296
-        width: 50
-        height: 52
+        x: 0
+        y: 1188
+        width: 97
+        height: 108
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -155,12 +155,12 @@ TextureImporter:
       name: vanish_3
       rect:
         serializedVersion: 2
-        x: 28
-        y: 1188
-        width: 50
-        height: 52
+        x: 0
+        y: 1080
+        width: 97
+        height: 108
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -176,12 +176,12 @@ TextureImporter:
       name: vanish_4
       rect:
         serializedVersion: 2
-        x: 27
-        y: 1080
-        width: 51
-        height: 50
+        x: 0
+        y: 972
+        width: 97
+        height: 108
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -197,12 +197,12 @@ TextureImporter:
       name: vanish_5
       rect:
         serializedVersion: 2
-        x: 26
-        y: 972
-        width: 35
-        height: 41
+        x: 0
+        y: 864
+        width: 97
+        height: 108
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -218,12 +218,12 @@ TextureImporter:
       name: vanish_6
       rect:
         serializedVersion: 2
-        x: 42
-        y: 864
-        width: 19
-        height: 42
+        x: 0
+        y: 756
+        width: 97
+        height: 108
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -239,12 +239,12 @@ TextureImporter:
       name: vanish_7
       rect:
         serializedVersion: 2
-        x: 42
-        y: 756
-        width: 19
-        height: 42
+        x: 0
+        y: 648
+        width: 97
+        height: 108
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -260,12 +260,12 @@ TextureImporter:
       name: vanish_8
       rect:
         serializedVersion: 2
-        x: 42
-        y: 648
-        width: 19
-        height: 42
+        x: 0
+        y: 540
+        width: 97
+        height: 108
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -281,12 +281,12 @@ TextureImporter:
       name: vanish_9
       rect:
         serializedVersion: 2
-        x: 42
-        y: 518
-        width: 18
-        height: 130
+        x: 0
+        y: 432
+        width: 97
+        height: 108
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -294,6 +294,111 @@ TextureImporter:
       bones: []
       spriteID: 1158e084afb6d01469648fb3e472909f
       internalID: 1512073799
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vanish_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1296
+        width: 97
+        height: 108
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b19ac21041ca0684bb08eb499801e5a6
+      internalID: 1223518638
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vanish_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 324
+        width: 97
+        height: 108
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 092104d83f786174fa66852fdcc31457
+      internalID: -1410835522
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vanish_11
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 216
+        width: 97
+        height: 108
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7fd0ecd73395db14f864077bf50254af
+      internalID: 146634676
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vanish_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 108
+        width: 97
+        height: 108
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8007852bed065124497f287380359117
+      internalID: -862005334
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vanish_13
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 97
+        height: 108
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 048b6fe782a7710468a82a7639554de4
+      internalID: -697760027
       vertices: []
       indices: 
       edges: []
@@ -312,6 +417,9 @@ TextureImporter:
       vanish_0: -2130853972
       vanish_1: 1223518638
       vanish_10: -1410835522
+      vanish_11: 146634676
+      vanish_12: -862005334
+      vanish_13: -697760027
       vanish_2: 1524528905
       vanish_3: -1953946102
       vanish_4: 466029530

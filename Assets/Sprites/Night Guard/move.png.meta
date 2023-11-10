@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: move_0
+      name: move_1
       rect:
         serializedVersion: 2
-        x: 31
-        y: 353
-        width: 43
-        height: 40
+        x: 0
+        y: 280
+        width: 121
+        height: 70
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -131,13 +131,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: move_1
+      name: move_2
       rect:
         serializedVersion: 2
-        x: 32
-        y: 284
-        width: 40
-        height: 38
+        x: 0
+        y: 210
+        width: 121
+        height: 70
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -152,13 +152,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: move_2
+      name: move_3
       rect:
         serializedVersion: 2
-        x: 32
-        y: 213
-        width: 39
-        height: 38
+        x: 0
+        y: 140
+        width: 121
+        height: 70
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -173,13 +173,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: move_3
+      name: move_4
       rect:
         serializedVersion: 2
-        x: 33
-        y: 143
-        width: 40
-        height: 36
+        x: 0
+        y: 70
+        width: 121
+        height: 70
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -194,13 +194,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: move_4
+      name: move_0
       rect:
         serializedVersion: 2
-        x: 30
-        y: 73
-        width: 46
-        height: 40
+        x: 0
+        y: 350
+        width: 121
+        height: 70
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -208,8 +208,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 90eda9a92a0170341bb8babb5726ff8a
-      internalID: 281566183
+      spriteID: 6911e24878b881a4c9cd2b64b14d9973
+      internalID: 544402888
       vertices: []
       indices: 
       edges: []
@@ -218,10 +218,10 @@ TextureImporter:
       name: move_5
       rect:
         serializedVersion: 2
-        x: 33
-        y: 3
-        width: 42
-        height: 33
+        x: 0
+        y: 0
+        width: 121
+        height: 70
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -229,8 +229,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d47c9fb7d3ea5a24586d3a7ce99cb89f
-      internalID: 1501555411
+      spriteID: f616e9fc12fcdab4998b89a76fdb4736
+      internalID: 304843591
       vertices: []
       indices: 
       edges: []
