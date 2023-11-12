@@ -5,10 +5,12 @@ using UnityEngine.Events;
 public class CharacterController2D : MonoBehaviour
 {
     [SerializeField] float speed = 400f;
-    [SerializeField] float jumpForse = 300f;
-    [SerializeField] float jumpingForse = 20f;
+    [SerializeField] float jumpForce = 300f;
+    [SerializeField] float jump2Force = 300f;
+    [SerializeField] float jumpingForce = 20f;
     [SerializeField] float airTime = 10;
     float airTimeLeft;
+    bool doubleJumped = false;
 
     //[SerializeField] [Range(0f, .3f)] float movementSmoothing = 0.05f;
     
@@ -26,43 +28,51 @@ public class CharacterController2D : MonoBehaviour
     private void Awake()
     {
         rigidbody2d = GetComponent<Rigidbody2D>();
+		airTimeLeft = airTime;
     }
 
     private void FixedUpdate()
     {
-        if (!isFalling && rigidbody2d.velocity.y < 0) Fall();
+        if(!isFalling && !grounded && rigidbody2d.velocity.y < 0.1) Fall();
         debugVelocity = rigidbody2d.velocity;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (!other.CompareTag("Wall")) return;
-        Land();
+        if(!other.CompareTag("Wall")) return;
+		if(isFalling)
+        	Land();
     }
+
+	private void OnTriggerExit2D(Collider2D other) 
+	{
+		if (!other.CompareTag("Wall")) return;
+		grounded = false;
+	}
 
     public void Move(float move)
     {
         var velocity = move * speed * Time.fixedDeltaTime;
         rigidbody2d.velocity = new Vector2(velocity, rigidbody2d.velocity.y);
-        Console.WriteLine("move: " + move);
     }
 
     public void Jump()
     {
-        if (!grounded) return;
+        if(!grounded && doubleJumped) return;
+        if(!grounded) doubleJumped = true;
 
-        grounded = false;
-        rigidbody2d.AddForce(new Vector2(0f, jumpForse));
+		rigidbody2d.velocity = new Vector2(rigidbody2d.velocity.x, 0f);
+        rigidbody2d.AddForce(new Vector2(0f, doubleJumped ? jump2Force : jumpForce));
         jumpedEvent.Invoke();
     }
 
     public void Flight()
     {
-        if (grounded) return;
+        if(grounded) return;
 
-        if (airTimeLeft > 0)
+        if(airTimeLeft > 0)
         {
-            rigidbody2d.AddForce(new Vector2(0f, jumpingForse));
+            rigidbody2d.AddForce(new Vector2(0f, jumpingForce));
             airTimeLeft -= Time.fixedDeltaTime;
         }
     }
@@ -70,6 +80,7 @@ public class CharacterController2D : MonoBehaviour
     private void Land()
     {
         grounded = true;
+		doubleJumped = false;
         isFalling = false;
         airTimeLeft = airTime;
         landedEvent.Invoke();
