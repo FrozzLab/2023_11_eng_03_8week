@@ -6,6 +6,7 @@ public class CharacterController2D : MonoBehaviour
 {
     [SerializeField] float speed = 400f;
     [SerializeField] float jumpForce = 300f;
+    [SerializeField] float jump2Force = 300f;
     [SerializeField] float jumpingForce = 20f;
     [SerializeField] float airTime = 10;
     float airTimeLeft;
@@ -61,7 +62,7 @@ public class CharacterController2D : MonoBehaviour
         if(!grounded) doubleJumped = true;
 
 		rigidbody2d.velocity = new Vector2(rigidbody2d.velocity.x, 0f);
-        rigidbody2d.AddForce(new Vector2(0f, jumpForce));
+        rigidbody2d.AddForce(new Vector2(0f, doubleJumped ? jump2Force : jumpForce));
         jumpedEvent.Invoke();
     }
 
