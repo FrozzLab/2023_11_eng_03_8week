@@ -1,16 +1,16 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Health : MonoBehaviour
 {
     [SerializeField] int max = 3;
     int _current;
-    Animator _animator;
-    static readonly int AnimatorHealth = Animator.StringToHash("health");
+    [SerializeField] UnityEvent diedEvent;
+    public bool IsDead { get; private set; }
 
     void Awake()
     {
         _current = max;
-        _animator = GetComponent<Animator>();
     }
 
     public int Max
@@ -30,7 +30,6 @@ public class Health : MonoBehaviour
         {
             if (value < 0 || value > max) return;
             _current = value;
-            _animator.SetInteger(AnimatorHealth, _current);
         }
     }
 
@@ -62,6 +61,8 @@ public class Health : MonoBehaviour
 
     void Die()
     {
+        IsDead = true;
+        diedEvent.Invoke();
         if (CompareTag("Player"))
         {
         }
