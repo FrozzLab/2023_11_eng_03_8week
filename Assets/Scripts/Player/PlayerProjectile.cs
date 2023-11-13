@@ -1,48 +1,94 @@
+using System.Collections;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Rock : MonoBehaviour
+public class PlayerProjectile : MonoBehaviour
 {
-    [SerializeField] int dmg = 1;
     [SerializeField] float range = .8f;
+    [SerializeField] float returnSpeed = 2f;
+    [SerializeField] float returnSmoothness = 0.1f; //delay between updating direction of projectile
+    [SerializeField] float absorbDistance = 0.4f; //from how far a player can absorb a projectile to ble able to use it again
     [SerializeField] LayerMask enemyLayer;
+    [SerializeField] Transform player;
     Rigidbody2D rb;
+    new CircleCollider2D collider;
+    [SerializeField] PlayerAttackInput inputScript;
+    bool isReady;
 
-    [SerializeField] UnityEvent destroyedEvent;
-    [SerializeField] UnityEvent createdEvent;
+    [SerializeField] UnityEvent disabledEvent;
+    [SerializeField] UnityEvent explodedEvent;
+    [SerializeField] UnityEvent lunchedEvent;
+
+	public Vector2 debugVelocity;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        createdEvent.Invoke();
+        collider = GetComponent<CircleCollider2D>();
+		DisableMe(); 
+    }
+
+	private void FixedUpdate()
+    {
+        debugVelocity = rb.velocity;
     }
 
     public void Launch(Vector2 direction, float force)
     {
+		EnableMe();
         rb.velocity = direction * force;
+		lunchedEvent.Invoke();
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (!other.CompareTag("Wall") && !other.CompareTag("Enemy")) return;
+	private void OnCollisionEnter2D(Collision2D other) {
+		if (!isReady && !other.gameObject.CompareTag("Wall") && !other.gameObject.CompareTag("Enemy")) return;
         Explode();
-    }
+	}
 
     void Explode()
     {
         Debug.Log($"EXPLOSION");
-        var enemies = Physics2D.OverlapCircleAll(transform.position, range, enemyLayer).Where(e => e.CompareTag("Enemy"));
-        foreach (var enemy in enemies)
-        {
-            enemy.GetComponent<Health>().Damage(dmg);  //enemy.GetComponent<EnemyAI>().Chase(this.position);
-        }
-        destroyedEvent.Invoke();
-        Destroy(gameObject);
+        explodedEvent.Invoke();
+        isReady = false;
+		StartCoroutine(ReturnToPlayer());
     }
+
+	IEnumerator ReturnToPlayer()
+	{
+		collider.enabled = false;
+		var direction = player.position - transform.position;
+		
+		while(direction.magnitude > absorbDistance)
+		{
+			rb.velocity = direction.normalized * returnSpeed;
+			direction = player.position - transform.position;
+			yield return new WaitForSeconds(returnSmoothness);
+		}
+		DisableMe();
+		disabledEvent.Invoke();
+	}
+
+	void EnableMe()
+	{
+		rb.isKinematic = false; 
+		isReady = true;
+		this.transform.position = player.position;
+		collider.enabled = true;
+		inputScript.hasWeapon = false;
+	}
+
+	void DisableMe()
+	{
+		rb.isKinematic = true; 
+		collider.enabled = false;
+		rb.velocity = Vector2.zero;
+		inputScript.hasWeapon = true;
+	}
     
     void OnDrawGizmos() //show explode range
     {
+		if(!isReady) return;
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, range);
     }
