@@ -5,7 +5,6 @@ using UnityEngine.Events;
 
 public class PlayerProjectile : MonoBehaviour
 {
-    [SerializeField] float range = .8f;
     [SerializeField] float returnSpeed = 2f;
     [SerializeField] float returnSmoothness = 0.1f; //delay between updating direction of projectile
     [SerializeField] float absorbDistance = 0.4f; //from how far a player can absorb a projectile to ble able to use it again
@@ -43,12 +42,19 @@ public class PlayerProjectile : MonoBehaviour
 
 	private void OnCollisionEnter2D(Collision2D other) {
 		if (!isReady && !other.gameObject.CompareTag("Wall") && !other.gameObject.CompareTag("Enemy")) return;
+		Debug.Log($"EXPLOSION: collided with {other.gameObject.tag}");
         Explode();
 	}
 
     void Explode()
     {
-        Debug.Log($"EXPLOSION");
+		var obstacles = GameObject.FindGameObjectsWithTag("Enemy");
+        foreach(var o in obstacles)
+		{
+			if(o.TryGetComponent(out EnemyAI enemy)) 
+				enemy.NoticeDistraction(transform.position);
+		}
+
         explodedEvent.Invoke();
         isReady = false;
 		StartCoroutine(ReturnToPlayer());
@@ -85,11 +91,4 @@ public class PlayerProjectile : MonoBehaviour
 		rb.velocity = Vector2.zero;
 		inputScript.hasWeapon = true;
 	}
-    
-    void OnDrawGizmos() //show explode range
-    {
-		if(!isReady) return;
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, range);
-    }
 }
