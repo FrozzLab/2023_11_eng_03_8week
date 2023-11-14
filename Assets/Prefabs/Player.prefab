@@ -204,10 +204,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ebcc4111cd1a28459fe76f05722a7e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 250
-  jumpForce: 350
+  speed: 275
+  jumpForce: 550
+  jump2Force: 500
   jumpingForce: 20
-  airTime: 0.1
+  airTime: 0
   jumpedEvent:
     m_PersistentCalls:
       m_Calls:
