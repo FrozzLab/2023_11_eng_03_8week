@@ -22,7 +22,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        if (!hasControl) return;
+        if(!hasControl) return;
 
         horizontalInput = Input.GetAxisRaw("Horizontal");
         speedChangedEvent.Invoke(horizontalInput);
@@ -31,13 +31,13 @@ public class PlayerMovement : MonoBehaviour
         {
             jumped = true;
         }
-        
-        if (Input.GetButton("Jump"))
+
+        if(Input.GetButton("Jump"))
         {
             jumping = true;
         }
 
-        if((isLookingRight && horizontalInput < 0f) || (!isLookingRight && horizontalInput > 0f)) 
+        if((isLookingRight && horizontalInput < 0f) || (!isLookingRight && horizontalInput > 0f))
         {
             isLookingRight = !isLookingRight;
             turnedEvent.Invoke();
@@ -47,7 +47,7 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         controller2D.Move(horizontalInput);
-        if (jumped) controller2D.Jump();
+        if(jumped) controller2D.Jump();
         if(jumping) controller2D.Flight();
 
         jumped = false;
