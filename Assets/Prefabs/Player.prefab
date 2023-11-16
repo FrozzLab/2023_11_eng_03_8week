@@ -206,6 +206,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 250
   jumpForce: 350
+  jump2Force: 300
   jumpingForce: 20
   airTime: 0.1
   jumpedEvent:
@@ -337,7 +338,7 @@ GameObject:
   - component: {fileID: 2280772612069768793}
   - component: {fileID: 6540450933961735968}
   - component: {fileID: 1572825237977600429}
-  m_Layer: 6
+  m_Layer: 10
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -354,7 +355,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 10, y: 10, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4109957509652979786}
@@ -400,7 +401,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: 62f8c757b6606814c97ec288cab0f75d, type: 3}
+  m_Sprite: {fileID: -790228173, guid: 533e3a76c7e07504aa6b0aab7e3a5a3c, type: 3}
   m_Color: {r: 0, g: 1, b: 0.9806142, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -421,7 +422,7 @@ Animator:
   m_GameObject: {fileID: 2607097578092694236}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5bb43dc7082c7e44ab4d6ba5aa57c13c, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -456,7 +457,7 @@ GameObject:
   - component: {fileID: 4792954891448066965}
   - component: {fileID: 1460153669923676724}
   - component: {fileID: 1220088293429195093}
-  m_Layer: 6
+  m_Layer: 10
   m_Name: PlayerProjectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -553,7 +554,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2dfcb90ac88d0f14696a077b0f2e4029, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 0.8
   returnSpeed: 2
   returnSmoothness: 0.1
   absorbDistance: 0.7
@@ -564,13 +564,49 @@ MonoBehaviour:
   inputScript: {fileID: 5671270859775158831}
   disabledEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1572825237977600429}
+        m_TargetAssemblyTypeName: PlayerProjectileAnimations, Assembly-CSharp
+        m_MethodName: Disappear
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   explodedEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1572825237977600429}
+        m_TargetAssemblyTypeName: PlayerProjectileAnimations, Assembly-CSharp
+        m_MethodName: Explode
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   lunchedEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1572825237977600429}
+        m_TargetAssemblyTypeName: PlayerProjectileAnimations, Assembly-CSharp
+        m_MethodName: Launch
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   debugVelocity: {x: 0, y: 0}
 --- !u!1 &4410868275949501619
 GameObject:
@@ -743,10 +779,49 @@ MonoBehaviour:
   chargeMax: 2
   startedFocusingEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1572825237977600429}
+        m_TargetAssemblyTypeName: PlayerProjectileAnimations, Assembly-CSharp
+        m_MethodName: Focus
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  stoppedFocusingEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1572825237977600429}
+        m_TargetAssemblyTypeName: PlayerProjectileAnimations, Assembly-CSharp
+        m_MethodName: StopFocus
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   startedChargingEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1572825237977600429}
+        m_TargetAssemblyTypeName: PlayerProjectileAnimations, Assembly-CSharp
+        m_MethodName: Charge
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   chargedEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -755,7 +830,19 @@ MonoBehaviour:
       m_Calls: []
   attackedEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3528213924729719095}
+        m_TargetAssemblyTypeName: PlayerAnimations, Assembly-CSharp
+        m_MethodName: Attack
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &8720706868597653676
 MonoBehaviour:
   m_ObjectHideFlags: 0

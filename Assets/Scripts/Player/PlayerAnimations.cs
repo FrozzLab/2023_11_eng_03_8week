@@ -40,4 +40,9 @@ public class PlayerAnimations : MonoBehaviour
     {
         animator.SetBool("dead", true);
     }
+
+	public void Attack()
+    {
+        animator.SetTrigger("attack");
+    }
 }

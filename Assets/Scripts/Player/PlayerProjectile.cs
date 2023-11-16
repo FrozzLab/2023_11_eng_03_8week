@@ -24,6 +24,7 @@ public class PlayerProjectile : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+		rb.freezeRotation = true;
         collider = GetComponent<CircleCollider2D>();
 		DisableMe(); 
     }
@@ -67,7 +68,7 @@ public class PlayerProjectile : MonoBehaviour
 		
 		while(direction.magnitude > absorbDistance)
 		{
-			rb.velocity = direction.normalized * returnSpeed;
+			rb.velocity = new Vector2(direction.normalized.x, direction.normalized.y) * returnSpeed;
 			direction = player.position - transform.position;
 			yield return new WaitForSeconds(returnSmoothness);
 		}

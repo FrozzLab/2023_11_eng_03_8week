@@ -2047,33 +2047,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1220088293429195093, guid: 77847c41d0b2b0f46abcc9ddf3e8cb8b, type: 3}
-      propertyPath: explodedEvent.m_PersistentCalls.m_Calls.Array.size
+    - target: {fileID: 2280772612069768793, guid: 77847c41d0b2b0f46abcc9ddf3e8cb8b, type: 3}
+      propertyPath: m_Color.b
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 1220088293429195093, guid: 77847c41d0b2b0f46abcc9ddf3e8cb8b, type: 3}
-      propertyPath: explodedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 0
+    - target: {fileID: 2280772612069768793, guid: 77847c41d0b2b0f46abcc9ddf3e8cb8b, type: 3}
+      propertyPath: m_Color.g
+      value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 1220088293429195093, guid: 77847c41d0b2b0f46abcc9ddf3e8cb8b, type: 3}
-      propertyPath: explodedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 687578195990974351, guid: eab130f8add8812438f3f3e49368424e, type: 3}
-    - target: {fileID: 1220088293429195093, guid: 77847c41d0b2b0f46abcc9ddf3e8cb8b, type: 3}
-      propertyPath: explodedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1220088293429195093, guid: 77847c41d0b2b0f46abcc9ddf3e8cb8b, type: 3}
-      propertyPath: explodedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: HearNoise
-      objectReference: {fileID: 0}
-    - target: {fileID: 1220088293429195093, guid: 77847c41d0b2b0f46abcc9ddf3e8cb8b, type: 3}
-      propertyPath: explodedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: EnemyAI, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 1220088293429195093, guid: 77847c41d0b2b0f46abcc9ddf3e8cb8b, type: 3}
-      propertyPath: explodedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
+    - target: {fileID: 2280772612069768793, guid: 77847c41d0b2b0f46abcc9ddf3e8cb8b, type: 3}
+      propertyPath: m_Color.r
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

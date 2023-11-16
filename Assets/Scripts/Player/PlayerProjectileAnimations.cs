@@ -11,26 +11,47 @@ public class PlayerProjectileAnimations : MonoBehaviour
 
     public void Focus(float focusPercentage)
     {
-        //animator.SetBool("todo", false);
+		RestartsAllTriggers();
+        animator.SetTrigger("startedFocusing");
     }
 
     public void Charge(float chargePercentage)
     {
-        //animator.SetBool("todo", false);
+		RestartsAllTriggers();
+        animator.SetTrigger("startedCharging");
     }
 
     public void Launch()
     {
-        //animator.SetBool("todo", false);
+		RestartsAllTriggers();
+        animator.SetTrigger("launched");
     }
 
     public void Explode()
     {
-        //animator.SetBool("todo", false);
+		RestartsAllTriggers();
+        animator.SetTrigger("exploded");
     }
 
     public void Disappear()
     {
-        //animator.SetBool("todo", false);
+		RestartsAllTriggers();
+        animator.SetTrigger("returnedToPlayer");
+    }
+
+	public void StopFocus()
+    {
+		RestartsAllTriggers();
+        animator.SetTrigger("focusingInterrupted");
+    }
+
+	public void RestartsAllTriggers()
+    {
+        animator.ResetTrigger("startedFocusing");
+        animator.ResetTrigger("startedCharging");
+        animator.ResetTrigger("launched");
+        animator.ResetTrigger("exploded");
+        animator.ResetTrigger("returnedToPlayer");
+        animator.ResetTrigger("focusingInterrupted");
     }
 }
