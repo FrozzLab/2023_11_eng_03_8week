@@ -6,16 +6,14 @@ using UnityEngine.Events;
 public class PlayerProjectile : MonoBehaviour
 {
     [SerializeField] float returnSpeed = 2f;
-    [SerializeField] float returnSmoothness = 0.1f; //delay between updating direction of projectile
     [SerializeField] float absorbDistance = 0.4f; //from how far a player can absorb a projectile to ble able to use it again
     [SerializeField] LayerMask enemyLayer;
-    [SerializeField] Transform player;
     Rigidbody2D rb;
     new CircleCollider2D collider;
     [SerializeField] PlayerAttackInput inputScript;
-    bool isReady;
+    [SerializeField] Transform player;
 
-    [SerializeField] UnityEvent disabledEvent;
+    [SerializeField] UnityEvent absorbedEvent;
     [SerializeField] UnityEvent explodedEvent;
     [SerializeField] UnityEvent lunchedEvent;
 
@@ -42,7 +40,7 @@ public class PlayerProjectile : MonoBehaviour
     }
 
 	private void OnCollisionEnter2D(Collision2D other) {
-		if (!isReady && !other.gameObject.CompareTag("Wall") && !other.gameObject.CompareTag("Enemy")) return;
+		if (!other.gameObject.CompareTag("Wall") && !other.gameObject.CompareTag("Enemy")) return;
 		Debug.Log($"EXPLOSION: collided with {other.gameObject.tag}");
         Explode();
 	}
@@ -57,39 +55,45 @@ public class PlayerProjectile : MonoBehaviour
 		}
 
         explodedEvent.Invoke();
-        isReady = false;
 		StartCoroutine(ReturnToPlayer());
     }
 
 	IEnumerator ReturnToPlayer()
 	{
+		//wait for explosion
+		rb.isKinematic = true; 
+		rb.velocity = Vector2.zero;
 		collider.enabled = false;
+		yield return new WaitForSeconds(0.3f);
+
+		//return to player
 		var direction = player.position - transform.position;
 		
 		while(direction.magnitude > absorbDistance)
 		{
-			rb.velocity = new Vector2(direction.normalized.x, direction.normalized.y) * returnSpeed;
-			direction = player.position - transform.position;
-			yield return new WaitForSeconds(returnSmoothness);
+			rb.velocity = (Vector2)direction.normalized * returnSpeed;
+			direction = player.position - transform.position; 
+			yield return new WaitForSeconds(0.1f);
 		}
+
+		absorbedEvent.Invoke();
 		DisableMe();
-		disabledEvent.Invoke();
 	}
 
 	void EnableMe()
 	{
 		rb.isKinematic = false; 
-		isReady = true;
-		this.transform.position = player.position;
 		collider.enabled = true;
+		transform.position = player.position;
 		inputScript.hasWeapon = false;
 	}
 
 	void DisableMe()
 	{
-		rb.isKinematic = true; 
 		collider.enabled = false;
+		rb.isKinematic = true; 
 		rb.velocity = Vector2.zero;
+		transform.position = player.position;
 		inputScript.hasWeapon = true;
 	}
 }

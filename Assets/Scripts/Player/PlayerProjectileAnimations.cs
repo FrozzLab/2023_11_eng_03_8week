@@ -9,18 +9,6 @@ public class PlayerProjectileAnimations : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
-    public void Focus(float focusPercentage)
-    {
-		RestartsAllTriggers();
-        animator.SetTrigger("startedFocusing");
-    }
-
-    public void Charge(float chargePercentage)
-    {
-		RestartsAllTriggers();
-        animator.SetTrigger("startedCharging");
-    }
-
     public void Launch()
     {
 		RestartsAllTriggers();
@@ -39,19 +27,10 @@ public class PlayerProjectileAnimations : MonoBehaviour
         animator.SetTrigger("returnedToPlayer");
     }
 
-	public void StopFocus()
-    {
-		RestartsAllTriggers();
-        animator.SetTrigger("focusingInterrupted");
-    }
-
 	public void RestartsAllTriggers()
     {
-        animator.ResetTrigger("startedFocusing");
-        animator.ResetTrigger("startedCharging");
         animator.ResetTrigger("launched");
         animator.ResetTrigger("exploded");
         animator.ResetTrigger("returnedToPlayer");
-        animator.ResetTrigger("focusingInterrupted");
     }
 }
