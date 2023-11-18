@@ -86,11 +86,11 @@ public class PlayerAttackInput : MonoBehaviour
             playerAttack.Attack();
             attackedEvent.Invoke();
 			stoppedFocusingEvent.Invoke();
+        	_cooldown = cooldown;
         }
         _focus = 0f;
         _isFocused = false;
         _charge = 0f;
 		_isCharged = false;
-        _cooldown = cooldown;
     }
 }
