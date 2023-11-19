@@ -6,13 +6,14 @@ using UnityEngine.Events;
 public class PlayerHide : MonoBehaviour
 {
     [SerializeField] UnityEvent hidEvent;
+    [SerializeField] UnityEvent unHidEvent;
     public bool IsHidden { get; private set; }
-    PlayerMovement _playerMovement;
+    Rigidbody2D _rigidbody;
     CircleCollider2D _playerCollider;
 
     void Awake()
     {
-        _playerMovement = GetComponent<PlayerMovement>();
+        _rigidbody = GetComponent<Rigidbody2D>();
         _playerCollider = GetComponent<CircleCollider2D>();
     }
 
@@ -20,9 +21,14 @@ public class PlayerHide : MonoBehaviour
     {
         if (Input.GetButtonDown("Hide") && isOnSpot())
         {
-            IsHidden = !IsHidden;
-            _playerMovement.hasControl = !IsHidden;
+            IsHidden = true;
             hidEvent.Invoke();
+        }
+
+        if (_rigidbody.velocity.x > 0.01f || _rigidbody.velocity.y > 0.01f)
+        {
+            IsHidden = false;
+            unHidEvent.Invoke();
         }
     }
 

@@ -45,4 +45,9 @@ public class PlayerAnimations : MonoBehaviour
     {
         animator.SetBool("hidden", true);
     }
+
+    public void UnHide()
+    {
+        animator.SetBool("hidden", false);
+    }
 }
