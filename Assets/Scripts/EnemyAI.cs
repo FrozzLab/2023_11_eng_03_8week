@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class EnemyAI : MonoBehaviour
 {
@@ -183,5 +184,21 @@ public class EnemyAI : MonoBehaviour
     void ReverseDirection()
     {
         _direction = _direction == Direction.Left ? Direction.Right : Direction.Left;
+    }
+
+ 	public void NoticeDistraction(Vector3 position)
+	{
+		var magnitude = (position - transform.position).magnitude;
+		if(magnitude > detectRange) return;
+
+		//TODO: follow the noise?
+		Debug.Log($"Enemy {gameObject.name} noticed explosion {magnitude:#.00}m away position: x:{position.x:#.00} y:{position.y:#.00}");
+	}
+
+	void OnDrawGizmos()
+    {
+        Gizmos.color = Color.cyan;
+        Gizmos.DrawWireSphere(transform.position, detectRange);
+        Gizmos.DrawWireSphere(transform.position, hearRange);
     }
 }
