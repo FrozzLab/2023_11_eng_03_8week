@@ -33417,7 +33417,7 @@ MonoBehaviour:
   m_Priority: 10
   m_StandbyUpdate: 2
   m_LookAt: {fileID: 0}
-  m_Follow: {fileID: 2037326767}
+  m_Follow: {fileID: 1556679216}
   m_Lens:
     FieldOfView: 60
     OrthographicSize: 4.8663225
@@ -46553,6 +46553,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 77847c41d0b2b0f46abcc9ddf3e8cb8b, type: 3}
+--- !u!4 &1556679216 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5371642805635032445, guid: 77847c41d0b2b0f46abcc9ddf3e8cb8b, type: 3}
+  m_PrefabInstance: {fileID: 1556679215}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1682308736
 GameObject:
   m_ObjectHideFlags: 0
@@ -52181,11 +52186,6 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!4 &2037326767 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 70314853569514188, guid: 77847c41d0b2b0f46abcc9ddf3e8cb8b, type: 3}
-  m_PrefabInstance: {fileID: 1556679215}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
