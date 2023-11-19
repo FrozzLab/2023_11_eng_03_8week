@@ -8,7 +8,7 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] float force = 2f;
     [SerializeField] float range = .8f;
     [SerializeField] private LayerMask enemyLayer;
-    [SerializeField] PlayerProjectile rock;
+    [SerializeField] GameObject rock;
 
     public void Attack()
     {
@@ -27,7 +27,9 @@ public class PlayerAttack : MonoBehaviour
         target.z = 0f;
         var direction = target - transform.position;
 
-        rock.Launch(direction, force * powerPercentage);
+        var instance = Instantiate(rock, transform.position, Quaternion.identity);
+        var script = instance.GetComponent<Rock>();
+        script.Launch(direction, force * powerPercentage);
     }
 
     void OnDrawGizmos() //show attack range
