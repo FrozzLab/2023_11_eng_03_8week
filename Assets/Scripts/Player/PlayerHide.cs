@@ -19,16 +19,19 @@ public class PlayerHide : MonoBehaviour
 
     void Update()
     {
+        var velocity = _rigidbody.velocity;
+        var isMoving = velocity.x > 0.01f || velocity.y > 0.01f;
+        var isPressingButtons = Input.anyKeyDown;
+        if (isMoving || isPressingButtons)
+        {
+            IsHidden = false;
+            unHidEvent.Invoke();
+        }
+        
         if (Input.GetButtonDown("Hide") && isOnSpot())
         {
             IsHidden = true;
             hidEvent.Invoke();
-        }
-
-        if (_rigidbody.velocity.x > 0.01f || _rigidbody.velocity.y > 0.01f)
-        {
-            IsHidden = false;
-            unHidEvent.Invoke();
         }
     }
 
