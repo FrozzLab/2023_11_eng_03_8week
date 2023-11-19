@@ -1,5 +1,4 @@
 using UnityEngine;
-using Vector3 = UnityEngine.Vector3;
 
 public class Projectile : MonoBehaviour
 {
@@ -10,6 +9,10 @@ public class Projectile : MonoBehaviour
     void Awake()
     {
         _player = GameObject.FindWithTag("Player").transform;
+    }
+
+    void Start()
+    {
         _direction = _player.position - transform.position;
         _direction.Normalize();
     }

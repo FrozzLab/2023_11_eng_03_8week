@@ -8,7 +8,7 @@ public class Health : MonoBehaviour
     [SerializeField] UnityEvent diedEvent;
     public bool IsDead { get; private set; }
 
-    void Awake()
+    void Start()
     {
         _current = max;
     }
