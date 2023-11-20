@@ -93,4 +93,9 @@ public class PlayerAttackInput : MonoBehaviour
         _charge = 0f;
 		_isCharged = false;
     }
+
+	public void OnDeath()
+	{
+		hasWeapon = false;
+	}
 }
