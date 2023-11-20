@@ -1,5 +1,8 @@
+using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.Serialization;
 
 public class EnemyAI : MonoBehaviour
 {
@@ -7,6 +10,7 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] bool isTargetLoud;
     Health _targetHealth;
     LayerMask _targetLayer;
+    PlayerHide _targetHide;
     int _targetPriority = 5;
     
     LayerMask _groundLayer;
@@ -23,6 +27,9 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] float attackRange;
     [SerializeField] float attackDelay;
     [SerializeField] int damage;
+    [SerializeField] Projectile _projectile;
+    bool _canAttack = true;
+    [SerializeField] UnityEvent AttackedEvent;
 
     [SerializeField] float runSpeed;
     [SerializeField] float walkSpeed;
@@ -41,8 +48,15 @@ public class EnemyAI : MonoBehaviour
         Chase,
     }
 
+    enum AttackType
+    {
+        Melee,
+        Range
+    }
+
     [SerializeField] Direction direction = Direction.Right;
     [SerializeField] State state = State.Patrol;
+    [SerializeField] AttackType attackType = AttackType.Melee;
     Vector2 _positionReference;
     Vector2 _targetPositionReference;
     float _speed;
@@ -57,7 +71,11 @@ public class EnemyAI : MonoBehaviour
         {
             target = GameObject.FindWithTag("Player");
         }
-        
+
+        if (target.CompareTag("Player"))
+        {
+            _targetHide = target.GetComponent<PlayerHide>();
+        }
         _rigidbody = GetComponent<Rigidbody2D>();
         _collider = GetComponent<Collider2D>();
         _targetHealth = target.GetComponent<Health>();
@@ -71,8 +89,8 @@ public class EnemyAI : MonoBehaviour
         _transform = transform;
         _targetLayer = target.layer;
     }
-    
-    void FixedUpdate()
+
+    void Update()
     {
         _positionReference = (Vector2) _transform.position;
         _targetPositionReference = (Vector2) target.transform.position;
@@ -95,6 +113,20 @@ public class EnemyAI : MonoBehaviour
             }
             case State.Patrol:
             {
+                _speed = walkSpeed;
+                
+                var isGroundAhead = Physics2D.Raycast(new Vector2(_colliderBoundsReference.center.x + (int)direction, _colliderBoundsReference.center.y), Vector2.down, 1.5f, _groundLayer);
+                Debug.DrawRay(new Vector2(_colliderBoundsReference.center.x + (int)direction, _colliderBoundsReference.center.y), Vector2.down, isGroundAhead ? Color.green : Color.red);
+                if (!isGroundAhead && _isGrounded)
+                {
+                    FlipDirection();
+                }
+                
+                if (_targetHide.IsHidden)
+                {
+                    break;
+                }
+                
                 if (_distanceToTarget < sneakHearRange)
                 {
                     state = State.Chase;
@@ -113,13 +145,6 @@ public class EnemyAI : MonoBehaviour
                     break;
                 }
                 
-                var isGroundAhead = Physics2D.Raycast(new Vector2(_colliderBoundsReference.center.x + (int)direction, _colliderBoundsReference.center.y), Vector2.down, 1.5f, _groundLayer);
-                Debug.DrawRay(new Vector2(_colliderBoundsReference.center.x + (int)direction, _colliderBoundsReference.center.y), Vector2.down, isGroundAhead ? Color.green : Color.red);
-                if (!isGroundAhead && _isGrounded)
-                {
-                    FlipDirection();
-                }
-                _speed = walkSpeed;
                 break;
             }
             case State.Chase:
@@ -134,6 +159,13 @@ public class EnemyAI : MonoBehaviour
                 {
                     FlipDirection();
                 }
+
+                if (_distanceToTarget < attackRange)
+                {
+                    if (!_canAttack) break;
+                    StartCoroutine(WaitForNextAttack());
+                    Attack();
+                }
                 break;
             }
             default:
@@ -145,21 +177,51 @@ public class EnemyAI : MonoBehaviour
 
         var isObstacleAhead = Physics2D.Raycast(new Vector2(_colliderBoundsReference.center.x, _colliderBoundsReference.center.y - _colliderBoundsReference.size.y / 2), Vector2.right * (int)direction, 1f, _groundLayer);
         var isObstacleAboveHeight = Physics2D.Raycast(new Vector2(_colliderBoundsReference.center.x, _colliderBoundsReference.center.y + _colliderBoundsReference.size.y / 2), Vector2.right, 1f, _groundLayer);
-        var canJumpOverObstacle = isObstacleAhead && !isObstacleAboveHeight;
+        _canJumpOverObstacle = isObstacleAhead && !isObstacleAboveHeight;
         Debug.DrawRay(new Vector2(_colliderBoundsReference.center.x, _colliderBoundsReference.center.y + _colliderBoundsReference.size.y / 2), Vector2.right * (int)direction, isObstacleAboveHeight ? Color.red : Color.green);
         Debug.DrawRay(new Vector2(_colliderBoundsReference.center.x, _colliderBoundsReference.center.y - _colliderBoundsReference.size.y / 2), Vector2.right * (int)direction, isObstacleAhead ? Color.red : Color.green);
-        if (canJumpOverObstacle)
-        {
-            Jump();
-        }
 
         if (isObstacleAboveHeight && _isGrounded)
         {
             FlipDirection();
         }
+    }
 
+    bool _canJumpOverObstacle;
+    void FixedUpdate()
+    {
+        if (_canJumpOverObstacle)
+        {
+            Jump();
+        }
+        
         if (_distanceToTargetHorizontal < attackRange && state == State.Chase) return;
-        _rigidbody.velocity = new Vector2((int)direction * _speed * Time.fixedDeltaTime, _rigidbody.velocity.y);
+        _rigidbody.velocity = new Vector2((int)direction * _speed * Time.deltaTime, _rigidbody.velocity.y);
+    }
+
+    void Attack()
+    {
+        if (!_targetHealth) return;
+        
+        switch (attackType)
+        {
+            case AttackType.Melee:
+                _targetHealth.Damage(damage);
+                AttackedEvent.Invoke();
+                break;
+            case AttackType.Range:
+                var projectile = Instantiate(_projectile, transform);
+                projectile.GetComponent<Projectile>().Init(target.transform, damage);
+                AttackedEvent.Invoke();
+                break;
+        }
+    }
+
+    IEnumerator WaitForNextAttack()
+    {
+        _canAttack = false;
+        yield return new WaitForSeconds(attackDelay);
+        _canAttack = true;
     }
 
     void FlipDirection()

@@ -3,23 +3,25 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     [SerializeField] float speed = 5f;
-    Transform _player;
-    Vector3 _direction;
-
-    void Awake()
+    Transform _target;
+    Vector2 _direction;
+    int _damage;
+    
+    public void Init(Transform target, int damage)
     {
-        _player = GameObject.FindWithTag("Player").transform;
+        _target = target;
+        _damage = damage;
     }
 
     void Start()
     {
-        _direction = _player.position - transform.position;
+        _direction = _target.position - transform.position;
         _direction.Normalize();
     }
-
-    void Update()
+    
+    void FixedUpdate()
     {
-        transform.Translate(_direction * (speed * Time.deltaTime));
+        transform.Translate(_direction * (speed * Time.fixedDeltaTime));
     }
 
     void OnBecameInvisible()
@@ -29,9 +31,9 @@ public class Projectile : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (!other.CompareTag("Player")) return;
+        if (other.gameObject.layer != _target.gameObject.layer) return;
         
-        other.GetComponent<Health>().Damage(1);
+        other.GetComponent<Health>().Damage(_damage);
         
         Destroy(gameObject);
     }
