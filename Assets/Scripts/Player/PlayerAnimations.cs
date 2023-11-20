@@ -44,5 +44,15 @@ public class PlayerAnimations : MonoBehaviour
 	public void Attack()
     {
         animator.SetTrigger("attack");
+	}
+
+    public void Hide()
+    {
+        animator.SetBool("hidden", true);
+    }
+
+    public void UnHide()
+    {
+        animator.SetBool("hidden", false);
     }
 }
