@@ -10,6 +10,7 @@ public class PlayerHide : MonoBehaviour
     public bool IsHidden { get; private set; }
     Rigidbody2D _rigidbody;
     CircleCollider2D _playerCollider;
+    List<Collider2D> _contacts = new List<Collider2D>();
 
     void Awake()
     {
@@ -20,25 +21,26 @@ public class PlayerHide : MonoBehaviour
     void Update()
     {
         var velocity = _rigidbody.velocity;
-        var isMoving = velocity.x > 0.01f || velocity.y > 0.01f;
+        var isMoving = Mathf.Abs(velocity.x) > 0.01f || Mathf.Abs(velocity.y) > 0.01f;
         var isPressingButtons = Input.anyKeyDown;
-        if (isMoving || isPressingButtons)
+        if (IsHidden && (isMoving || isPressingButtons))
         {
+            Physics2D.IgnoreLayerCollision(gameObject.layer, LayerMask.NameToLayer("Enemy"), false);
+            
             IsHidden = false;
             unHidEvent.Invoke();
         }
         
-        if (Input.GetButtonDown("Hide") && isOnSpot())
+        if (Input.GetButtonDown("Hide"))
         {
+            _playerCollider.GetContacts(_contacts);
+            if (!_contacts.Any(collider => collider.gameObject.CompareTag("HidingSpot"))) return;
+            
+            Physics2D.IgnoreLayerCollision(gameObject.layer, LayerMask.NameToLayer("Enemy"));
+            
             IsHidden = true;
             hidEvent.Invoke();
         }
     }
-
-    bool isOnSpot()
-    {
-        var colliders = new List<Collider2D>();
-        _playerCollider.GetContacts(colliders);
-        return colliders.Any(collider => collider.gameObject.CompareTag("HidingSpot"));
-    }
+    
 }
