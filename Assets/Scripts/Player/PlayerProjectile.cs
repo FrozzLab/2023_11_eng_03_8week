@@ -15,7 +15,7 @@ public class PlayerProjectile : MonoBehaviour
 
     [SerializeField] UnityEvent absorbedEvent;
     [SerializeField] UnityEvent explodedEvent;
-    [SerializeField] UnityEvent lunchedEvent;
+    [SerializeField] UnityEvent launchedEvent;
 
 	public Vector2 debugVelocity;
 
@@ -36,7 +36,7 @@ public class PlayerProjectile : MonoBehaviour
     {
 		EnableMe();
         rb.velocity = direction * force;
-		lunchedEvent.Invoke();
+		launchedEvent.Invoke();
     }
 
 	private void OnCollisionEnter2D(Collision2D other) {
