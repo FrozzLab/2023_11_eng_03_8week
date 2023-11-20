@@ -40,4 +40,14 @@ public class PlayerAnimations : MonoBehaviour
     {
         animator.SetBool("dead", true);
     }
+
+    public void Hide()
+    {
+        animator.SetBool("hidden", true);
+    }
+
+    public void UnHide()
+    {
+        animator.SetBool("hidden", false);
+    }
 }
