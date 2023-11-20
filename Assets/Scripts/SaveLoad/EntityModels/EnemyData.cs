@@ -14,8 +14,8 @@ public class EnemyData : EntityData
 		{
 			Id = data.Id,
 			Position = data.Position,
-			health = Health,
-			animationName = AnimationName,
+			Health = Health,
+			AnimationName = AnimationName,
 		};
 	}
 
@@ -23,14 +23,14 @@ public class EnemyData : EntityData
 	{
 		base.LoadData(data);
 		var concreteData = (EnemySavedData)data;
-		GetComponent<Health>().Current = concreteData.health;
-		GetComponentInChildren<Animator>().Play(concreteData.animationName);
+		GetComponent<Health>().Current = concreteData.Health;
+		GetComponentInChildren<Animator>().Play(concreteData.AnimationName);
 	}
 }
 
 [Serializable]
 public class EnemySavedData : EntitySavedData
 {
-	public int health;
-	public string animationName;
+	public int Health {get;  set;}
+	public string AnimationName {get;  set;}
 }

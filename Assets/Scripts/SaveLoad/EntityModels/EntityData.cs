@@ -4,7 +4,7 @@ using UnityEngine;
 public class EntityData : MonoBehaviour
 {
 	public string Id {get; private set;}
-    private float[] Position => new float[3] { transform.position.x, transform.position.y, transform.position.z };
+	private float[] Position => new float[3] { transform.position.x, transform.position.y, transform.position.z };
 
 	private void Start() 
 	{
@@ -27,15 +27,11 @@ public class EntityData : MonoBehaviour
 
 		transform.position = new Vector3(data.Position[0], data.Position[1], data.Position[2]);
 	}
-
-	private void Update() {
-		if(Input.GetKeyDown(KeyCode.P)) transform.position = Vector3.zero;
-	}
 }
 
 [Serializable]
 public class EntitySavedData
 {
 	public string Id {get;  set;}
-    public float[] Position {get;  set;}
+	public float[] Position {get;  set;}
 }

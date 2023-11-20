@@ -12,7 +12,7 @@ public class PlayerData : EntityData
 		{
 			Id = data.Id,
 			Position = data.Position,
-			health = Health,
+			Health = Health,
 		};
 	}
 
@@ -20,12 +20,12 @@ public class PlayerData : EntityData
 	{
 		base.LoadData(data);
 		var concreteData = (PlayerSavedData)data;
-		GetComponent<Health>().Current = concreteData.health;
+		GetComponent<Health>().Current = concreteData.Health;
 	}
 }
 
 [Serializable]
 public class PlayerSavedData : EntitySavedData
 {
-	public int health;
+	public int Health {get;  set;}
 }
