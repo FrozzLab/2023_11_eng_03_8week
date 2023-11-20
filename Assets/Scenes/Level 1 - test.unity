@@ -233,14 +233,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1792871598366607946, guid: 4371c58ed07f8264fb2f002288eb192e, type: 3}
-      propertyPath: m_RaycastTarget
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4357894077488911800, guid: 4371c58ed07f8264fb2f002288eb192e, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6644035447449605442, guid: 4371c58ed07f8264fb2f002288eb192e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -288,7 +280,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7133605627562252430, guid: 4371c58ed07f8264fb2f002288eb192e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1444386865}
   m_SourcePrefab: {fileID: 100100000, guid: 4371c58ed07f8264fb2f002288eb192e, type: 3}
 --- !u!1 &395130381
 GameObject:
@@ -1313,6 +1308,7 @@ GameObject:
   - component: {fileID: 412348023}
   - component: {fileID: 412348024}
   - component: {fileID: 412348025}
+  - component: {fileID: 412348026}
   m_Layer: 7
   m_Name: Capsule
   m_TagString: Enemy
@@ -1498,6 +1494,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &412348026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 412348019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47dc6e92b009238e3ad373770392b546, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &495802374
 GameObject:
   m_ObjectHideFlags: 0
@@ -1861,6 +1869,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1444386862 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7133605627562252430, guid: 4371c58ed07f8264fb2f002288eb192e, type: 3}
+  m_PrefabInstance: {fileID: 222601563}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1444386865
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1444386862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8c3d08e3efd86eeeada18bb7c31f8a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1518686603
 GameObject:
   m_ObjectHideFlags: 0
@@ -2046,34 +2071,6 @@ PrefabInstance:
     - target: {fileID: 70314853569514188, guid: 77847c41d0b2b0f46abcc9ddf3e8cb8b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1220088293429195093, guid: 77847c41d0b2b0f46abcc9ddf3e8cb8b, type: 3}
-      propertyPath: explodedEvent.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1220088293429195093, guid: 77847c41d0b2b0f46abcc9ddf3e8cb8b, type: 3}
-      propertyPath: explodedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1220088293429195093, guid: 77847c41d0b2b0f46abcc9ddf3e8cb8b, type: 3}
-      propertyPath: explodedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 687578195990974351, guid: eab130f8add8812438f3f3e49368424e, type: 3}
-    - target: {fileID: 1220088293429195093, guid: 77847c41d0b2b0f46abcc9ddf3e8cb8b, type: 3}
-      propertyPath: explodedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1220088293429195093, guid: 77847c41d0b2b0f46abcc9ddf3e8cb8b, type: 3}
-      propertyPath: explodedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: HearNoise
-      objectReference: {fileID: 0}
-    - target: {fileID: 1220088293429195093, guid: 77847c41d0b2b0f46abcc9ddf3e8cb8b, type: 3}
-      propertyPath: explodedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: EnemyAI, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 1220088293429195093, guid: 77847c41d0b2b0f46abcc9ddf3e8cb8b, type: 3}
-      propertyPath: explodedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

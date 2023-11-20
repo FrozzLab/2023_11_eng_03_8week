@@ -18,6 +18,7 @@ public class PlayerAttackInput : MonoBehaviour
     PlayerAttack playerAttack;
 
     [SerializeField] UnityEvent<float> startedFocusingEvent;
+    [SerializeField] UnityEvent stoppedFocusingEvent;
     [SerializeField] UnityEvent<float> startedChargingEvent;
     [SerializeField] UnityEvent chargedEvent;
     [SerializeField] UnityEvent thrownEvent;
@@ -35,6 +36,11 @@ public class PlayerAttackInput : MonoBehaviour
         _cooldown = Mathf.Max(0f, _cooldown - Time.deltaTime);
         if(_cooldown > 0f) return;
 
+		if(Input.GetButtonDown("Attack"))
+        {
+            startedFocusingEvent.Invoke(focusMax);
+        }
+
         if(Input.GetButton("Attack"))
         {
             Focus();
@@ -51,16 +57,15 @@ public class PlayerAttackInput : MonoBehaviour
         if(_focus < focusMax)
         {
             _focus = Mathf.Min(focusMax, _focus + Time.deltaTime);
-			startedFocusingEvent.Invoke(_focus/focusMax);
         }
         else if(!_isFocused)
         {
             _isFocused = true;
+			startedChargingEvent.Invoke(chargeMax);
         }
         else if(_charge < chargeMax)
         {
             _charge = Mathf.Min(chargeMax, _charge + Time.deltaTime);
-			startedChargingEvent.Invoke(_charge/chargeMax);
         }
 		else if(!_isCharged)
 		{
@@ -80,11 +85,17 @@ public class PlayerAttackInput : MonoBehaviour
         {
             playerAttack.Attack();
             attackedEvent.Invoke();
+			stoppedFocusingEvent.Invoke();
+        	_cooldown = cooldown;
         }
         _focus = 0f;
         _isFocused = false;
         _charge = 0f;
 		_isCharged = false;
-        _cooldown = cooldown;
     }
+
+	public void OnDeath()
+	{
+		hasWeapon = false;
+	}
 }

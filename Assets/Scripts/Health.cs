@@ -40,6 +40,8 @@ public class Health : MonoBehaviour
 
     public void Damage(int amount)
     {
+		if(_current <= 0) return;
+		
         Current -= amount;
         Debug.Log($"{gameObject.name} took {amount} dmg. HP left {Current}");
 
