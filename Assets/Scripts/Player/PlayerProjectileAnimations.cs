@@ -9,28 +9,28 @@ public class PlayerProjectileAnimations : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
-    public void Focus(float focusPercentage)
-    {
-        //animator.SetBool("todo", false);
-    }
-
-    public void Charge(float chargePercentage)
-    {
-        //animator.SetBool("todo", false);
-    }
-
     public void Launch()
     {
-        //animator.SetBool("todo", false);
+		RestartsAllTriggers();
+        animator.SetTrigger("launched");
     }
 
     public void Explode()
     {
-        //animator.SetBool("todo", false);
+		RestartsAllTriggers();
+        animator.SetTrigger("exploded");
     }
 
     public void Disappear()
     {
-        //animator.SetBool("todo", false);
+		RestartsAllTriggers();
+        animator.SetTrigger("returnedToPlayer");
+    }
+
+	public void RestartsAllTriggers()
+    {
+        animator.ResetTrigger("launched");
+        animator.ResetTrigger("exploded");
+        animator.ResetTrigger("returnedToPlayer");
     }
 }

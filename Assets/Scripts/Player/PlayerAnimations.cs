@@ -41,6 +41,11 @@ public class PlayerAnimations : MonoBehaviour
         animator.SetBool("dead", true);
     }
 
+	public void Attack()
+    {
+        animator.SetTrigger("attack");
+	}
+
     public void Hide()
     {
         animator.SetBool("hidden", true);
