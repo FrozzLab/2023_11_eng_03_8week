@@ -66,7 +66,7 @@ public class SaveLoad : MonoBehaviour
 		}
 		else
 		{
-			Debug.LogWarning("Player progress did not found!!");
+			Debug.LogWarning("Player progress not found!!");
 		}
 	}
 }
