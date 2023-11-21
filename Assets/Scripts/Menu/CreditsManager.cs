@@ -1,10 +1,8 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CreditsManager : MonoBehaviour
 {
-    public GameObject[] creditsTiles;
     [SerializeField] public float distanceToMove;
     [SerializeField] public float timeToMove;
     
@@ -13,28 +11,37 @@ public class CreditsManager : MonoBehaviour
 
     public void DisplayCreditsTile(GameObject tileToDisplay)
     {
+        if (tileToDisplay == _currentTile)
+        {
+            return;
+        }
+        
         var position = tileToDisplay.transform.position;
         
         if (_currentTile != null)
         {
-            var oldTilePosition = tileToDisplay.transform.position;
+            var oldTilePosition = _currentTile.transform.position;
             
-            StopAllCoroutines();
             StartCoroutine(LiftUpOldTileAndLowerNewOne(
                 _currentTile, 
                 oldTilePosition, 
-                new Vector3(oldTilePosition.x, oldTilePosition.y + distanceToMove, oldTilePosition.z),
+                new Vector3(oldTilePosition.x, 
+                    oldTilePosition.y + (distanceToMove / _currentTile.transform.localScale.y), 
+                    oldTilePosition.z),
                 tileToDisplay, 
                 position, 
-                new Vector3(position.x, position.y - distanceToMove, position.z)));
+                new Vector3(position.x, 
+                    position.y - (distanceToMove / tileToDisplay.transform.localScale.y), 
+                    position.z)));
 
             _currentTile = tileToDisplay;
         }
         else
         {
-            StopAllCoroutines();
             StartCoroutine(MoveTile(tileToDisplay, position, 
-                new Vector3(position.x, position.y - distanceToMove, position.z)));
+                new Vector3(position.x, 
+                    position.y - (distanceToMove / tileToDisplay.transform.localScale.y), 
+                    position.z)));
 
             _currentTile = tileToDisplay;
         }
@@ -44,9 +51,10 @@ public class CreditsManager : MonoBehaviour
     {
         var position = _currentTile.transform.position;
         
-        StopAllCoroutines();
         StartCoroutine(MoveTile(_currentTile, position, 
-            new Vector3(position.x,position.y + distanceToMove, position.z)));
+            new Vector3(position.x,
+                position.y + (distanceToMove / _currentTile.transform.localScale.y), 
+                position.z)));
     }
 
     private IEnumerator MoveTile(GameObject tile, Vector3 currentPosition, Vector3 desiredPosition)

@@ -78776,14 +78776,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1334af54e0297d045b2efd8cc3061f63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  creditsTiles:
-  - {fileID: 1490263597}
-  - {fileID: 1680009707}
-  - {fileID: 1681592923}
-  - {fileID: 1745738330}
-  - {fileID: 1830348266}
   distanceToMove: 800
-  timeToMove: 3
+  timeToMove: 0.65
 --- !u!4 &1760599778
 Transform:
   m_ObjectHideFlags: 0
@@ -80458,11 +80452,6 @@ Transform:
   - {fileID: 423371063}
   m_Father: {fileID: 1195546813}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1843887029 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4607046721412825713, guid: 2ab2140c9eb00df409726bb539c51ac2, type: 3}
-  m_PrefabInstance: {fileID: 1947187055}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1852930562
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -81773,6 +81762,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1787851395}
     m_Modifications:
+    - target: {fileID: 1442761048107461313, guid: 2ab2140c9eb00df409726bb539c51ac2, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2512610079065690739, guid: 2ab2140c9eb00df409726bb539c51ac2, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 2
@@ -81792,7 +81785,7 @@ PrefabInstance:
     - target: {fileID: 2512610079065690739, guid: 2ab2140c9eb00df409726bb539c51ac2, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
-      objectReference: {fileID: 1843887029}
+      objectReference: {fileID: 1830348266}
     - target: {fileID: 2512610079065690739, guid: 2ab2140c9eb00df409726bb539c51ac2, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.GameObject, UnityEngine
