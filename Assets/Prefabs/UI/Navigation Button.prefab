@@ -180,7 +180,6 @@ GameObject:
   - component: {fileID: 9217874703651578791}
   - component: {fileID: 1992983965931961585}
   - component: {fileID: 638837768794450487}
-  - component: {fileID: 4138039463728200927}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -290,27 +289,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4138039463728200927}
-        m_TargetAssemblyTypeName: ButtonLevelInteract, Assembly-CSharp
-        m_MethodName: LoadScene
-        m_Mode: 5
+      - m_Target: {fileID: 6822621016325986963, guid: a76f570c0a894464dbdf395a3926f111, type: 3}
+        m_TargetAssemblyTypeName: ViewManager, Assembly-CSharp
+        m_MethodName: ChangeCamera
+        m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgumentAssemblyTypeName: Cinemachine.CinemachineVirtualCamera,
+            Cinemachine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &4138039463728200927
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3217679086994898512}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67196adbf81b20d4da1a548b3f09a202, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

@@ -3897,6 +3897,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5340030447256605862, guid: 5ebc6c1ee22ce3848bd857eccfe9262a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5340030447256605862, guid: 5ebc6c1ee22ce3848bd857eccfe9262a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 6822621016325986963, guid: a76f570c0a894464dbdf395a3926f111, type: 3}
+    - target: {fileID: 5340030447256605862, guid: 5ebc6c1ee22ce3848bd857eccfe9262a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChangeCamera
+      objectReference: {fileID: 0}
+    - target: {fileID: 5340030447256605862, guid: 5ebc6c1ee22ce3848bd857eccfe9262a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: ViewManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5340030447256605862, guid: 5ebc6c1ee22ce3848bd857eccfe9262a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 1867504660}
+    - target: {fileID: 5340030447256605862, guid: 5ebc6c1ee22ce3848bd857eccfe9262a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: Cinemachine.CinemachineVirtualCamera, Cinemachine
+      objectReference: {fileID: 0}
     - target: {fileID: 5722924416242691908, guid: 5ebc6c1ee22ce3848bd857eccfe9262a, type: 3}
       propertyPath: m_Color.b
       value: 0.6886792
@@ -8042,6 +8066,30 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5340030447256605862, guid: 4f9b58c9513b6eb4f9a1633d2f2b8df0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5340030447256605862, guid: 4f9b58c9513b6eb4f9a1633d2f2b8df0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 6822621016325986963, guid: a76f570c0a894464dbdf395a3926f111, type: 3}
+    - target: {fileID: 5340030447256605862, guid: 4f9b58c9513b6eb4f9a1633d2f2b8df0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChangeCamera
+      objectReference: {fileID: 0}
+    - target: {fileID: 5340030447256605862, guid: 4f9b58c9513b6eb4f9a1633d2f2b8df0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: ViewManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5340030447256605862, guid: 4f9b58c9513b6eb4f9a1633d2f2b8df0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 1356454225}
+    - target: {fileID: 5340030447256605862, guid: 4f9b58c9513b6eb4f9a1633d2f2b8df0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: Cinemachine.CinemachineVirtualCamera, Cinemachine
+      objectReference: {fileID: 0}
     - target: {fileID: 5722924416242691908, guid: 4f9b58c9513b6eb4f9a1633d2f2b8df0, type: 3}
       propertyPath: m_Color.a
       value: 0.5882353
@@ -8068,7 +8116,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &945845535
 Transform:
   m_ObjectHideFlags: 0
@@ -44896,6 +44944,30 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5340030447256605862, guid: 170b2b19d50765e4a873f90b203e69ae, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5340030447256605862, guid: 170b2b19d50765e4a873f90b203e69ae, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 6822621016325986963, guid: a76f570c0a894464dbdf395a3926f111, type: 3}
+    - target: {fileID: 5340030447256605862, guid: 170b2b19d50765e4a873f90b203e69ae, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChangeCamera
+      objectReference: {fileID: 0}
+    - target: {fileID: 5340030447256605862, guid: 170b2b19d50765e4a873f90b203e69ae, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: ViewManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5340030447256605862, guid: 170b2b19d50765e4a873f90b203e69ae, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 945845536}
+    - target: {fileID: 5340030447256605862, guid: 170b2b19d50765e4a873f90b203e69ae, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: Cinemachine.CinemachineVirtualCamera, Cinemachine
+      objectReference: {fileID: 0}
     - target: {fileID: 5722924416242691908, guid: 170b2b19d50765e4a873f90b203e69ae, type: 3}
       propertyPath: m_Color.a
       value: 0.5882353
@@ -44922,7 +44994,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1356454224
 Transform:
   m_ObjectHideFlags: 0
@@ -44990,6 +45062,67 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a8a05de0ac134f4f9d01bef6b9da077, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1001 &1373225205
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1288867140973952530, guid: a76f570c0a894464dbdf395a3926f111, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1288867140973952530, guid: a76f570c0a894464dbdf395a3926f111, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1288867140973952530, guid: a76f570c0a894464dbdf395a3926f111, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1288867140973952530, guid: a76f570c0a894464dbdf395a3926f111, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1288867140973952530, guid: a76f570c0a894464dbdf395a3926f111, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1288867140973952530, guid: a76f570c0a894464dbdf395a3926f111, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1288867140973952530, guid: a76f570c0a894464dbdf395a3926f111, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1288867140973952530, guid: a76f570c0a894464dbdf395a3926f111, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1288867140973952530, guid: a76f570c0a894464dbdf395a3926f111, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1288867140973952530, guid: a76f570c0a894464dbdf395a3926f111, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6822621016325986963, guid: a76f570c0a894464dbdf395a3926f111, type: 3}
+      propertyPath: currentCamera
+      value: 
+      objectReference: {fileID: 1867504660}
+    - target: {fileID: 8627165966545884087, guid: a76f570c0a894464dbdf395a3926f111, type: 3}
+      propertyPath: m_Name
+      value: ViewManager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a76f570c0a894464dbdf395a3926f111, type: 3}
 --- !u!1001 &1375020686
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -45057,6 +45190,18 @@ PrefabInstance:
     - target: {fileID: 4098166807858115138, guid: ad1b1ee84372942409bdc912129b8844, type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5340030447256605862, guid: ad1b1ee84372942409bdc912129b8844, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1682922545344063088, guid: 4371c58ed07f8264fb2f002288eb192e, type: 3}
+    - target: {fileID: 5340030447256605862, guid: ad1b1ee84372942409bdc912129b8844, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ExitGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 5340030447256605862, guid: ad1b1ee84372942409bdc912129b8844, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: LevelManager, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 5722924416242691908, guid: ad1b1ee84372942409bdc912129b8844, type: 3}
       propertyPath: m_Color.a
@@ -62561,7 +62706,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1825891405
 Transform:
   m_ObjectHideFlags: 0
@@ -62642,8 +62787,32 @@ PrefabInstance:
       value: New Game
       objectReference: {fileID: 0}
     - target: {fileID: 638837768794450487, guid: 4166e4771bbd4f2479b342f72939d167, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 638837768794450487, guid: 4166e4771bbd4f2479b342f72939d167, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 6822621016325986963, guid: a76f570c0a894464dbdf395a3926f111, type: 3}
+    - target: {fileID: 638837768794450487, guid: 4166e4771bbd4f2479b342f72939d167, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChangeCamera
+      objectReference: {fileID: 0}
+    - target: {fileID: 638837768794450487, guid: 4166e4771bbd4f2479b342f72939d167, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: ViewManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 638837768794450487, guid: 4166e4771bbd4f2479b342f72939d167, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 1825891406}
+    - target: {fileID: 638837768794450487, guid: 4166e4771bbd4f2479b342f72939d167, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
       value: Level 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 638837768794450487, guid: 4166e4771bbd4f2479b342f72939d167, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: Cinemachine.CinemachineVirtualCamera, Cinemachine
       objectReference: {fileID: 0}
     - target: {fileID: 2091474829663731587, guid: 4166e4771bbd4f2479b342f72939d167, type: 3}
       propertyPath: m_Name
@@ -69970,6 +70139,7 @@ SceneRoots:
   - {fileID: 975227470}
   - {fileID: 36807775}
   - {fileID: 1954584105}
+  - {fileID: 1191110193}
   - {fileID: 1592080152}
   - {fileID: 744636085}
-  - {fileID: 1191110193}
+  - {fileID: 1373225205}
