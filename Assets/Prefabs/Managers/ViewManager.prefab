@@ -45,3 +45,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentCamera: {fileID: 0}
+  aspectViewAssociations:
+  - ratio: 0
+    assignedView: {fileID: 0}
+  - ratio: 0
+    assignedView: {fileID: 0}
