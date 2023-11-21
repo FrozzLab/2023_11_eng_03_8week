@@ -27,9 +27,9 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] float attackRange;
     [SerializeField] float attackDelay;
     [SerializeField] int damage;
-    [SerializeField] Projectile _projectile;
+    [SerializeField] Projectile projectile;
     bool _canAttack = true;
-    [SerializeField] UnityEvent AttackedEvent;
+    [SerializeField] UnityEvent attackedEvent;
 
     [SerializeField] float runSpeed;
     [SerializeField] float walkSpeed;
@@ -122,7 +122,7 @@ public class EnemyAI : MonoBehaviour
                     FlipDirection();
                 }
                 
-                if (_targetHide.IsHidden)
+                if (_targetHide && _targetHide.IsHidden)
                 {
                     break;
                 }
@@ -175,8 +175,8 @@ public class EnemyAI : MonoBehaviour
             }
         }
 
-        var isObstacleAhead = Physics2D.Raycast(new Vector2(_colliderBoundsReference.center.x, _colliderBoundsReference.center.y - _colliderBoundsReference.size.y / 2), Vector2.right * (int)direction, 1f, _groundLayer);
-        var isObstacleAboveHeight = Physics2D.Raycast(new Vector2(_colliderBoundsReference.center.x, _colliderBoundsReference.center.y + _colliderBoundsReference.size.y / 2), Vector2.right, 1f, _groundLayer);
+        var isObstacleAhead = Physics2D.Raycast(new Vector2(_colliderBoundsReference.center.x, _colliderBoundsReference.center.y - _colliderBoundsReference.size.y / 2 + 0.1f), Vector2.right * (int)direction, 1f, _groundLayer);
+        var isObstacleAboveHeight = Physics2D.Raycast(new Vector2(_colliderBoundsReference.center.x, _colliderBoundsReference.center.y + _colliderBoundsReference.size.y / 2 + 0.1f), Vector2.right, 1f, _groundLayer);
         _canJumpOverObstacle = isObstacleAhead && !isObstacleAboveHeight;
         Debug.DrawRay(new Vector2(_colliderBoundsReference.center.x, _colliderBoundsReference.center.y + _colliderBoundsReference.size.y / 2), Vector2.right * (int)direction, isObstacleAboveHeight ? Color.red : Color.green);
         Debug.DrawRay(new Vector2(_colliderBoundsReference.center.x, _colliderBoundsReference.center.y - _colliderBoundsReference.size.y / 2), Vector2.right * (int)direction, isObstacleAhead ? Color.red : Color.green);
@@ -207,12 +207,12 @@ public class EnemyAI : MonoBehaviour
         {
             case AttackType.Melee:
                 _targetHealth.Damage(damage);
-                AttackedEvent.Invoke();
+                attackedEvent.Invoke();
                 break;
             case AttackType.Range:
-                var projectile = Instantiate(_projectile, transform);
+                var projectile = Instantiate(this.projectile, transform);
                 projectile.GetComponent<Projectile>().Init(target.transform, damage);
-                AttackedEvent.Invoke();
+                attackedEvent.Invoke();
                 break;
         }
     }

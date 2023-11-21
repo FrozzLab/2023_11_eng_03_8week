@@ -13,4 +13,19 @@ public class EnemyAnimations : MonoBehaviour
     {
         transform.Rotate(0f, 180f, 0f);
     }
+
+    public void NightGuardAttack()
+    {
+	    
+    }
+
+    public void NightSoldierAttack()
+    {
+	    
+    }
+
+    public void NightWardenAttack()
+    {
+	    
+    }
 }
