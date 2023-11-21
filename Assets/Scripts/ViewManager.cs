@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using System.Linq;
 using Cinemachine;
 using UnityEngine;
@@ -41,6 +40,10 @@ public class ViewManager : MonoBehaviour
         else if (cameraAspect >= 1.7)
         {
             ActivateViewByTargetRatio(AspectRatio.SixteenByNine);
+        }
+        else if (cameraAspect >= 1.6)
+        {
+            ActivateViewByTargetRatio(AspectRatio.SixteenByTen);
         }
         else
         {

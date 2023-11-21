@@ -1,4 +1,4 @@
 ﻿public enum AspectRatio
 {
-       TwentyOneByNine, SixteenByNine, FourByThree 
+       TwentyOneByNine, SixteenByTen, SixteenByNine, FourByThree 
 }
