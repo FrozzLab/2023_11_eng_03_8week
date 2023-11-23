@@ -49,6 +49,11 @@ public class CreditsManager : MonoBehaviour
 
     public void ClearScreenAfterViewChange()
     {
+        if (_currentTile == null)
+        {
+            return;
+        }
+        
         var position = _currentTile.transform.position;
         
         StartCoroutine(MoveTile(_currentTile, position, 
