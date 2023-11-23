@@ -53,4 +53,9 @@ public class PlayerMovement : MonoBehaviour
         jumped = false;
         jumping = false;
     }
+
+	public void OnDeath()
+	{
+		hasControl = false;
+	}
 }

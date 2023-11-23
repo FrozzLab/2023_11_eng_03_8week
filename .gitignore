@@ -76,3 +76,8 @@ crashlytics-build.properties
 .idea/.idea.2023_11_eng_03_8week/.idea/projectSettingsUpdater.xml
 .idea/.idea.2023_11_eng_03_8week/.idea/indexLayout.xml
 .idea/.idea.2023_11_eng_03_8week/.idea/encodings.xml
+
+
+#Custom
+data.json
+mono_crash.*
