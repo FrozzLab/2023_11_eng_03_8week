@@ -1,4 +1,7 @@
-﻿public enum AspectRatio
+﻿namespace Menu
 {
-       TwentyOneByNine, SixteenByTen, SixteenByNine, FourByThree 
+       public enum AspectRatio
+       {
+              TwentyOneByNine, SixteenByTen, SixteenByNine, FourByThree 
+       }
 }

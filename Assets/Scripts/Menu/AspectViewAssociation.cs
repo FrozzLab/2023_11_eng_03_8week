@@ -1,9 +1,12 @@
 ﻿using System;
 using UnityEngine;
 
-[Serializable]
-public class AspectViewAssociation
+namespace Menu
 {
-    public AspectRatio ratio;
-    public GameObject assignedView;
+    [Serializable]
+    public class AspectViewAssociation
+    {
+        public AspectRatio ratio;
+        public GameObject assignedView;
+    }
 }

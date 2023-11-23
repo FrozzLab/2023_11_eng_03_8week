@@ -1,14 +1,17 @@
 using UnityEngine;
 
-public class ButtonLevelInteract : MonoBehaviour
+namespace Menu
 {
-    public void LoadScene(string sceneName)
+    public class ButtonLevelInteract : MonoBehaviour
     {
-        LevelManager.instance.LoadScene(sceneName);
-    }
+        public void LoadScene(string sceneName)
+        {
+            LevelManager.instance.LoadScene(sceneName);
+        }
 
-    public void ExitGame()
-    {
-        LevelManager.instance.ExitGame();
+        public void ExitGame()
+        {
+            LevelManager.instance.ExitGame();
+        }
     }
 }
