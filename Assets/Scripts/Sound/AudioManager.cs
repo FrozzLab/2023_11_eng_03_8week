@@ -1,11 +1,10 @@
 using UnityEngine;
 using System.Linq;
 using System.Collections.Generic;
-using UnityEngine.SceneManagement;
 
-public class AudioManager : MonoBehaviour
+public partial class AudioManager : MonoBehaviour
 {
-    private static AudioManager instance;
+    protected static AudioManager instance;
     public Sound[] sounds;
     public Music[] musics;
 
@@ -16,6 +15,7 @@ public class AudioManager : MonoBehaviour
 
     private void Awake()
     {
+		Debug.Log("test");
         if (instance != null)
         {
             Destroy(gameObject);
@@ -41,13 +41,13 @@ public class AudioManager : MonoBehaviour
         Validate(musics);
     }
 
-    private void Play(SoundName name)
+    protected void Play(SoundName name)
     {
         if (!_soundsMap.ContainsKey(name)) throw new SoundException($"Sound {name} not found. Add it to the {nameof(AudioManager)} before using it!!");
         _soundsMap[name].Play();
     }
 
-    private void Play(MusicName name)
+    protected void Play(MusicName name)
     {
         if (!_musicMap.ContainsKey(name)) throw new SoundException($"Music {name} not found. Add it to the {nameof(AudioManager)} before using it!!");
 
@@ -59,31 +59,13 @@ public class AudioManager : MonoBehaviour
         _musicMap[name].Play();
     }
 
-    private void StopAll()
+    protected void StopAll()
     {
         foreach (var music in musics)
             music.Stop();
 
         foreach (var sound in sounds)
             sound.Stop();
-    }
-
-    public static void PlayMusicOnGameStart()
-    {
-        var sceneName = SceneManager.GetActiveScene().name;
-        var name = GetMusicName(sceneName);
-        instance.Play(name);
-    }
-
-    public static void ChangeMusicOnLevelChange(string sceneName)
-    {
-        var name = GetMusicName(sceneName);
-
-        if (instance._currentMusic != name)
-        {
-            instance.StopAll();
-            instance.Play(name);
-        }
     }
 
     public static void ChangeVolumeOfMusic(float volume)
@@ -124,17 +106,5 @@ public class AudioManager : MonoBehaviour
             var joinedNames = string.Join(", ", names);
             throw new SoundException($"{nameof(AudioManager)} contains duplicated musics: {joinedNames}. Delete the duplicates!!");
         }
-    }
-
-    private static MusicName GetMusicName(string sceneName)
-    {
-        return sceneName switch
-        {
-            "Credits" or "Settings" or "Main Menu" => MusicName.MainMenuTheme,
-            "Level 1" => MusicName.Level1Theme,
-            "Level 2" => MusicName.Level2Theme,
-            "Level 3" => MusicName.Level3Theme,
-            _ => MusicName.MainMenuTheme,
-        };
     }
 }

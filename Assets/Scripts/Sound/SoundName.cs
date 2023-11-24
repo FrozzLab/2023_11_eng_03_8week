@@ -1,6 +1,6 @@
 public enum SoundName
 {
-    PlayerTakeDamage, PlayerDeath, PlayerWalk, PlayerJump, PlayerThrow, PlayerMelee,
+    PlayerTakeDamage, PlayerDeath, PlayerRun, PlayerJump, PlayerThrow, PlayerMelee,
     EnemyTakeDamage, EnemyDeath, EnemyWalk, EnemyJump, EnemyShoot, EnemyMelee, //another sound for dark night, dark magician, dark knight etc?
 }
 
