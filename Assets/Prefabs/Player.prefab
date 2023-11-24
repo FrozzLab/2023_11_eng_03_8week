@@ -909,7 +909,7 @@ MonoBehaviour:
   jumpForce: 350
   jump2Force: 300
   jumpingForce: 20
-  airTime: 0.1
+  airTime: 0
   jumpedEvent:
     m_PersistentCalls:
       m_Calls:
