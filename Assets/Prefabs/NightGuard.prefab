@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 2855042932194273395}
   - component: {fileID: 7121896213648483724}
   - component: {fileID: 5320076152713633745}
+  - component: {fileID: 6011935306005851701}
   m_Layer: 7
   m_Name: NightGuard
   m_TagString: Enemy
@@ -110,6 +111,84 @@ MonoBehaviour:
   attackDelay: 1.5
   damage: 1
   projectile: {fileID: 0}
+  runSpeed: 150
+  walkSpeed: 90
+  jumpHeight: 3
+  movedEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6011935306005851701}
+        m_TargetAssemblyTypeName: EnemyAudio, Assembly-CSharp
+        m_MethodName: PlayWalkSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  movedQuicklyEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6011935306005851701}
+        m_TargetAssemblyTypeName: EnemyAudio, Assembly-CSharp
+        m_MethodName: PlayRunSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  startedChasingEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6011935306005851701}
+        m_TargetAssemblyTypeName: EnemyAudio, Assembly-CSharp
+        m_MethodName: PlayStartChasingSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  jumpedEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6011935306005851701}
+        m_TargetAssemblyTypeName: EnemyAudio, Assembly-CSharp
+        m_MethodName: PlayJumpSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  shotEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6011935306005851701}
+        m_TargetAssemblyTypeName: EnemyAudio, Assembly-CSharp
+        m_MethodName: PlayShootSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   attackedEvent:
     m_PersistentCalls:
       m_Calls:
@@ -125,9 +204,33 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  runSpeed: 150
-  walkSpeed: 90
-  jumpHeight: 3
+      - m_Target: {fileID: 6011935306005851701}
+        m_TargetAssemblyTypeName: EnemyAudio, Assembly-CSharp
+        m_MethodName: PlayMeleeSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  turnedEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7121896213648483724}
+        m_TargetAssemblyTypeName: EnemyAnimations, Assembly-CSharp
+        m_MethodName: Flip
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   direction: 1
   state: 1
   attackType: 0
@@ -173,7 +276,34 @@ MonoBehaviour:
   max: 3
   diedEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6011935306005851701}
+        m_TargetAssemblyTypeName: EnemyAudio, Assembly-CSharp
+        m_MethodName: PlayDeathSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  tookDamageEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6011935306005851701}
+        m_TargetAssemblyTypeName: EnemyAudio, Assembly-CSharp
+        m_MethodName: PlayTakeDamageSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &7121896213648483724
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -221,3 +351,40 @@ CircleCollider2D:
   m_Offset: {x: -0.08096331, y: -0.12424471}
   serializedVersion: 2
   m_Radius: 0.17709208
+--- !u!114 &6011935306005851701
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5804926829569621809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e07b6bec7b9a48131842359fd57878d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: 0
+    clip: {fileID: 8300000, guid: 168d1fcef5018a0409e368fa13fdf842, type: 3}
+    volume: 1
+  - name: 1
+    clip: {fileID: 8300000, guid: 168d1fcef5018a0409e368fa13fdf842, type: 3}
+    volume: 1
+  - name: 2
+    clip: {fileID: 8300000, guid: 168d1fcef5018a0409e368fa13fdf842, type: 3}
+    volume: 1
+  - name: 3
+    clip: {fileID: 8300000, guid: 168d1fcef5018a0409e368fa13fdf842, type: 3}
+    volume: 1
+  - name: 4
+    clip: {fileID: 8300000, guid: 7a1887fd10108314f9f81f207cd1d7e3, type: 3}
+    volume: 1
+  - name: 5
+    clip: {fileID: 8300000, guid: 1b21baaa30f07fb4e867798d30ba2ea2, type: 3}
+    volume: 1
+  - name: 6
+    clip: {fileID: 8300000, guid: 65f5a6151e02dde4395da83027b5f48b, type: 3}
+    volume: 1
+  - name: 7
+    clip: {fileID: 8300000, guid: b90030c5237526c409ad81f84fff9015, type: 3}
+    volume: 1

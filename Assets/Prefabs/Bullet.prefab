@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4234132818291419496}
   - component: {fileID: 2401761708714690297}
   - component: {fileID: 5687453755109777435}
+  - component: {fileID: 5205264913023967643}
   m_Layer: 0
   m_Name: Bullet
   m_TagString: Untagged
@@ -172,4 +173,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  target: {fileID: 0}
+  explodedEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5205264913023967643}
+        m_TargetAssemblyTypeName: EnemyProjectileAudio, Assembly-CSharp
+        m_MethodName: PlayHitSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &5205264913023967643
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2970095208166016952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40b5841a70f09ae4ab44e837f876cf9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: 0
+    clip: {fileID: 8300000, guid: 1d74b8b9c77f3bd4a973bdcab5a464b2, type: 3}
+    volume: 1
