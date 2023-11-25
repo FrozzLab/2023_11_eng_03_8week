@@ -1,6 +1,9 @@
-public class EnemyProjectileSoundsHandler : AudioManagerBase<EnemyProjectileSoundName> { }
+public class EnemyProjectileAudio : AudioManagerBase<EnemyProjectileSoundName> 
+{ 
+	public void PlayHitSound() => Play(EnemyProjectileSoundName.Hit);
+}
 
 public enum EnemyProjectileSoundName
 {
-    Explode,
+    Hit,
 }
