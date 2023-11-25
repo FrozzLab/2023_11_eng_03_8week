@@ -19,8 +19,6 @@ public class EnemyAI : MonoBehaviour
     Transform _transform;
     Collider2D _collider;
 
-    EnemyAnimations _animations;
-
     [SerializeField] float seeRange;
     [SerializeField] float hearRange;
     [SerializeField] float sneakHearRange;
@@ -29,12 +27,19 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] int damage;
     [SerializeField] Projectile projectile;
     bool _canAttack = true;
-    [SerializeField] UnityEvent attackedEvent;
 
     [SerializeField] float runSpeed;
     [SerializeField] float walkSpeed;
     [SerializeField] float jumpHeight;
     bool _isGrounded;
+
+    [SerializeField] UnityEvent movedEvent;
+    [SerializeField] UnityEvent movedQuicklyEvent;
+    [SerializeField] UnityEvent startedChasingEvent;
+    [SerializeField] UnityEvent jumpedEvent;
+    [SerializeField] UnityEvent shotEvent;
+    [SerializeField] UnityEvent attackedEvent;
+    [SerializeField] UnityEvent turnedEvent;
 
     enum Direction
     {
@@ -80,8 +85,6 @@ public class EnemyAI : MonoBehaviour
         _collider = GetComponent<Collider2D>();
         _targetHealth = target.GetComponent<Health>();
         _groundLayer = LayerMask.GetMask("Ground");
-
-        _animations = GetComponent<EnemyAnimations>();
     }
 
     void Start()
@@ -127,21 +130,10 @@ public class EnemyAI : MonoBehaviour
                     break;
                 }
                 
-                if (_distanceToTarget < sneakHearRange)
+                if ((_distanceToTarget < sneakHearRange) || (_distanceToTarget < hearRange && isTargetLoud) || (_distanceToTarget < seeRange && direction == _targetDirection))
                 {
                     state = State.Chase;
-                    break;
-                }
-
-                if (_distanceToTarget < hearRange && isTargetLoud)
-                {
-                    state = State.Chase;
-                    break;
-                }
-
-                if (_distanceToTarget < seeRange && direction == _targetDirection)
-                {
-                    state = State.Chase;
+					startedChasingEvent.Invoke();
                     break;
                 }
                 
@@ -197,6 +189,8 @@ public class EnemyAI : MonoBehaviour
         
         if (_distanceToTargetHorizontal < attackRange && state == State.Chase) return;
         _rigidbody.velocity = new Vector2((int)direction * _speed * Time.deltaTime, _rigidbody.velocity.y);
+		if(state == State.Chase) movedQuicklyEvent.Invoke(); 
+		else movedEvent.Invoke();
     }
 
     void Attack()
@@ -212,7 +206,7 @@ public class EnemyAI : MonoBehaviour
             case AttackType.Range:
                 var projectile = Instantiate(this.projectile, transform);
                 projectile.GetComponent<Projectile>().Init(target.transform, damage);
-                attackedEvent.Invoke();
+                shotEvent.Invoke();
                 break;
         }
     }
@@ -227,7 +221,7 @@ public class EnemyAI : MonoBehaviour
     void FlipDirection()
     {
         direction = direction == Direction.Left ? Direction.Right : Direction.Left;
-        _animations.Flip();
+		turnedEvent.Invoke();
     }
 
     public void SetTarget(GameObject newTarget, bool isLoud, int priority)
@@ -284,6 +278,7 @@ public class EnemyAI : MonoBehaviour
         if (_isGrounded)
         {
             _rigidbody.AddForce(Vector2.up * jumpHeight, ForceMode2D.Impulse);
+			jumpedEvent.Invoke();
         }
     }
 }

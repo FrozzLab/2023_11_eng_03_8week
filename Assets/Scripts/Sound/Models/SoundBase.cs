@@ -19,6 +19,7 @@ public abstract class SoundBase<T> where T : Enum
         source.volume = volume;
     }
     
+    public bool IsPlaying => source.isPlaying;
     public void Play() => source.Play();
     public void Stop() => source.Stop();
 }

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Projectile : MonoBehaviour
 {
@@ -6,6 +7,8 @@ public class Projectile : MonoBehaviour
     Transform _target;
     Vector2 _direction;
     int _damage;
+
+	[SerializeField] UnityEvent explodedEvent;
     
     public void Init(Transform target, int damage)
     {
@@ -35,6 +38,7 @@ public class Projectile : MonoBehaviour
         
         other.GetComponent<Health>().Damage(_damage);
         
+		explodedEvent.Invoke();
         Destroy(gameObject);
     }
 }

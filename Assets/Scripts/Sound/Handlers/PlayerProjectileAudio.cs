@@ -1,4 +1,4 @@
-public class PlayerProjectileSoundsHandler : AudioManagerBase<PlayerProjectileSoundName> 
+public class PlayerProjectileAudio : AudioManagerBase<PlayerProjectileSoundName> 
 {
 	public void PlayChargeSound() => Play(PlayerProjectileSoundName.Charge);
 	public void PlayFullyChargedSound() => Play(PlayerProjectileSoundName.FullyCharged);
