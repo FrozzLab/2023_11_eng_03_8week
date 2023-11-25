@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.Audio;
 
 [Serializable]
 public abstract class SoundBase<T> where T : Enum
@@ -20,6 +21,4 @@ public abstract class SoundBase<T> where T : Enum
     
     public void Play() => source.Play();
     public void Stop() => source.Stop();
-
-    public void ChangeVolume(float newVolume) => source.volume = newVolume;
 }

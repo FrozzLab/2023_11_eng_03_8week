@@ -24,11 +24,24 @@ public partial class AudioManager
     {
         return sceneName switch
         {
-            "Credits" or "Settings" or "Main Menu" => MusicName.MainMenuTheme,
-            "Level 1" => MusicName.Level1Theme,
-            "Level 2" => MusicName.Level2Theme,
-            "Level 3" => MusicName.Level3Theme,
-            _ => MusicName.MainMenuTheme,
+            "Credits" or "Settings" or "Main Menu" => MusicName.MainMenu,
+            "Level 1" => MusicName.Level1,
+            "Level 2" => MusicName.Level2,
+            "Level 3" => MusicName.Level3,
+            _ => MusicName.MainMenu,
         };
     }
+}
+
+public enum MusicName
+{
+    MainMenu, 
+	Level1, 
+	Level2, 
+	Level3
+}
+
+public enum MenuSoundName
+{
+    ClickButton
 }
