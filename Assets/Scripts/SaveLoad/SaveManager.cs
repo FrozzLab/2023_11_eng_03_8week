@@ -12,6 +12,7 @@ public class SaveLoad : MonoBehaviour
 	public string PlayerName { get; set; } = "unknown"; //todo: set this when player types their name/chose existing name
 	private static readonly string _path = "./Assets/Scripts/SaveLoad/data.json"; //Application.persistentDataPath + "/data";
 	private AllPlayersData _data = new();
+	private bool _loadProgressOnLevelChanged = false;
 
 	private void Update() //tmp for testing. todo: we should use event like -> onSceneChanged, onCheckpointEntered
 	{
@@ -38,7 +39,28 @@ public class SaveLoad : MonoBehaviour
 	public void Load()
 	{
 		Debug.Log($"Loading player progress from {_path}");
-		StartCoroutine(Loading());
+
+		if (!File.Exists(_path))
+		{
+			Debug.LogWarning("Saved progress file not found!!");
+			return;
+		}
+
+
+		string json = File.ReadAllText(_path);
+		_data = JsonConvert.DeserializeObject<AllPlayersData>(json, new JsonSerializerSettings { TypeNameHandling = TypeNameHandling.Auto });
+		var levelName = _data.GetLevelNameForPlayer(PlayerName);
+
+		if(levelName != null)
+		{
+			_loadProgressOnLevelChanged = true;
+			LevelManager.LoadScene((LevelName)levelName);
+		}
+		else
+		{
+			Debug.LogWarning("Player progress not found!!");
+			LevelManager.LoadScene(LevelManager.CurrentLevel);
+		}
 	}
 
 	public void DeleteProgress()
@@ -52,21 +74,13 @@ public class SaveLoad : MonoBehaviour
 		return _data.All.Select(e => new ProgressOverviewDto() { PlayerName = e.PlayerName });
 	}
 
-	IEnumerator Loading() {
-		string currentSceneName = SceneManager.GetActiveScene().name;
-		SceneManager.LoadScene(currentSceneName);
-		yield return new WaitForSeconds(0.1f); 
+	public void LevelChangedEventHandler() //always load the progress only after scene is reloaded
+    {
+		if(!_loadProgressOnLevelChanged) return;
+		_loadProgressOnLevelChanged = false;
+		var playerData = _data.GetDataForPlayer(PlayerName);
 
-		if (File.Exists(_path))
-		{
-			string json = File.ReadAllText(_path);
-			_data = JsonConvert.DeserializeObject<AllPlayersData>(json, new JsonSerializerSettings { TypeNameHandling = TypeNameHandling.Auto });
-			_data.UpdateScene(PlayerName);
-			Debug.Log($"Progress loaded");
-		}
-		else
-		{
-			Debug.LogWarning("Player progress not found!!");
-		}
-	}
+		OnePlayerData.LoadPlayerData(playerData);
+		Debug.Log($"Progress loaded");
+    }
 }

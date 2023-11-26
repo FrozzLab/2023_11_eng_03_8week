@@ -19,8 +19,6 @@ public class EnemyAI : MonoBehaviour
     Transform _transform;
     Collider2D _collider;
 
-    EnemyAnimations _animations;
-
     [SerializeField] float seeRange;
     [SerializeField] float hearRange;
     [SerializeField] float sneakHearRange;
@@ -80,8 +78,6 @@ public class EnemyAI : MonoBehaviour
         _collider = GetComponent<Collider2D>();
         _targetHealth = target.GetComponent<Health>();
         _groundLayer = LayerMask.GetMask("Ground");
-
-        _animations = GetComponent<EnemyAnimations>();
     }
 
     void Start()
@@ -227,7 +223,6 @@ public class EnemyAI : MonoBehaviour
     void FlipDirection()
     {
         direction = direction == Direction.Left ? Direction.Right : Direction.Left;
-        _animations.Flip();
     }
 
     public void SetTarget(GameObject newTarget, bool isLoud, int priority)

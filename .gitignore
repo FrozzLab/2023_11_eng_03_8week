@@ -80,5 +80,6 @@ crashlytics-build.properties
 
 #Custom
 data.json
+data.json.meta
 mono_crash.*
 .idea

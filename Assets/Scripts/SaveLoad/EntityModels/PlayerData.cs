@@ -1,31 +1,31 @@
 using System;
+using UnityEngine;
 
 public class PlayerData : EntityData
 {
-	public int Health { get => GetComponent<Health>().Current; }
+	protected float[] LocalPosition => new float[3] { transform.localPosition.x, transform.localPosition.y, transform.localPosition.z };
 
-	public override EntitySavedData GetData()
+	public override BaseEntitySavedData GetData()
 	{
-		var data = base.GetData();
-
 		return new PlayerSavedData 
 		{
-			Id = data.Id,
-			Position = data.Position,
-			Health = Health,
+			Id = Id,
+			Position = Position,
+			LocalPosition = LocalPosition,
 		};
 	}
 
-	public override void LoadData(EntitySavedData data)
+	public override void LoadData(BaseEntitySavedData data)
 	{
 		base.LoadData(data);
 		var concreteData = (PlayerSavedData)data;
-		GetComponent<Health>().Current = concreteData.Health;
+		transform.localPosition = new Vector3(concreteData.LocalPosition[0], concreteData.LocalPosition[1], concreteData.LocalPosition[2]);
 	}
+	
 }
 
 [Serializable]
 public class PlayerSavedData : EntitySavedData
 {
-	public int Health {get;  set;}
+	public float[] LocalPosition {get;  set;}
 }
