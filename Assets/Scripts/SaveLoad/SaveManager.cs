@@ -78,7 +78,7 @@ public class SaveLoad : MonoBehaviour
 	}
 
 	public void LevelChangedEventHandler() //always load the progress only after scene is reloaded
-    {
+	{
 		if(_loadSavedProgress)
 		{
 			var playerData = _data.GetDataForPlayer(PlayerName);
@@ -93,11 +93,11 @@ public class SaveLoad : MonoBehaviour
 
 		_loadSavedProgress = false;
 		_loadTmpProgress = true;
-    }
+	}
 
 	public void LevelEndedEventHandler()
-    {
+	{
 		//update temporary data (persistent between scenes)
 		_tmpData = OnePlayerData.GetDataFromScene("current player");
-    }
+	}
 }
