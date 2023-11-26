@@ -15,9 +15,9 @@ GameObject:
   - component: {fileID: -5957123168125794489}
   - component: {fileID: 1401348001909083299}
   - component: {fileID: 956247755188651776}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: NightSoldier
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -101,14 +101,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3c8ff00254d9664d96ca071e0dd21fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  isTargetLoud: 0
   seeRange: 5.5
   hearRange: 9
   sneakHearRange: 1.9
+  distractedForSeconds: 3
+  runSpeed: 190
+  walkSpeed: 115
+  jumpHeight: 3.5
+  attackType: 1
+  damage: 1
   attackRange: 3.5
   attackDelay: 1
-  damage: 1
   projectile: {fileID: 5687453755109777435, guid: 181e3f89122b3dd4880247eac5ef616d, type: 3}
   attackedEvent:
     m_PersistentCalls:
@@ -125,12 +128,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  runSpeed: 190
-  walkSpeed: 115
-  jumpHeight: 3.5
   direction: 1
   state: 1
-  attackType: 1
 --- !u!50 &8538626843962616964
 Rigidbody2D:
   serializedVersion: 4
