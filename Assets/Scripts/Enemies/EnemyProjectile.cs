@@ -6,9 +6,6 @@ public class Projectile : MonoBehaviour
     Vector2 _playerPosition;
     Health _playerHealth;
     Vector2 _position;
-    LayerMask _playerLayer;
-    LayerMask _groundLayer;
-    LayerMask _enemyLayer;
     public int Damage { get; set; }
 
     void Awake()
@@ -16,9 +13,6 @@ public class Projectile : MonoBehaviour
 	    var playerBody = GameObject.Find("Body");
 	    _playerPosition = playerBody.transform.position;
 	    _playerHealth = playerBody.GetComponent<Health>();
-	    _playerLayer = playerBody.layer;
-	    _groundLayer = LayerMask.GetMask("Ground");
-	    _enemyLayer = LayerMask.GetMask("Enemy");
 	    _position = transform.position;
     }
 
@@ -41,6 +35,10 @@ public class Projectile : MonoBehaviour
 	    if (other.gameObject.CompareTag("Player"))
 	    {
 		    _playerHealth.Damage(Damage);
+	    }
+	    else if (!other.gameObject.CompareTag("Enemy"))
+	    {
+		    Destroy(gameObject);
 	    }
     }
 }
