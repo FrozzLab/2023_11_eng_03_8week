@@ -1,25 +1,21 @@
+using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 public class LevelManager : MonoBehaviour
 {
-    public static LevelManager instance;
-    [SerializeField] private Image loadImage;
-    [SerializeField] private float maxDelayIn, maxDelayOut;
-
-    private bool isFadingIn, isFadingOut, isExitingGame;
-    private float currentDelay;
-    private Color currentLoadImageColor;
-    private string targetSceneName;
+    private static LevelManager instance;
+	public static LevelName CurrentLevel => LevelNameExtensions.GetLevelName(SceneManager.GetActiveScene().name);
     
-    public UnityEvent<string> levelChange;
-    public UnityEvent gameStart;
+    [SerializeField] UnityEvent levelChangeStartedEvent;
+    [SerializeField] UnityEvent<LevelName> levelChangedEvent;
+    [SerializeField] UnityEvent gameStartedEvent;
 
     private void Start()
     {
-        gameStart.Invoke();
+        gameStartedEvent.Invoke();
     }
 
     private void Awake()
@@ -34,85 +30,18 @@ public class LevelManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
-    private void Update()
-    {
-        if (isFadingIn)
-        {
-            currentDelay += Time.deltaTime;
-
-            if (currentDelay >= maxDelayIn)
-            {
-                currentLoadImageColor.a = 1;
-                loadImage.color = currentLoadImageColor;
-
-                if (isExitingGame)
-                {
-                    Application.Quit();
-                }
-                else
-                {
-                    SceneManager.LoadSceneAsync(targetSceneName);
-                }
-                
-                currentDelay = 0;
-                
-                isFadingIn = false;
-                isFadingOut = true;
-            }
-            else
-            {
-                float alpha = currentDelay / maxDelayIn;
-                currentLoadImageColor.a = Mathf.Clamp01(alpha);
-                loadImage.color = currentLoadImageColor;
-            }
-        }
-        else if (isFadingOut)
-        {
-            currentDelay += Time.deltaTime;
-
-            if (currentDelay >= maxDelayOut)
-            {
-                isFadingOut = false;
-            }
-            else
-            {
-                float alpha = currentDelay / maxDelayOut;
-                currentLoadImageColor.a = 1 - Mathf.Clamp01(alpha);
-                loadImage.color = currentLoadImageColor;
-            }
-        } 
-    }
     
-    public void LoadScene(string sceneName)
-    {
-        if (!isFadingIn && !isFadingOut)
-        {
-            targetSceneName = sceneName;
-            currentDelay = 0;
-            
-            currentLoadImageColor = loadImage.color;
-            currentLoadImageColor.a = 0;
-            loadImage.color = currentLoadImageColor;
+    public static void LoadScene(LevelName sceneName) => instance.StartCoroutine(instance.LoadingScene(sceneName));
 
-            isFadingIn = true;
-            
-            levelChange.Invoke(targetSceneName);
-        }
+    private IEnumerator LoadingScene(LevelName sceneName){
+
+		levelChangeStartedEvent.Invoke();
+        var asyncLoadLevel = SceneManager.LoadSceneAsync(sceneName.ToSceneName());
+        while (!asyncLoadLevel.isDone)
+            yield return null;
+
+        levelChangedEvent.Invoke(sceneName);
     }
 
-    public void ExitGame()
-    {
-        if (!isFadingIn && !isFadingOut)
-        {
-            currentDelay = 0;
-            
-            currentLoadImageColor = loadImage.color;
-            currentLoadImageColor.a = 0;
-            loadImage.color = currentLoadImageColor;
-
-            isFadingIn = true;
-            isExitingGame = true;
-        }
-    }
+    public static void ExitGame() => Application.Quit();
 }
