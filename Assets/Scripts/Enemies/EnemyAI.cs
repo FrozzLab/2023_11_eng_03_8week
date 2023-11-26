@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
@@ -299,5 +300,24 @@ public class EnemyAI : MonoBehaviour
 	    var distanceToDistraction = Vector2.Distance(_position, position);
 	    if (distanceToDistraction > hearRange) return;
 	    StartCoroutine(GetDistracted(position, distractedForSeconds));
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+	    if (other.gameObject.CompareTag("LeftPatrolTrigger"))
+	    {
+		    if (direction == Direction.Left && state == State.Patrol)
+		    {
+			    FlipDirection();
+		    }
+	    }
+
+	    if (other.gameObject.CompareTag("RightPatrolTrigger"))
+	    {
+		    if (direction == Direction.Right && state == State.Patrol)
+		    {
+			    FlipDirection();
+		    }
+	    }
     }
 }
