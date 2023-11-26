@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -37,6 +38,23 @@ public class OnePlayerData
 			{
 				Debug.LogWarning($"Progress of entity with Id: {entity.Id} couldn't be found in a saved file");
 				continue; //depside modification of a scene, loadable progress should still be loaded, so we don't throw
+			}
+
+			entity.LoadData(entityData);
+		}
+	}
+
+	public static void LoadOnlyPersistentPlayerData(OnePlayerData data)
+	{
+		var entities = Object.FindObjectsOfType<BaseEntityData>();
+		var persistentEntities = entities.Where(e => !typeof(EntityData).IsAssignableFrom(e.GetType()));
+		foreach (var entity in persistentEntities)
+		{
+			var entityData = data.Entities.SingleOrDefault(e => e.Id.Equals(entity.Id));
+			if(entityData == null)
+			{
+				Debug.LogWarning($"Progress of entity with Id: {entity.Id} couldn't be found in a saved file");
+				continue;
 			}
 
 			entity.LoadData(entityData);

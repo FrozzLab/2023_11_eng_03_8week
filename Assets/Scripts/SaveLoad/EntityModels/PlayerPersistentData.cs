@@ -6,7 +6,7 @@ public class PlayerPersistentData : BaseEntityData
 
 	public override BaseEntitySavedData GetData()
 	{
-		if(Health <= 0) throw new SaveLoadException("cannot save dead player progress!!");
+		//if(Health <= 0) throw new SaveLoadException("cannot save dead player progress!!");
 		return new PlayerPersistentSavedData 
 		{
 			Id = Id,

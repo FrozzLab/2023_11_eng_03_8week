@@ -12,7 +12,9 @@ public class SaveLoad : MonoBehaviour
 	public string PlayerName { get; set; } = "unknown"; //todo: set this when player types their name/chose existing name
 	private static readonly string _path = "./Assets/Scripts/SaveLoad/data.json"; //Application.persistentDataPath + "/data";
 	private AllPlayersData _data = new();
-	private bool _loadProgressOnLevelChanged = false;
+	private OnePlayerData _tmpData; //temporary data that is loaded between scenes but not saved
+	private bool _loadSavedProgress = false;
+	private bool _loadTmpProgress = false;
 
 	private void Update() //tmp for testing. todo: we should use event like -> onSceneChanged, onCheckpointEntered
 	{
@@ -53,13 +55,14 @@ public class SaveLoad : MonoBehaviour
 
 		if(levelName != null)
 		{
-			_loadProgressOnLevelChanged = true;
+			_loadSavedProgress = true;
 			LevelManager.LoadScene((LevelName)levelName);
 		}
 		else
 		{
 			Debug.LogWarning("Player progress not found!!");
-			LevelManager.LoadScene(LevelManager.CurrentLevel);
+			_loadTmpProgress = false;
+			LevelManager.LoadScene(LevelName.Level1);
 		}
 	}
 
@@ -76,11 +79,25 @@ public class SaveLoad : MonoBehaviour
 
 	public void LevelChangedEventHandler() //always load the progress only after scene is reloaded
     {
-		if(!_loadProgressOnLevelChanged) return;
-		_loadProgressOnLevelChanged = false;
-		var playerData = _data.GetDataForPlayer(PlayerName);
+		if(_loadSavedProgress)
+		{
+			var playerData = _data.GetDataForPlayer(PlayerName);
+			OnePlayerData.LoadPlayerData(playerData);
+			Debug.Log($"Saved progress loaded");
+		}
+		else if(_loadTmpProgress)
+		{
+			OnePlayerData.LoadOnlyPersistentPlayerData(_tmpData);
+			Debug.Log($"Temporary progress loaded");
+		}
 
-		OnePlayerData.LoadPlayerData(playerData);
-		Debug.Log($"Progress loaded");
+		_loadSavedProgress = false;
+		_loadTmpProgress = true;
+    }
+
+	public void LevelEndedEventHandler()
+    {
+		//update temporary data (persistent between scenes)
+		_tmpData = OnePlayerData.GetDataFromScene("current player");
     }
 }

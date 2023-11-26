@@ -1012,7 +1012,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b056431d49d84ab46aba0fb5b08d6b6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  max: 3
+  max: 6
   diedEvent:
     m_PersistentCalls:
       m_Calls:
@@ -1041,18 +1041,6 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 7232417571683470329}
-        m_TargetAssemblyTypeName: PlayerAttackInput, Assembly-CSharp
-        m_MethodName: OnDeath
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 7133605627562252430, guid: 4371c58ed07f8264fb2f002288eb192e, type: 3}
         m_TargetAssemblyTypeName: PlayerAttackInput, Assembly-CSharp
         m_MethodName: OnDeath
         m_Mode: 1
