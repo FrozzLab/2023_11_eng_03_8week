@@ -665,6 +665,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6321b493e2a6052fafb652dbefe8b63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soundGroup: {fileID: -1932835777346922809, guid: 8ed742824e6389072a13d599655b62f4, type: 2}
   sounds:
   - name: 0
     clip: {fileID: 8300000, guid: bb12919cc5afce446b1481d748939630, type: 3}
@@ -822,6 +823,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c70e5fe56efec4bcaaadccf2c6c2a89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soundGroup: {fileID: -1932835777346922809, guid: 8ed742824e6389072a13d599655b62f4, type: 2}
   sounds:
   - name: 0
     clip: {fileID: 8300000, guid: 2f725631c22d3114c82d79b69358fbad, type: 3}

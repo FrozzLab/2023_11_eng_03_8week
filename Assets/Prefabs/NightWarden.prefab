@@ -338,6 +338,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e07b6bec7b9a48131842359fd57878d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soundGroup: {fileID: -1932835777346922809, guid: 8ed742824e6389072a13d599655b62f4, type: 2}
   sounds:
   - name: 0
     clip: {fileID: 8300000, guid: f0b20f06924c9b84390b9df8dcd2bb88, type: 3}

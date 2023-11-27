@@ -7,8 +7,7 @@ using System;
 public partial class AudioManager : AudioManagerBase<MenuSoundName>
 {
     protected static AudioManager instance;
-	public static AudioMixerGroup soundGroup;
-	public static AudioMixerGroup musicGroup;
+	[SerializeField] AudioMixerGroup musicGroup;
 
     public Music[] musics;
     private readonly Dictionary<MusicName, Music> _musicMap = new();
@@ -27,7 +26,7 @@ public partial class AudioManager : AudioManagerBase<MenuSoundName>
 
         foreach (var music in musics)
         {
-            music.Init(gameObject);
+            music.Init(gameObject, musicGroup);
             _musicMap.Add(music.name, music);
         }
 
@@ -57,7 +56,7 @@ public partial class AudioManager : AudioManagerBase<MenuSoundName>
     private static void ChangeVolumeOfMixerGroup(float volume, string name)
     {
         if (volume < 0 || volume > 1) throw new SoundException($"volume has to be between 0 and 1. Provided value: {volume}. You want to go deaf?!");
-        musicGroup.audioMixer.SetFloat(name, volume * Mathf.Log10(volume) * 20);
+        instance.musicGroup.audioMixer.SetFloat(name, volume * Mathf.Log10(volume) * 20);
     }
 
     private void Validate(Music[] sounds)

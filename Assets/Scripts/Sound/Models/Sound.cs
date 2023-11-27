@@ -5,11 +5,10 @@ using UnityEngine.Audio;
 [Serializable]
 public class Sound<TName> : SoundBase<TName> where TName : Enum
 {
-    public override void Init(GameObject gameObject)
+    public override void Init(GameObject gameObject, AudioMixerGroup mixerGroup)
     {
-        base.Init(gameObject);
+        base.Init(gameObject, mixerGroup);
         source.loop = false;
 		source.spatialBlend = 1f;
-		source.outputAudioMixerGroup = AudioManager.soundGroup;
     }
 }

@@ -6,6 +6,7 @@ using System;
 
 public abstract class AudioManagerBase<TName> : MonoBehaviour where TName : Enum
 {
+	[SerializeField] AudioMixerGroup soundGroup;
     public Sound<TName>[] sounds;
 
     private readonly Dictionary<TName, Sound<TName>> _soundsMap = new();
@@ -14,7 +15,7 @@ public abstract class AudioManagerBase<TName> : MonoBehaviour where TName : Enum
     {
         foreach (var sound in sounds)
         {
-            sound.Init(gameObject);
+            sound.Init(gameObject, soundGroup);
             _soundsMap.Add(sound.name, sound);
         }
 
