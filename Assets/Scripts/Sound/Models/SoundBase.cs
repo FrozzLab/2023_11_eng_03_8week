@@ -8,8 +8,8 @@ public abstract class SoundBase<T> where T : Enum
     protected AudioSource source;
     public T name;
     public AudioClip clip;
-    [Range(0, 1f)]
-    public float volume = .5f;
+    [Range(0, 5f)]
+    public float volume = 1f;
 
     public virtual void Init(GameObject gameObject)
     {

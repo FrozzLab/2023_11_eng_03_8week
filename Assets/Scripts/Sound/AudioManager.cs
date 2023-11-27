@@ -38,18 +38,14 @@ public partial class AudioManager : AudioManagerBase<MenuSoundName>
     {
         if (!_musicMap.ContainsKey(name)) throw new SoundException($"Music {name} not found. Add it to the {nameof(AudioManager)} before using it!!");
 
-        foreach (var music in musics)
-            music.Stop();
+        StopAllMusic();
 
         _currentMusic = name;
         _musicMap[name].Play();
     }
 
-    public void StopAll()
+    public void StopAllMusic()
     {
-        foreach (var music in musics)
-            music.Stop();
-
         foreach (var sound in sounds)
             sound.Stop();
     }

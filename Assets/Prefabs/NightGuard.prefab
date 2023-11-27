@@ -178,34 +178,10 @@ MonoBehaviour:
   projectile: {fileID: 0}
   movedEvent:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 384353810076696158}
-        m_TargetAssemblyTypeName: EnemyAudio, Assembly-CSharp
-        m_MethodName: PlayWalkSound
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   movedQuicklyEvent:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 384353810076696158}
-        m_TargetAssemblyTypeName: EnemyAudio, Assembly-CSharp
-        m_MethodName: PlayRunSound
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   startedChasingEvent:
     m_PersistentCalls:
       m_Calls:
@@ -377,7 +353,7 @@ MonoBehaviour:
     volume: 1
   - name: 4
     clip: {fileID: 8300000, guid: 7a1887fd10108314f9f81f207cd1d7e3, type: 3}
-    volume: 1
+    volume: 3
   - name: 5
     clip: {fileID: 8300000, guid: e644e945581f0104ab3ab07851738c73, type: 3}
     volume: 1

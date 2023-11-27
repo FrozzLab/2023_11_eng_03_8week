@@ -10,6 +10,7 @@ public class CharacterController2D : MonoBehaviour
     [SerializeField] float jumpingForce = 20f;
     [SerializeField] float airTime = 10;
     float airTimeLeft;
+    float fallingTime;
     bool doubleJumped = false;
 
     //[SerializeField] [Range(0f, .3f)] float movementSmoothing = 0.05f;
@@ -18,7 +19,7 @@ public class CharacterController2D : MonoBehaviour
     bool isFalling;
 
     [SerializeField] UnityEvent jumpedEvent;
-    [SerializeField] UnityEvent landedEvent;
+    [SerializeField] UnityEvent<float> landedEvent;
     [SerializeField] UnityEvent startedFallingEvent;
 
     Rigidbody2D rigidbody2d;
@@ -34,6 +35,7 @@ public class CharacterController2D : MonoBehaviour
     private void FixedUpdate()
     {
         if(!isFalling && !grounded && rigidbody2d.velocity.y < 0.1) Fall();
+		if(isFalling) fallingTime += Time.fixedDeltaTime;
         debugVelocity = rigidbody2d.velocity;
     }
 
@@ -83,7 +85,8 @@ public class CharacterController2D : MonoBehaviour
 		doubleJumped = false;
         isFalling = false;
         airTimeLeft = airTime;
-        landedEvent.Invoke();
+        landedEvent.Invoke(fallingTime);
+		fallingTime = 0f;
     }
 
     private void Fall()

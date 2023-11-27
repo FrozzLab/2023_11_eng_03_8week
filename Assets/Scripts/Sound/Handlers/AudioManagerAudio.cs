@@ -15,7 +15,6 @@ public partial class AudioManager
 
         if (instance._currentMusic != name)
         {
-            instance.StopAll();
             instance.Play(name);
         }
     }

@@ -34,6 +34,18 @@ public abstract class AudioManagerBase<TName> : MonoBehaviour where TName : Enum
         _soundsMap[name].Play();
     }
 
+	public void Stop(TName name)
+    {
+        if (!_soundsMap.ContainsKey(name)) throw new SoundException($"Sound {name} not found. Add it to the {nameof(AudioManager)} before using it!!");
+        _soundsMap[name].Stop();
+    }
+
+	public void StopAllSounds()
+    {
+        foreach (var sound in sounds)
+            sound.Stop();
+    }
+
     private void Validate(Sound<TName>[] sounds)
     {
         var duplicates = sounds.GroupBy(s => s.name).Where(s => s.Count() > 1);
