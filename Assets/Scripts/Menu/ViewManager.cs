@@ -1,6 +1,5 @@
 using System;
 using System.Linq;
-using Cinemachine;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
