@@ -8,7 +8,6 @@ public class WeakPlatform : MonoBehaviour
 
 	Collider2D _collider;
 	SpriteRenderer _spriteRenderer;
-	bool _someoneOnPlatform;
 
 	void Awake()
 	{
@@ -16,43 +15,24 @@ public class WeakPlatform : MonoBehaviour
 		_spriteRenderer = GetComponent<SpriteRenderer>();
 	}
 
-	void Start()
-	{
-		StartCoroutine(Routine());
-	}
-
 	void OnCollisionEnter2D(Collision2D other)
 	{
 		if (other.gameObject.CompareTag("Player") || other.gameObject.CompareTag("Enemy"))
 		{
-			_someoneOnPlatform = true;
+			StartCoroutine(Disappear());
 		}
 	}
 
-	void OnCollisionExit2D(Collision2D other)
+	IEnumerator Disappear()
 	{
-		if (other.gameObject.CompareTag("Player") || other.gameObject.CompareTag("Enemy"))
-		{
-			_someoneOnPlatform = false;
-		}
-	}
+		yield return new WaitForSeconds(disappearDelay);
+			
+		_collider.enabled = false;
+		_spriteRenderer.enabled = false;
 
-	IEnumerator Routine()
-	{
-		while (true)
-		{
-			yield return new WaitForSeconds(disappearDelay);
+		yield return new WaitForSeconds(reappearDelay);
 
-			if (_someoneOnPlatform)
-			{
-				_collider.enabled = false;
-				_spriteRenderer.enabled = false;
-
-				yield return new WaitForSeconds(reappearDelay);
-
-				_collider.enabled = true;
-				_spriteRenderer.enabled = true;
-			}
-		}
+		_collider.enabled = true;
+		_spriteRenderer.enabled = true;
 	}
 }
