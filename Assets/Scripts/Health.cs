@@ -29,7 +29,12 @@ public class Health : MonoBehaviour
         get => _current;
         set
         {
-            if (value < 0 || value > max) return;
+            if (value > max) return;
+            if (value < 0)
+            {
+	            _current = 0;
+	            return;
+            }
             _current = value;
         }
     }

@@ -12,6 +12,9 @@ public class SaveLoad : MonoBehaviour
 	public string PlayerName { get; set; } = "unknown"; //todo: set this when player types their name/chose existing name
 	private static readonly string _path = "./Assets/Scripts/SaveLoad/data.json"; //Application.persistentDataPath + "/data";
 	private AllPlayersData _data = new();
+	private OnePlayerData _tmpData; //temporary data that is loaded between scenes but not saved
+	private bool _loadSavedProgress = false;
+	private bool _loadTmpProgress = false;
 
 	private void Update() //tmp for testing. todo: we should use event like -> onSceneChanged, onCheckpointEntered
 	{
@@ -38,7 +41,29 @@ public class SaveLoad : MonoBehaviour
 	public void Load()
 	{
 		Debug.Log($"Loading player progress from {_path}");
-		StartCoroutine(Loading());
+
+		if (!File.Exists(_path))
+		{
+			Debug.LogWarning("Saved progress file not found!!");
+			return;
+		}
+
+
+		string json = File.ReadAllText(_path);
+		_data = JsonConvert.DeserializeObject<AllPlayersData>(json, new JsonSerializerSettings { TypeNameHandling = TypeNameHandling.Auto });
+		var levelName = _data.GetLevelNameForPlayer(PlayerName);
+
+		if(levelName != null)
+		{
+			_loadSavedProgress = true;
+			LevelManager.LoadScene((LevelName)levelName);
+		}
+		else
+		{
+			Debug.LogWarning("Player progress not found!!");
+			_loadTmpProgress = false;
+			LevelManager.LoadScene(LevelName.Level1);
+		}
 	}
 
 	public void DeleteProgress()
@@ -52,21 +77,27 @@ public class SaveLoad : MonoBehaviour
 		return _data.All.Select(e => new ProgressOverviewDto() { PlayerName = e.PlayerName });
 	}
 
-	IEnumerator Loading() {
-		string currentSceneName = SceneManager.GetActiveScene().name;
-		SceneManager.LoadScene(currentSceneName);
-		yield return new WaitForSeconds(0.1f); 
+	public void LevelChangedEventHandler() //always load the progress only after scene is reloaded
+	{
+		if(_loadSavedProgress)
+		{
+			var playerData = _data.GetDataForPlayer(PlayerName);
+			OnePlayerData.LoadPlayerData(playerData);
+			Debug.Log($"Saved progress loaded");
+		}
+		else if(_loadTmpProgress)
+		{
+			OnePlayerData.LoadOnlyPersistentPlayerData(_tmpData);
+			Debug.Log($"Temporary progress loaded");
+		}
 
-		if (File.Exists(_path))
-		{
-			string json = File.ReadAllText(_path);
-			_data = JsonConvert.DeserializeObject<AllPlayersData>(json, new JsonSerializerSettings { TypeNameHandling = TypeNameHandling.Auto });
-			_data.UpdateScene(PlayerName);
-			Debug.Log($"Progress loaded");
-		}
-		else
-		{
-			Debug.LogWarning("Player progress not found!!");
-		}
+		_loadSavedProgress = false;
+		_loadTmpProgress = true;
+	}
+
+	public void LevelEndedEventHandler()
+	{
+		//update temporary data (persistent between scenes)
+		_tmpData = OnePlayerData.GetDataFromScene("current player");
 	}
 }

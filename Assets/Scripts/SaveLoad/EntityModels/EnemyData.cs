@@ -6,20 +6,18 @@ public class EnemyData : EntityData
 	public int Health { get => GetComponent<Health>().Current; }
 	public string AnimationName { get => GetComponentInChildren<Animator>().GetCurrentAnimatorClipInfo(0)[0].clip.name; }
 
-	public override EntitySavedData GetData()
+	public override BaseEntitySavedData GetData()
 	{
-		var data = base.GetData();
-
 		return new EnemySavedData 
 		{
-			Id = data.Id,
-			Position = data.Position,
+			Id = Id,
+			Position = Position,
 			Health = Health,
 			AnimationName = AnimationName,
 		};
 	}
 
-	public override void LoadData(EntitySavedData data)
+	public override void LoadData(BaseEntitySavedData data)
 	{
 		base.LoadData(data);
 		var concreteData = (EnemySavedData)data;

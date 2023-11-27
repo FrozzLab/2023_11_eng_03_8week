@@ -10,12 +10,12 @@ GameObject:
   m_Component:
   - component: {fileID: 4259099366369244793}
   - component: {fileID: 8273250598285085897}
-  - component: {fileID: 687578195990974351}
   - component: {fileID: 4136951040704947032}
+  - component: {fileID: 5320076152713633745}
+  - component: {fileID: 687578195990974351}
   - component: {fileID: 2855042932194273395}
   - component: {fileID: 7121896213648483724}
-  - component: {fileID: 5320076152713633745}
-  - component: {fileID: 6011935306005851701}
+  - component: {fileID: 384353810076696158}
   m_Layer: 7
   m_Name: NightGuard
   m_TagString: Enemy
@@ -90,150 +90,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &687578195990974351
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5804926829569621809}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3c8ff00254d9664d96ca071e0dd21fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  isTargetLoud: 0
-  seeRange: 5
-  hearRange: 7
-  sneakHearRange: 1.5
-  attackRange: 1.5
-  attackDelay: 1.5
-  damage: 1
-  projectile: {fileID: 0}
-  runSpeed: 150
-  walkSpeed: 90
-  jumpHeight: 3
-  movedEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 6011935306005851701}
-        m_TargetAssemblyTypeName: EnemyAudio, Assembly-CSharp
-        m_MethodName: PlayWalkSound
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  movedQuicklyEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 6011935306005851701}
-        m_TargetAssemblyTypeName: EnemyAudio, Assembly-CSharp
-        m_MethodName: PlayRunSound
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  startedChasingEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 6011935306005851701}
-        m_TargetAssemblyTypeName: EnemyAudio, Assembly-CSharp
-        m_MethodName: PlayStartChasingSound
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  jumpedEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 6011935306005851701}
-        m_TargetAssemblyTypeName: EnemyAudio, Assembly-CSharp
-        m_MethodName: PlayJumpSound
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  shotEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 6011935306005851701}
-        m_TargetAssemblyTypeName: EnemyAudio, Assembly-CSharp
-        m_MethodName: PlayShootSound
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  attackedEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 7121896213648483724}
-        m_TargetAssemblyTypeName: EnemyAnimations, Assembly-CSharp
-        m_MethodName: NightGuardAttack
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 6011935306005851701}
-        m_TargetAssemblyTypeName: EnemyAudio, Assembly-CSharp
-        m_MethodName: PlayMeleeSound
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  turnedEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 7121896213648483724}
-        m_TargetAssemblyTypeName: EnemyAnimations, Assembly-CSharp
-        m_MethodName: Flip
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  direction: 1
-  state: 1
-  attackType: 0
 --- !u!50 &4136951040704947032
 Rigidbody2D:
   serializedVersion: 4
@@ -261,61 +117,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!114 &2855042932194273395
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5804926829569621809}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b056431d49d84ab46aba0fb5b08d6b6f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  max: 3
-  diedEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 6011935306005851701}
-        m_TargetAssemblyTypeName: EnemyAudio, Assembly-CSharp
-        m_MethodName: PlayDeathSound
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  tookDamageEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 6011935306005851701}
-        m_TargetAssemblyTypeName: EnemyAudio, Assembly-CSharp
-        m_MethodName: PlayTakeDamageSound
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &7121896213648483724
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5804926829569621809}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0984687c3a1135b46b37fea5662d4053, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!58 &5320076152713633745
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -348,10 +149,208 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.08096331, y: -0.12424471}
+  m_Offset: {x: -0.00026675157, y: 0.038369533}
   serializedVersion: 2
-  m_Radius: 0.17709208
---- !u!114 &6011935306005851701
+  m_Radius: 0.16796766
+--- !u!114 &687578195990974351
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5804926829569621809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3c8ff00254d9664d96ca071e0dd21fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  seeRange: 5
+  hearRange: 7
+  sneakHearRange: 1.5
+  distractedForSeconds: 3
+  runSpeed: 150
+  walkSpeed: 90
+  jumpHeight: 3
+  attackType: 0
+  damage: 1
+  attackRange: 1.5
+  attackDelay: 1.5
+  projectile: {fileID: 0}
+  movedEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 384353810076696158}
+        m_TargetAssemblyTypeName: EnemyAudio, Assembly-CSharp
+        m_MethodName: PlayWalkSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  movedQuicklyEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 384353810076696158}
+        m_TargetAssemblyTypeName: EnemyAudio, Assembly-CSharp
+        m_MethodName: PlayRunSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  startedChasingEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 384353810076696158}
+        m_TargetAssemblyTypeName: EnemyAudio, Assembly-CSharp
+        m_MethodName: PlayStartChasingSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  jumpedEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 384353810076696158}
+        m_TargetAssemblyTypeName: EnemyAudio, Assembly-CSharp
+        m_MethodName: PlayJumpSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  shotEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 384353810076696158}
+        m_TargetAssemblyTypeName: EnemyAudio, Assembly-CSharp
+        m_MethodName: PlayShootSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  attackedEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7121896213648483724}
+        m_TargetAssemblyTypeName: EnemyAnimations, Assembly-CSharp
+        m_MethodName: NightGuardAttack
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 384353810076696158}
+        m_TargetAssemblyTypeName: EnemyAudio, Assembly-CSharp
+        m_MethodName: PlayMeleeSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  turnedEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7121896213648483724}
+        m_TargetAssemblyTypeName: EnemyAnimations, Assembly-CSharp
+        m_MethodName: Flip
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  direction: 1
+  state: 1
+--- !u!114 &2855042932194273395
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5804926829569621809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b056431d49d84ab46aba0fb5b08d6b6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  max: 3
+  diedEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 384353810076696158}
+        m_TargetAssemblyTypeName: EnemyAudio, Assembly-CSharp
+        m_MethodName: PlayDeathSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  tookDamageEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 384353810076696158}
+        m_TargetAssemblyTypeName: EnemyAudio, Assembly-CSharp
+        m_MethodName: PlayTakeDamageSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &7121896213648483724
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5804926829569621809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0984687c3a1135b46b37fea5662d4053, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &384353810076696158
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -365,22 +364,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sounds:
   - name: 0
-    clip: {fileID: 8300000, guid: 168d1fcef5018a0409e368fa13fdf842, type: 3}
+    clip: {fileID: 8300000, guid: f0b20f06924c9b84390b9df8dcd2bb88, type: 3}
     volume: 1
   - name: 1
     clip: {fileID: 8300000, guid: 168d1fcef5018a0409e368fa13fdf842, type: 3}
     volume: 1
   - name: 2
-    clip: {fileID: 8300000, guid: 168d1fcef5018a0409e368fa13fdf842, type: 3}
+    clip: {fileID: 8300000, guid: 3dea025bbe7750a46a6c1800da365af0, type: 3}
     volume: 1
   - name: 3
-    clip: {fileID: 8300000, guid: 168d1fcef5018a0409e368fa13fdf842, type: 3}
+    clip: {fileID: 8300000, guid: 3dea025bbe7750a46a6c1800da365af0, type: 3}
     volume: 1
   - name: 4
     clip: {fileID: 8300000, guid: 7a1887fd10108314f9f81f207cd1d7e3, type: 3}
     volume: 1
   - name: 5
-    clip: {fileID: 8300000, guid: 1b21baaa30f07fb4e867798d30ba2ea2, type: 3}
+    clip: {fileID: 8300000, guid: e644e945581f0104ab3ab07851738c73, type: 3}
     volume: 1
   - name: 6
     clip: {fileID: 8300000, guid: 65f5a6151e02dde4395da83027b5f48b, type: 3}

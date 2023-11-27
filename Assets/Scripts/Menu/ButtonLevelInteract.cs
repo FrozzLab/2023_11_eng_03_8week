@@ -4,14 +4,14 @@ namespace Menu
 {
     public class ButtonLevelInteract : MonoBehaviour
     {
-        public void LoadScene(string sceneName)
+        public void LoadScene(LevelName sceneName)
         {
-            LevelManager.instance.LoadScene(sceneName);
+            LevelManager.LoadScene(sceneName);
         }
 
         public void ExitGame()
         {
-            LevelManager.instance.ExitGame();
+            LevelManager.ExitGame();
         }
     }
 }
