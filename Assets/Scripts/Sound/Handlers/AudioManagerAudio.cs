@@ -5,11 +5,11 @@ public partial class AudioManager
     public static void PlayMusicOnGameStart()
     {
         var sceneName = SceneManager.GetActiveScene().name;
-        var name = GetMusicName(sceneName);
+        var name = GetMusicName(LevelNameExtensions.GetLevelName(sceneName));
         instance.Play(name);
     }
 
-    public static void ChangeMusicOnLevelChange(string sceneName)
+    public static void ChangeMusicOnLevelChange(LevelName sceneName)
     {
         var name = GetMusicName(sceneName);
 
@@ -20,14 +20,14 @@ public partial class AudioManager
         }
     }
 
-    private static MusicName GetMusicName(string sceneName)
+    private static MusicName GetMusicName(LevelName sceneName)
     {
         return sceneName switch
         {
-            "Credits" or "Settings" or "Main Menu" => MusicName.MainMenu,
-            "Level 1" => MusicName.Level1,
-            "Level 2" => MusicName.Level2,
-            "Level 3" => MusicName.Level3,
+            LevelName.Menu => MusicName.MainMenu,
+            LevelName.Level1 => MusicName.Level1,
+            LevelName.Level2 => MusicName.Level2,
+            LevelName.Level3 => MusicName.Level3,
             _ => MusicName.MainMenu,
         };
     }
