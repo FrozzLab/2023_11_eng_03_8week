@@ -1,7 +1,9 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [Serializable]
 public class AllPlayersData
@@ -18,14 +20,7 @@ public class AllPlayersData
 		All.Add(newData);
 	}
 
-	public void UpdateScene(string playerName)
-	{
-		var data = All.FirstOrDefault(e=>e.PlayerName.Equals(playerName));
-		if(data != null) 
-		{
-			Debug.Log($"Loading progress of player {playerName}");
-			OnePlayerData.LoadDataToScene(data);
-		}
-		else Debug.LogWarning($"Progress of player {playerName} couldn't be found in a saved file");
-	}
+	public OnePlayerData GetDataForPlayer(string playerName) => All.FirstOrDefault(e=>e.PlayerName.Equals(playerName));
+
+	public LevelName? GetLevelNameForPlayer(string playerName) => All.FirstOrDefault(e=>e.PlayerName.Equals(playerName))?.LevelName;
 }

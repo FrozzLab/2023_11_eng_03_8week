@@ -39,6 +39,7 @@ public class PlayerAnimations : MonoBehaviour
     public void Die()
     {
         animator.SetBool("dead", true);
+        FindObjectOfType<LevelManagerAnimations>().ShowYouDiedScreen();
     }
 
 	public void Attack()

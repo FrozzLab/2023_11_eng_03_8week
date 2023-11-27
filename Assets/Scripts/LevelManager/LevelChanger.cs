@@ -2,18 +2,13 @@ using UnityEngine;
 
 public class LevelChanger : MonoBehaviour
 {
-	public string nextLevel;
+	public LevelName nextLevel;
 	
 	private void OnTriggerEnter2D(Collider2D other)
-	{
-		if (nextLevel == null)
-		{
-			return;
-		}
-		
+	{	
 		if (other.gameObject.layer == LayerMask.NameToLayer("Player"))
 		{
-			LevelManager.instance.LoadScene(nextLevel);
+			LevelManager.LoadScene(nextLevel);
 		}
 	}
 }

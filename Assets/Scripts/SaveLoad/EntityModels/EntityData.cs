@@ -1,17 +1,13 @@
 using System;
 using UnityEngine;
 
-public class EntityData : MonoBehaviour
+public class EntityData : BaseEntityData
 {
-	public string Id {get; private set;}
-	private float[] Position => new float[3] { transform.position.x, transform.position.y, transform.position.z };
+	protected float[] Position => new float[3] { transform.position.x, transform.position.y, transform.position.z };
 
-	private void Start() 
-	{
-		Id = $"{tag}_{transform.position.x}_{transform.position.y}_{transform.position.z}";
-	}
+	protected override string GetId() => $"{tag}_{transform.position.x}_{transform.position.y}_{transform.position.z}";
 
-	public virtual EntitySavedData GetData()
+	public override BaseEntitySavedData GetData()
 	{
 		return new EntitySavedData()
 		{
@@ -30,8 +26,7 @@ public class EntityData : MonoBehaviour
 }
 
 [Serializable]
-public class EntitySavedData
+public class EntitySavedData : BaseEntitySavedData
 {
-	public string Id {get;  set;}
 	public float[] Position {get;  set;}
 }
