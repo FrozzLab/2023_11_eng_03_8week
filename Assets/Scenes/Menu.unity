@@ -213,7 +213,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 568432512}
         m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
         m_MethodName: ChangeVolumeOfMusic
         m_Mode: 0
@@ -20332,7 +20332,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 568432512}
         m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
         m_MethodName: ChangeVolumeOfSounds
         m_Mode: 0
@@ -89240,7 +89240,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -4490934623925820354, guid: 6f99c8e0d1d8f8a40b6da3fa2e81875e, type: 3}
       propertyPath: musics.Array.data[1].volume
-      value: 0
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: -4490934623925820354, guid: 6f99c8e0d1d8f8a40b6da3fa2e81875e, type: 3}
+      propertyPath: musics.Array.data[2].volume
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1688957944187613203, guid: 6f99c8e0d1d8f8a40b6da3fa2e81875e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -95454,7 +95458,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 568432512}
         m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
         m_MethodName: ChangeVolumeOfSounds
         m_Mode: 0
@@ -96112,7 +96116,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 568432512}
         m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
         m_MethodName: ChangeVolumeOfMusic
         m_Mode: 0
