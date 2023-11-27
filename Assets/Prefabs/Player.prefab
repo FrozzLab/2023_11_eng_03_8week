@@ -757,7 +757,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 3
+  m_GravityScale: 2
   m_Material: {fileID: 6200000, guid: 0651ddf3a93465b4b97cc1260167f9ea, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
@@ -906,9 +906,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ebcc4111cd1a28459fe76f05722a7e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 250
-  jumpForce: 350
-  jump2Force: 300
+  speed: 325
+  jumpForce: 550
+  jump2Force: 500
   jumpingForce: 20
   airTime: 0
   jumpedEvent:
