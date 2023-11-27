@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 
+[Serializable]
 public enum LevelName
 {
 	[Description("Menu")]

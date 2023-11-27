@@ -15618,7 +15618,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 638837768794450487, guid: 4166e4771bbd4f2479b342f72939d167, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: ButtonLevelInteract, Assembly-CSharp
+      value: Menu.ButtonLevelInteract, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 638837768794450487, guid: 4166e4771bbd4f2479b342f72939d167, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument

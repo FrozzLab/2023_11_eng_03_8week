@@ -1,10 +1,11 @@
+using System;
 using UnityEngine;
 
 namespace Menu
 {
     public class ButtonLevelInteract : MonoBehaviour
     {
-        public void LoadScene(LevelName sceneName)
+        public void LoadScene(string sceneName)
         {
             LevelManager.LoadScene(sceneName);
         }

@@ -45,8 +45,8 @@ public partial class AudioManager : AudioManagerBase<MenuSoundName>
 
     public void StopAllMusic()
     {
-        foreach (var sound in sounds)
-            sound.Stop();
+        foreach (var music in musics)
+            music.Stop();
     }
 
 	public static void ChangeVolumeOfSounds(float volume) => ChangeVolumeOfMixerGroup(volume, "SoundsVolume");
@@ -56,7 +56,9 @@ public partial class AudioManager : AudioManagerBase<MenuSoundName>
     private static void ChangeVolumeOfMixerGroup(float volume, string name)
     {
         if (volume < 0 || volume > 1) throw new SoundException($"volume has to be between 0 and 1. Provided value: {volume}. You want to go deaf?!");
-        instance.musicGroup.audioMixer.SetFloat(name, volume * Mathf.Log10(volume) * 20);
+		//0 => -40bD
+		//1 => 0bD
+        instance.musicGroup.audioMixer.SetFloat(name, volume * 40 - 40);
     }
 
     private void Validate(Music[] sounds)
