@@ -6,7 +6,7 @@ using UnityEngine;
 public class deathZone : MonoBehaviour
 {
 	[SerializeField] int damage = 100;
-	private void OnTriggerEnter2D(Collider2D other)
+	void OnCollisionEnter2D(Collision2D other)
 	{
 		if (other.gameObject.CompareTag("Player") || other.gameObject.CompareTag("Enemy"))
 		{
