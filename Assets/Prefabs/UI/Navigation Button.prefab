@@ -26,8 +26,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.9, y: 0.9, z: 0.9}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 3012260437030665467}
   m_Father: {fileID: 0}
@@ -97,18 +97,16 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'NEW GAME
-
-'
+  m_text: START
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8df0051ffb31f8b4d88029f313b2ad10, type: 2}
-  m_sharedMaterial: {fileID: -7240976239890531169, guid: 8df0051ffb31f8b4d88029f313b2ad10, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 064edf75bc2e80e499d9d5f76fca886b, type: 2}
+  m_sharedMaterial: {fileID: 5848986428447215317, guid: 064edf75bc2e80e499d9d5f76fca886b, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
+    rgba: 4292598747
   m_fontColor: {r: 0.85882354, g: 0.85882354, b: 0.85882354, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -180,6 +178,7 @@ GameObject:
   - component: {fileID: 9217874703651578791}
   - component: {fileID: 1992983965931961585}
   - component: {fileID: 638837768794450487}
+  - component: {fileID: 7448393373797410908}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -289,16 +288,28 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6822621016325986963, guid: a76f570c0a894464dbdf395a3926f111, type: 3}
-        m_TargetAssemblyTypeName: ViewManager, Assembly-CSharp
-        m_MethodName: ChangeCamera
-        m_Mode: 2
+      - m_Target: {fileID: 7448393373797410908}
+        m_TargetAssemblyTypeName: Menu.ButtonLevelInteract, Assembly-CSharp
+        m_MethodName: LoadScene
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: Cinemachine.CinemachineVirtualCamera,
-            Cinemachine
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Level 1
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &7448393373797410908
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3217679086994898512}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67196adbf81b20d4da1a548b3f09a202, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nextLevel: 1
