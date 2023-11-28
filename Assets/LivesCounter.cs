@@ -5,13 +5,13 @@ using UnityEngine;
 
 public class LivesCounter : MonoBehaviour
 {
-	private TextMeshPro _text;
+	private TMP_Text _text;
 	[SerializeField] private Health health;
 	
     // Start is called before the first frame update
     void Start()
     {
-	    _text = GetComponent<TextMeshPro>();
+	    _text = GetComponent<TMP_Text>();
     }
 
     // Update is called once per frame
