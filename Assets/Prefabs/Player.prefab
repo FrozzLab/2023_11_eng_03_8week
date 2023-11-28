@@ -718,6 +718,7 @@ GameObject:
   - component: {fileID: 6917227140633725142}
   - component: {fileID: 8667286843661595995}
   - component: {fileID: 2156392163220141690}
+  - component: {fileID: 5738746990021592549}
   m_Layer: 6
   m_Name: Body
   m_TagString: Player
@@ -1088,3 +1089,45 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c81efcecd2c97ab9db3e39ce6ca4ebf5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5738746990021592549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3796044461938945090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a04e64257ccd9f479e983fbf422d50a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hidEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3803175970305837903}
+        m_TargetAssemblyTypeName: PlayerAnimations, Assembly-CSharp
+        m_MethodName: Hide
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  unHidEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3803175970305837903}
+        m_TargetAssemblyTypeName: PlayerAnimations, Assembly-CSharp
+        m_MethodName: UnHide
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
