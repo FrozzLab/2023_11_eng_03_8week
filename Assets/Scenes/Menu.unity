@@ -3423,7 +3423,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4761631456544687028, guid: a5d77e57a8dec724caaddd2580de1de4, type: 3}
       propertyPath: m_text
-      value: Lead Level Designer
+      value: Lead Level Designer and Mess Cleaner
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
