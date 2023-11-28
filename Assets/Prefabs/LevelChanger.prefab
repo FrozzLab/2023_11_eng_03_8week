@@ -90,6 +90,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 302a0ad722f605746aebc1b2b5e264cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 70314853569514177, guid: 77847c41d0b2b0f46abcc9ddf3e8cb8b, type: 3}
-  nextLevel: 0
-  spawnPosition: {fileID: 0}
+  nextLevel: 
