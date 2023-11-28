@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 8715798393057398523}
   - component: {fileID: 4174791557099646712}
   - component: {fileID: 2625851644854236634}
+  - component: {fileID: 6828916060464820517}
   m_Layer: 7
   m_Name: NightWarden
   m_TagString: Enemy
@@ -101,21 +102,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3c8ff00254d9664d96ca071e0dd21fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  isTargetLoud: 0
   seeRange: 7
   hearRange: 19
   sneakHearRange: 3.5
+  distractedForSeconds: 3
+  runSpeed: 100
+  walkSpeed: 70
+  jumpHeight: 1.9
+  attackType: 1
+  damage: 3
   attackRange: 3
   attackDelay: 3
-  damage: 3
   projectile: {fileID: 5687453755109777435, guid: 181e3f89122b3dd4880247eac5ef616d, type: 3}
   attackedEvent:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 4174791557099646712}
         m_TargetAssemblyTypeName: EnemyAnimations, Assembly-CSharp
-        m_MethodName: NightWardenAttack
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -125,12 +129,23 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  runSpeed: 100
-  walkSpeed: 70
-  jumpHeight: 1.9
+  gotDamagedEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4174791557099646712}
+        m_TargetAssemblyTypeName: EnemyAnimations, Assembly-CSharp
+        m_MethodName: GetHit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   direction: 1
   state: 1
-  attackType: 1
 --- !u!50 &6506712364001575456
 Rigidbody2D:
   serializedVersion: 4
@@ -173,7 +188,31 @@ MonoBehaviour:
   max: 3
   diedEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4174791557099646712}
+        m_TargetAssemblyTypeName: EnemyAnimations, Assembly-CSharp
+        m_MethodName: Die
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1696241504166940674}
+        m_TargetAssemblyTypeName: EnemyAI, Assembly-CSharp
+        m_MethodName: Die
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &4174791557099646712
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -221,3 +260,24 @@ CapsuleCollider2D:
   m_Offset: {x: -0.0011835098, y: -0.034501076}
   m_Size: {x: 0.16089916, y: 0.51248074}
   m_Direction: 0
+--- !u!95 &6828916060464820517
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7805592578300669643}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 32d38993006c6c14290d128a8dca9fcd, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

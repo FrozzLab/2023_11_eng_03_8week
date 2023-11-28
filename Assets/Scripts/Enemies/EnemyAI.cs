@@ -23,6 +23,7 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] float attackDelay = 1;
     [SerializeField] Projectile projectile;
     [SerializeField] UnityEvent attackedEvent;
+    [SerializeField] UnityEvent gotDamagedEvent;
 
     GameObject _player;
     GameObject _distraction;
@@ -33,6 +34,8 @@ public class EnemyAI : MonoBehaviour
     Transform _transform;
     Rigidbody2D _rigidbody;
     Collider2D _collider;
+    Health _health;
+    int _healthLastFrame;
     
     LayerMask _groundLayer;
     
@@ -82,6 +85,7 @@ public class EnemyAI : MonoBehaviour
 	    _transform = transform;
         _rigidbody = GetComponent<Rigidbody2D>();
         _collider = GetComponent<Collider2D>();
+        _health = GetComponent<Health>();
         _groundLayer = LayerMask.GetMask("Ground");
         _animations = GetComponent<EnemyAnimations>();
     }
@@ -92,6 +96,7 @@ public class EnemyAI : MonoBehaviour
         CheckGrounded();
         UpdateState();
         HandleObstacles();
+        HandleDamage();
     }
 
     void FixedUpdate()
@@ -271,6 +276,16 @@ public class EnemyAI : MonoBehaviour
 			    break;
 	    }
     }
+    
+    void HandleDamage()
+    {
+	    if (_health.Current < _healthLastFrame)
+	    {
+		    gotDamagedEvent.Invoke();
+	    }
+
+	    _healthLastFrame = _health.Current;
+    }
 
     IEnumerator WaitForNextAttack()
     {
@@ -300,6 +315,13 @@ public class EnemyAI : MonoBehaviour
 	    var distanceToDistraction = Vector2.Distance(_position, position);
 	    if (distanceToDistraction > hearRange) return;
 	    StartCoroutine(GetDistracted(position, distractedForSeconds));
+    }
+
+    public void Die()
+    {
+	    enabled = false;
+	    _collider.enabled = false;
+	    _rigidbody.isKinematic = true;
     }
 
     void OnTriggerEnter2D(Collider2D other)
