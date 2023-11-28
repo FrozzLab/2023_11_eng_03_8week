@@ -42,6 +42,6 @@ public class LevelManager : MonoBehaviour
 
 		levelChangedEvent.Invoke(sceneName);
 	}
-
+	
 	public static void ExitGame() => Application.Quit();
 }
