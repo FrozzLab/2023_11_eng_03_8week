@@ -23,7 +23,9 @@ public class PlayerAttack : MonoBehaviour
     {
         if (powerPercentage < 0 || powerPercentage > 1) throw new ArgumentOutOfRangeException("you can only throw with percentage power between 0% and 100%!!");
 
-        var target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        var mousePosition = Input.mousePosition;
+        mousePosition.z = -Camera.main.transform.position.z;
+        var target = Camera.main.ScreenToWorldPoint(mousePosition);
         target.z = 0f;
         var direction = target - transform.position;
 
