@@ -142,7 +142,7 @@ namespace Menu
             {
                 ActivateViewByTargetRatio(AspectRatio.SixteenByNine);
             }
-            else if (aspect >= 1.6)
+            else if (aspect >= 1.5)
             {
                 ActivateViewByTargetRatio(AspectRatio.SixteenByTen);
             }
