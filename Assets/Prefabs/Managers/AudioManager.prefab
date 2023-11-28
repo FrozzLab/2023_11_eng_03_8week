@@ -44,14 +44,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c84fa8100670d3409ceb4d72973100b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soundGroup: {fileID: -1932835777346922809, guid: 8ed742824e6389072a13d599655b62f4, type: 2}
   sounds: []
+  musicGroup: {fileID: 8440836866496863762, guid: 8ed742824e6389072a13d599655b62f4, type: 2}
   musics:
   - name: 0
     clip: {fileID: 8300000, guid: 6cc38bc79fca2af4f8d6ff752c6b0db3, type: 3}
-    volume: 1
+    volume: 0.8
   - name: 1
     clip: {fileID: 8300000, guid: 258e19036ddae2c4fb269f67e5a83dd0, type: 3}
-    volume: 1
+    volume: 0.8
   - name: 2
     clip: {fileID: 8300000, guid: 4a1a88d0bd12ab741afe96ad721acc47, type: 3}
-    volume: 1
+    volume: 0.8
+  - name: 3
+    clip: {fileID: 8300000, guid: f94f29771c74e3848997c73cabb2804b, type: 3}
+    volume: 0.8

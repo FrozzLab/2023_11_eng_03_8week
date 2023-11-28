@@ -32,6 +32,7 @@ public class LevelManager : MonoBehaviour
 	}
 	
 	public static void LoadScene(LevelName sceneName) => instance.StartCoroutine(instance.LoadingScene(sceneName));
+	public static void LoadScene(string sceneName) => LoadScene(LevelNameExtensions.GetLevelName(sceneName));
 
 	private IEnumerator LoadingScene(LevelName sceneName){
 

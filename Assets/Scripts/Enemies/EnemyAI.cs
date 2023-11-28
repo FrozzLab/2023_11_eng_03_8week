@@ -22,7 +22,14 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] float attackRange = 1.5f;
     [SerializeField] float attackDelay = 1;
     [SerializeField] Projectile projectile;
+    
+	[SerializeField] UnityEvent movedEvent;
+    [SerializeField] UnityEvent movedQuicklyEvent;
+    [SerializeField] UnityEvent startedChasingEvent;
+    [SerializeField] UnityEvent jumpedEvent;
+    [SerializeField] UnityEvent shotEvent;
     [SerializeField] UnityEvent attackedEvent;
+    [SerializeField] UnityEvent turnedEvent;
 
     GameObject _player;
     GameObject _distraction;
@@ -35,8 +42,6 @@ public class EnemyAI : MonoBehaviour
     Collider2D _collider;
     
     LayerMask _groundLayer;
-    
-    EnemyAnimations _animations;
 
     enum AttackType { Melee, Range }
     enum Direction { Left = -1, Right = 1 }
@@ -51,7 +56,6 @@ public class EnemyAI : MonoBehaviour
 
     Vector2 _distractionPosition;
     float _distanceToPlayer;
-    float _distanceToPlayerKnown;
     float _distanceToPlayerHorizontal;
     Direction _playerDirection;
     Direction _playerDirectionKnown;
@@ -64,16 +68,10 @@ public class EnemyAI : MonoBehaviour
     bool _canAttack = true;
     bool _canJumpOverObstacle;
     bool _seesPlayer;
-    bool _canTeleportNow;
 
     void Awake()
     {
-        InitializeComponents();
-    }
-
-    void InitializeComponents()
-    {
-	    _player = GameObject.Find("Body");
+        _player = GameObject.Find("Body");
 	    _playerHide = _player.GetComponent<PlayerHide>();
 	    _playerHealth = _player.GetComponent<Health>();
 
@@ -83,7 +81,6 @@ public class EnemyAI : MonoBehaviour
         _rigidbody = GetComponent<Rigidbody2D>();
         _collider = GetComponent<Collider2D>();
         _groundLayer = LayerMask.GetMask("Ground");
-        _animations = GetComponent<EnemyAnimations>();
     }
 
     void Update()
@@ -122,7 +119,6 @@ public class EnemyAI : MonoBehaviour
 		        _seesPlayer = !Physics2D.Raycast(new Vector2(_colliderBounds.center.x, _colliderBounds.center.y + _colliderBounds.size.y / 2), direction == Direction.Left ? Vector2.left : Vector2.right, _distanceToPlayerHorizontal, _groundLayer);
 		        if (_seesPlayer)
 		        {
-			        _distanceToPlayerKnown = _distanceToPlayer;
 			        _playerDirectionKnown = _playerDirection;
 		        }
 	        }
@@ -178,19 +174,14 @@ public class EnemyAI : MonoBehaviour
         {
             state = State.Chase;
             _playerDirectionKnown = _playerDirection;
-            _distanceToPlayerKnown = _distanceToPlayer;
+			startedChasingEvent.Invoke();
             return;
         }
 
-        if (_seesPlayer)
+        if (_seesPlayer || _isDistracted)
         {
 	        state = State.Chase;
-	        return;
-        }
-
-        if (_isDistracted)
-        {
-	        state = State.Chase;
+			startedChasingEvent.Invoke();
 	        return;
         }
     }
@@ -247,10 +238,13 @@ public class EnemyAI : MonoBehaviour
     {
         if (_distanceToPlayer < attackRange && state == State.Chase) return;
         _rigidbody.velocity = new Vector2((int)direction * _speed * Time.deltaTime, _rigidbody.velocity.y);
+		if(_speed == runSpeed) movedQuicklyEvent.Invoke(); 
+		else movedEvent.Invoke();
         
-        if (_canJumpOverObstacle && _isGrounded)
+        if (_canJumpOverObstacle && _isGrounded) //jump
         {
 	        _rigidbody.AddForce(new Vector2(0, jumpHeight), ForceMode2D.Impulse);
+			jumpedEvent.Invoke();
         }
     }
 
@@ -258,16 +252,16 @@ public class EnemyAI : MonoBehaviour
     {
 	    if (!_canAttack) return;
 
-	    attackedEvent.Invoke();
-
 	    switch (attackType)
 	    {
 		    case AttackType.Melee:
 			    _playerHealth.Damage(damage);
+	    		attackedEvent.Invoke();
 			    break;
 		    case AttackType.Range:
 			    var projectileInstance = Instantiate(projectile, _colliderBounds.center, Quaternion.identity);
 			    projectileInstance.Damage = damage;
+	    		shotEvent.Invoke();
 			    break;
 	    }
     }
@@ -282,7 +276,7 @@ public class EnemyAI : MonoBehaviour
     void FlipDirection()
     {
         direction = direction == Direction.Left ? Direction.Right : Direction.Left;
-        _animations.Flip();
+        turnedEvent.Invoke();
     }
     
     IEnumerator GetDistracted(Vector2 position, float seconds)

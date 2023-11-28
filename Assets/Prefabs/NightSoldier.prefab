@@ -10,11 +10,12 @@ GameObject:
   m_Component:
   - component: {fileID: 4686450176919630487}
   - component: {fileID: 4824458664606007908}
-  - component: {fileID: 2597776086930731338}
   - component: {fileID: 8538626843962616964}
+  - component: {fileID: 956247755188651776}
+  - component: {fileID: 2597776086930731338}
   - component: {fileID: -5957123168125794489}
   - component: {fileID: 1401348001909083299}
-  - component: {fileID: 956247755188651776}
+  - component: {fileID: 524950656080715830}
   m_Layer: 7
   m_Name: NightSoldier
   m_TagString: Enemy
@@ -89,47 +90,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2597776086930731338
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4101605259285916734}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3c8ff00254d9664d96ca071e0dd21fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  seeRange: 5.5
-  hearRange: 9
-  sneakHearRange: 1.9
-  distractedForSeconds: 3
-  runSpeed: 190
-  walkSpeed: 115
-  jumpHeight: 3.5
-  attackType: 1
-  damage: 1
-  attackRange: 3.5
-  attackDelay: 1
-  projectile: {fileID: 5687453755109777435, guid: 181e3f89122b3dd4880247eac5ef616d, type: 3}
-  attackedEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1401348001909083299}
-        m_TargetAssemblyTypeName: EnemyAnimations, Assembly-CSharp
-        m_MethodName: NightSoldierAttack
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  direction: 1
-  state: 1
 --- !u!50 &8538626843962616964
 Rigidbody2D:
   serializedVersion: 4
@@ -157,34 +117,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!114 &-5957123168125794489
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4101605259285916734}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b056431d49d84ab46aba0fb5b08d6b6f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  max: 3
-  diedEvent:
-    m_PersistentCalls:
-      m_Calls: []
---- !u!114 &1401348001909083299
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4101605259285916734}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0984687c3a1135b46b37fea5662d4053, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!58 &956247755188651776
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -220,3 +152,215 @@ CircleCollider2D:
   m_Offset: {x: 0.023230076, y: -0.0028637052}
   serializedVersion: 2
   m_Radius: 0.095107555
+--- !u!114 &2597776086930731338
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4101605259285916734}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3c8ff00254d9664d96ca071e0dd21fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  seeRange: 5.5
+  hearRange: 9
+  sneakHearRange: 1.9
+  distractedForSeconds: 3
+  runSpeed: 190
+  walkSpeed: 115
+  jumpHeight: 3.5
+  attackType: 1
+  damage: 1
+  attackRange: 3.5
+  attackDelay: 1
+  projectile: {fileID: 5687453755109777435, guid: 181e3f89122b3dd4880247eac5ef616d, type: 3}
+  movedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  movedQuicklyEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  startedChasingEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 524950656080715830}
+        m_TargetAssemblyTypeName: EnemyAudio, Assembly-CSharp
+        m_MethodName: PlayStartChasingSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  jumpedEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 524950656080715830}
+        m_TargetAssemblyTypeName: EnemyAudio, Assembly-CSharp
+        m_MethodName: PlayJumpSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  shotEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 524950656080715830}
+        m_TargetAssemblyTypeName: EnemyAudio, Assembly-CSharp
+        m_MethodName: PlayShootSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  attackedEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1401348001909083299}
+        m_TargetAssemblyTypeName: EnemyAnimations, Assembly-CSharp
+        m_MethodName: NightSoldierAttack
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 524950656080715830}
+        m_TargetAssemblyTypeName: EnemyAudio, Assembly-CSharp
+        m_MethodName: PlayMeleeSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  turnedEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1401348001909083299}
+        m_TargetAssemblyTypeName: EnemyAnimations, Assembly-CSharp
+        m_MethodName: Flip
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  direction: 1
+  state: 1
+--- !u!114 &-5957123168125794489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4101605259285916734}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b056431d49d84ab46aba0fb5b08d6b6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  max: 3
+  diedEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 384353810076696158, guid: eab130f8add8812438f3f3e49368424e, type: 3}
+        m_TargetAssemblyTypeName: EnemyAudio, Assembly-CSharp
+        m_MethodName: PlayDeathSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  tookDamageEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 384353810076696158, guid: eab130f8add8812438f3f3e49368424e, type: 3}
+        m_TargetAssemblyTypeName: EnemyAudio, Assembly-CSharp
+        m_MethodName: PlayTakeDamageSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1401348001909083299
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4101605259285916734}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0984687c3a1135b46b37fea5662d4053, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &524950656080715830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4101605259285916734}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e07b6bec7b9a48131842359fd57878d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundGroup: {fileID: -1932835777346922809, guid: 8ed742824e6389072a13d599655b62f4, type: 2}
+  sounds:
+  - name: 0
+    clip: {fileID: 8300000, guid: f0b20f06924c9b84390b9df8dcd2bb88, type: 3}
+    volume: 1
+  - name: 1
+    clip: {fileID: 8300000, guid: 168d1fcef5018a0409e368fa13fdf842, type: 3}
+    volume: 1
+  - name: 2
+    clip: {fileID: 8300000, guid: 3dea025bbe7750a46a6c1800da365af0, type: 3}
+    volume: 1
+  - name: 3
+    clip: {fileID: 8300000, guid: 3dea025bbe7750a46a6c1800da365af0, type: 3}
+    volume: 1
+  - name: 4
+    clip: {fileID: 8300000, guid: 7a1887fd10108314f9f81f207cd1d7e3, type: 3}
+    volume: 1
+  - name: 5
+    clip: {fileID: 8300000, guid: e644e945581f0104ab3ab07851738c73, type: 3}
+    volume: 1
+  - name: 6
+    clip: {fileID: 8300000, guid: 65f5a6151e02dde4395da83027b5f48b, type: 3}
+    volume: 1
+  - name: 7
+    clip: {fileID: 8300000, guid: b90030c5237526c409ad81f84fff9015, type: 3}
+    volume: 1

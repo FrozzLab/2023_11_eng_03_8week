@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Projectile : MonoBehaviour
 {
@@ -7,6 +8,8 @@ public class Projectile : MonoBehaviour
     Health _playerHealth;
     Vector2 _position;
     public int Damage { get; set; }
+
+	[SerializeField] UnityEvent explodedEvent;
 
     void Awake()
     {
@@ -36,9 +39,8 @@ public class Projectile : MonoBehaviour
 	    {
 		    _playerHealth.Damage(Damage);
 	    }
-	    else if (!other.gameObject.CompareTag("Enemy"))
-	    {
-		    Destroy(gameObject);
-	    }
+
+		explodedEvent.Invoke();
+		Destroy(gameObject);
     }
 }

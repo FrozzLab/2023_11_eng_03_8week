@@ -164,12 +164,36 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 6433293822216422013}
+        m_TargetAssemblyTypeName: PlayerProjectileSoundsHandler, Assembly-CSharp
+        m_MethodName: PlayAbsorbSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   explodedEvent:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2948483486614738128}
         m_TargetAssemblyTypeName: PlayerProjectileAnimations, Assembly-CSharp
         m_MethodName: Explode
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 6433293822216422013}
+        m_TargetAssemblyTypeName: PlayerProjectileSoundsHandler, Assembly-CSharp
+        m_MethodName: PlayExplodeSound
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -302,18 +326,66 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 6433293822216422013}
+        m_TargetAssemblyTypeName: PlayerProjectileSoundsHandler, Assembly-CSharp
+        m_MethodName: PlayChargeSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   chargedEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6433293822216422013}
+        m_TargetAssemblyTypeName: PlayerProjectileSoundsHandler, Assembly-CSharp
+        m_MethodName: PlayFullyChargedSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   thrownEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7240771436476789164}
+        m_TargetAssemblyTypeName: PlayerAudio, Assembly-CSharp
+        m_MethodName: PlayThrowSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   attackedEvent:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 3803175970305837903}
         m_TargetAssemblyTypeName: PlayerAnimations, Assembly-CSharp
         m_MethodName: Attack
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 7240771436476789164}
+        m_TargetAssemblyTypeName: PlayerAudio, Assembly-CSharp
+        m_MethodName: PlayMeleeSound
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -473,6 +545,7 @@ GameObject:
   - component: {fileID: 6675196947058652973}
   - component: {fileID: 2947569111479267112}
   - component: {fileID: 3803175970305837903}
+  - component: {fileID: 7240771436476789164}
   m_Layer: 6
   m_Name: Sprite
   m_TagString: Untagged
@@ -580,6 +653,44 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ace87989d5cb0848afb9f8057a180b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7240771436476789164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2307248244283198315}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6321b493e2a6052fafb652dbefe8b63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundGroup: {fileID: -1932835777346922809, guid: 8ed742824e6389072a13d599655b62f4, type: 2}
+  sounds:
+  - name: 0
+    clip: {fileID: 8300000, guid: bb12919cc5afce446b1481d748939630, type: 3}
+    volume: 2
+  - name: 1
+    clip: {fileID: 8300000, guid: 9934dfe5e6849f24bbb74c52071f06ee, type: 3}
+    volume: 3
+  - name: 2
+    clip: {fileID: 8300000, guid: 868e8079a6955534b8596150848c386a, type: 3}
+    volume: 1
+  - name: 3
+    clip: {fileID: 8300000, guid: 1b21baaa30f07fb4e867798d30ba2ea2, type: 3}
+    volume: 1
+  - name: 4
+    clip: {fileID: 8300000, guid: a2d4661443aa2d342b1e0ab5618b23c0, type: 3}
+    volume: 1
+  - name: 5
+    clip: {fileID: 8300000, guid: fde47941880a9bd448d7e6aeb1ea84fd, type: 3}
+    volume: 1
+  - name: 6
+    clip: {fileID: 8300000, guid: 1d74b8b9c77f3bd4a973bdcab5a464b2, type: 3}
+    volume: 1
+  - name: 7
+    clip: {fileID: 8300000, guid: 62c68bbff6cee934f9290ebe53a93b82, type: 3}
+    volume: 1
 --- !u!1 &2338374294479832654
 GameObject:
   m_ObjectHideFlags: 0
@@ -592,6 +703,7 @@ GameObject:
   - component: {fileID: 8809890320843489249}
   - component: {fileID: 3294855371061914699}
   - component: {fileID: 2948483486614738128}
+  - component: {fileID: 6433293822216422013}
   m_Layer: 10
   m_Name: Sprite
   m_TagString: Untagged
@@ -699,6 +811,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e629ec442e0e404148a50e5ead12331f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6433293822216422013
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2338374294479832654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c70e5fe56efec4bcaaadccf2c6c2a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundGroup: {fileID: -1932835777346922809, guid: 8ed742824e6389072a13d599655b62f4, type: 2}
+  sounds:
+  - name: 0
+    clip: {fileID: 8300000, guid: 2f725631c22d3114c82d79b69358fbad, type: 3}
+    volume: 1
+  - name: 1
+    clip: {fileID: 8300000, guid: 73871b688c1f8084b86449ad1c70d976, type: 3}
+    volume: 1
+  - name: 2
+    clip: {fileID: 8300000, guid: 703d0a9ac58cd8e4dace24bf9f134eff, type: 3}
+    volume: 1
+  - name: 3
+    clip: {fileID: 8300000, guid: b1138704eff89454c8a5a915e0e3d389, type: 3}
+    volume: 1
 --- !u!1 &3796044461938945090
 GameObject:
   m_ObjectHideFlags: 0
@@ -715,7 +853,7 @@ GameObject:
   - component: {fileID: 8608545656020400051}
   - component: {fileID: 1426697306966861009}
   - component: {fileID: 967196817544326160}
-  - component: {fileID: 6917227140633725142}
+  - component: {fileID: 4323055483669062485}
   - component: {fileID: 8667286843661595995}
   - component: {fileID: 2156392163220141690}
   m_Layer: 6
@@ -926,6 +1064,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 7240771436476789164}
+        m_TargetAssemblyTypeName: PlayerAudio, Assembly-CSharp
+        m_MethodName: PlayJumpSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   landedEvent:
     m_PersistentCalls:
       m_Calls:
@@ -976,6 +1126,18 @@ MonoBehaviour:
       - m_Target: {fileID: 3803175970305837903}
         m_TargetAssemblyTypeName: PlayerAnimations, Assembly-CSharp
         m_MethodName: UpdateSpeed
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 7240771436476789164}
+        m_TargetAssemblyTypeName: PlayerAudio, Assembly-CSharp
+        m_MethodName: PlayRunSound
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1052,7 +1214,34 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &6917227140633725142
+      - m_Target: {fileID: 7240771436476789164}
+        m_TargetAssemblyTypeName: PlayerAudio, Assembly-CSharp
+        m_MethodName: PlayDeathSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  tookDamageEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7240771436476789164}
+        m_TargetAssemblyTypeName: PlayerAudio, Assembly-CSharp
+        m_MethodName: PlayTakeDamageSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &4323055483669062485
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1061,9 +1250,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 3796044461938945090}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18fdc4e17307f5442be55d358927df72, type: 3}
+  m_Script: {fileID: 11500000, guid: 6a04e64257ccd9f479e983fbf422d50a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hidEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  unHidEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &8667286843661595995
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -6,6 +6,7 @@ public class Health : MonoBehaviour
     [SerializeField] int max = 3;
     int _current;
     [SerializeField] UnityEvent diedEvent;
+    [SerializeField] UnityEvent tookDamageEvent;
     public bool IsDead { get; private set; }
 
     void Start()
@@ -48,6 +49,7 @@ public class Health : MonoBehaviour
 		if(_current <= 0) return;
 		
         Current -= amount;
+		tookDamageEvent.Invoke();
         Debug.Log($"{gameObject.name} took {amount} dmg. HP left {Current}");
 
         if (_current <= 0)
