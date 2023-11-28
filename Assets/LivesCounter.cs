@@ -17,6 +17,7 @@ public class LivesCounter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-	    _text.SetText( "x "+health.Current);
+	    _text
+		    .SetText( "x "+health.Current);
     }
 }
