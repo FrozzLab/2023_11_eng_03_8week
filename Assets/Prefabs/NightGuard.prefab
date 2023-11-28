@@ -101,21 +101,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3c8ff00254d9664d96ca071e0dd21fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  isTargetLoud: 0
   seeRange: 5
   hearRange: 7
   sneakHearRange: 1.5
+  distractedForSeconds: 3
+  runSpeed: 150
+  walkSpeed: 90
+  jumpHeight: 3
+  attackType: 0
+  damage: 1
   attackRange: 1.5
   attackDelay: 1.5
-  damage: 1
   projectile: {fileID: 0}
   attackedEvent:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 7121896213648483724}
         m_TargetAssemblyTypeName: EnemyAnimations, Assembly-CSharp
-        m_MethodName: NightGuardAttack
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -125,12 +128,23 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  runSpeed: 150
-  walkSpeed: 90
-  jumpHeight: 3
+  gotDamagedEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7121896213648483724}
+        m_TargetAssemblyTypeName: EnemyAnimations, Assembly-CSharp
+        m_MethodName: GetHit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   direction: 1
   state: 1
-  attackType: 0
 --- !u!50 &4136951040704947032
 Rigidbody2D:
   serializedVersion: 4
@@ -173,7 +187,19 @@ MonoBehaviour:
   max: 3
   diedEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7121896213648483724}
+        m_TargetAssemblyTypeName: EnemyAnimations, Assembly-CSharp
+        m_MethodName: Die
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &7121896213648483724
 MonoBehaviour:
   m_ObjectHideFlags: 0

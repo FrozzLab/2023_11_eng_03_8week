@@ -3,6 +3,8 @@ using UnityEngine;
 public class EnemyAnimations : MonoBehaviour
 {
     Animator _animator;
+    static readonly int IsDead = Animator.StringToHash("IsDead");
+    static readonly int GotHit = Animator.StringToHash("GotHit");
 
     void Awake()
     {
@@ -14,18 +16,13 @@ public class EnemyAnimations : MonoBehaviour
         transform.Rotate(0f, 180f, 0f);
     }
 
-    public void NightGuardAttack()
+    public void Die()
     {
-	    
+	    _animator.SetBool(IsDead, true);
     }
 
-    public void NightSoldierAttack()
+    public void GetHit()
     {
-	    
-    }
-
-    public void NightWardenAttack()
-    {
-	    
+	    _animator.SetTrigger(GotHit);
     }
 }

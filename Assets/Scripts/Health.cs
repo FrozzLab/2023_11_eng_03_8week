@@ -48,7 +48,6 @@ public class Health : MonoBehaviour
 		if(_current <= 0) return;
 		
         Current -= amount;
-        Debug.Log($"{gameObject.name} took {amount} dmg. HP left {Current}");
 
         if (_current <= 0)
         {
@@ -70,12 +69,5 @@ public class Health : MonoBehaviour
     {
         IsDead = true;
         diedEvent.Invoke();
-        if (CompareTag("Player"))
-        {
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
     }
 }
