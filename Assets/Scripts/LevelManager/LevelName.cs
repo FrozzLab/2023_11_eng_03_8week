@@ -15,8 +15,6 @@ public enum LevelName
 	Level3,
 	[Description("Level 1 - test")]
 	TestScene,
-	[Description("Ending")]
-	EndScene,
 }
 
 public static class LevelNameExtensions

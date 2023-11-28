@@ -9,8 +9,6 @@ TagManager:
   - HidingSpot
   - LeftPatrolTrigger
   - RightPatrolTrigger
-  - Trap
-  - BreakableWall
   layers:
   - Default
   - TransparentFX

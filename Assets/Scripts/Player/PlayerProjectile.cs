@@ -40,11 +40,7 @@ public class PlayerProjectile : MonoBehaviour
     }
 
 	private void OnCollisionEnter2D(Collision2D other) {
-		if (!other.gameObject.CompareTag("Wall") && !other.gameObject.CompareTag("Enemy") && !other.gameObject.CompareTag("BreakableWall")) return;
-		if (other.gameObject.CompareTag("BreakableWall"))
-		{
-			other.gameObject.GetComponent<Health>().Damage(1);
-		}
+		if (!other.gameObject.CompareTag("Wall") && !other.gameObject.CompareTag("Enemy")) return;
 		Debug.Log($"EXPLOSION: collided with {other.gameObject.tag}");
         Explode();
 	}
