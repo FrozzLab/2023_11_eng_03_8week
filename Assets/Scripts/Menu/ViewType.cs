@@ -5,6 +5,6 @@ namespace Menu
     [Serializable]
     public enum ViewType
     {
-        MainMenu, NewGame, Continue, Settings, Credits
+        MainMenu, NewGame, Continue, Settings, Credits, Instructions
     }
 }
