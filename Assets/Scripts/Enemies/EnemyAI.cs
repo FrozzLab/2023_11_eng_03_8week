@@ -92,7 +92,6 @@ public class EnemyAI : MonoBehaviour
 
     void Update()
     {
-	    if (_health.IsDead) return;
         UpdateReferences();
         CheckGrounded();
         UpdateState();
@@ -102,7 +101,6 @@ public class EnemyAI : MonoBehaviour
 
     void FixedUpdate()
     {
-	    if (_health.IsDead) return;
         HandleMovement();
     }
 
@@ -317,6 +315,13 @@ public class EnemyAI : MonoBehaviour
 	    var distanceToDistraction = Vector2.Distance(_position, position);
 	    if (distanceToDistraction > hearRange) return;
 	    StartCoroutine(GetDistracted(position, distractedForSeconds));
+    }
+
+    public void Die()
+    {
+	    enabled = false;
+	    _collider.enabled = false;
+	    _rigidbody.isKinematic = true;
     }
 
     void OnTriggerEnter2D(Collider2D other)
