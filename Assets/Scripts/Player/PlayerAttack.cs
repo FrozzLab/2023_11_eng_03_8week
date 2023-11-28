@@ -12,7 +12,7 @@ public class PlayerAttack : MonoBehaviour
 
     public void Attack()
     {
-        var enemies = Physics2D.OverlapCircleAll(transform.position, range, enemyLayer).Where(e => e.CompareTag("Enemy"));
+        var enemies = Physics2D.OverlapCircleAll(transform.position, range).Where(e => e.CompareTag("Enemy") || e.CompareTag("BreakableWall"));
         foreach (var enemy in enemies)
         {
             enemy.GetComponent<Health>().Damage(dmg);
