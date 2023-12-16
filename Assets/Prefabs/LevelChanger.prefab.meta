@@ -1,0 +1,11 @@
+fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Prefabs/LevelChanger.prefab.meta
+guid: 05006eb2799c62846ab38a0165f74b62
+========
+guid: ca9ff35e36ffb8f429e0c7eab34b7f03
+>>>>>>>> feature/145-redesign-menu-screens:Assets/Prefabs/UI/Game Title Text.prefab.meta
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
