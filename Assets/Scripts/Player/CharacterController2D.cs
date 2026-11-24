@@ -33,8 +33,8 @@ public class CharacterController2D : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if(!isFalling && !grounded && rigidbody2d.velocity.y < 0.1) Fall();
-        debugVelocity = rigidbody2d.velocity;
+        if(!isFalling && !grounded && rigidbody2d.linearVelocity.y < 0.1) Fall();
+        debugVelocity = rigidbody2d.linearVelocity;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -53,7 +53,7 @@ public class CharacterController2D : MonoBehaviour
     public void Move(float move)
     {
         var velocity = move * speed * Time.fixedDeltaTime;
-        rigidbody2d.velocity = new Vector2(velocity, rigidbody2d.velocity.y);
+        rigidbody2d.linearVelocity = new Vector2(velocity, rigidbody2d.linearVelocity.y);
     }
 
     public void Jump()
@@ -61,7 +61,7 @@ public class CharacterController2D : MonoBehaviour
         if(!grounded && doubleJumped) return;
         if(!grounded) doubleJumped = true;
 
-		rigidbody2d.velocity = new Vector2(rigidbody2d.velocity.x, 0f);
+		rigidbody2d.linearVelocity = new Vector2(rigidbody2d.linearVelocity.x, 0f);
         rigidbody2d.AddForce(new Vector2(0f, doubleJumped ? jump2Force : jumpForce));
         jumpedEvent.Invoke();
     }

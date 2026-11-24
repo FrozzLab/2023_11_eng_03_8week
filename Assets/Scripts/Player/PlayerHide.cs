@@ -20,7 +20,7 @@ public class PlayerHide : MonoBehaviour
 
     void Update()
     {
-        var velocity = _rigidbody.velocity;
+        var velocity = _rigidbody.linearVelocity;
         var isMoving = Mathf.Abs(velocity.x) > 0.01f || Mathf.Abs(velocity.y) > 0.01f;
         var isPressingButtons = Input.anyKeyDown;
         if (IsHidden && (isMoving || isPressingButtons))

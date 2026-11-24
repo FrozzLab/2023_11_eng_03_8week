@@ -29,13 +29,13 @@ public class PlayerProjectile : MonoBehaviour
 
 	private void FixedUpdate()
     {
-        debugVelocity = rb.velocity;
+        debugVelocity = rb.linearVelocity;
     }
 
     public void Launch(Vector2 direction, float force)
     {
 		EnableMe();
-        rb.velocity = direction * force;
+        rb.linearVelocity = direction * force;
 		launchedEvent.Invoke();
     }
 
@@ -66,7 +66,7 @@ public class PlayerProjectile : MonoBehaviour
 	{
 		//wait for explosion
 		rb.isKinematic = true; 
-		rb.velocity = Vector2.zero;
+		rb.linearVelocity = Vector2.zero;
 		collider.enabled = false;
 		yield return new WaitForSeconds(0.3f);
 
@@ -75,7 +75,7 @@ public class PlayerProjectile : MonoBehaviour
 		
 		while(direction.magnitude > absorbDistance)
 		{
-			rb.velocity = (Vector2)direction.normalized * returnSpeed;
+			rb.linearVelocity = (Vector2)direction.normalized * returnSpeed;
 			direction = player.position - transform.position; 
 			yield return new WaitForSeconds(0.1f);
 		}
@@ -96,7 +96,7 @@ public class PlayerProjectile : MonoBehaviour
 	{
 		collider.enabled = false;
 		rb.isKinematic = true; 
-		rb.velocity = Vector2.zero;
+		rb.linearVelocity = Vector2.zero;
 		transform.position = player.position;
 		inputScript.hasWeapon = true;
 	}

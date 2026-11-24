@@ -1,12 +1,13 @@
 using System;
-using Cinemachine;
+using Unity.Cinemachine;
+
 
 namespace Menu
 {
     [Serializable]
     public struct CameraViewAssociation
     {
-        public CinemachineVirtualCamera camera;
+        public CinemachineCamera camera;
         public ViewType viewType;
     }
 }

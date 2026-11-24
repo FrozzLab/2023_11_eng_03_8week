@@ -251,7 +251,7 @@ public class EnemyAI : MonoBehaviour
     void HandleMovement()
     {
         if (_distanceToPlayer < attackRange && state == State.Chase) return;
-        _rigidbody.velocity = new Vector2((int)direction * _speed * Time.deltaTime, _rigidbody.velocity.y);
+        _rigidbody.linearVelocity = new Vector2((int)direction * _speed * Time.deltaTime, _rigidbody.linearVelocity.y);
         
         if (_canJumpOverObstacle && _isGrounded)
         {
